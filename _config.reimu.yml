@@ -136,7 +136,7 @@ show_count: false
 recent_posts_limits: 5
 
 i18n:
-  enable: true
+  enable: false
   type: [page, post]
   generator: [archive, category, tag, index]
   languages: [zh-TW,zh-CN,en,ja]
