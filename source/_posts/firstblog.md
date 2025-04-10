@@ -20,7 +20,9 @@ That said, **this website wasn’t built entirely from scratch—I used the Hexo
 When I first started learning about web development, I was faced with a big question: where do I even begin? After looking at websites made by some coding gods, I came across the Hexo framework. Hexo is a fast, simple, and efficient static site generator—perfect for someone like me with ~~limited tech skills~~. Its advantages include:
 
 > **User-Friendly**: You only need to install Node.js and npm (~~Linux-friendly too~~), and you can quickly set up a site.  
+
 > **Markdown Support**: For beginners who aren’t familiar with HTML, writing in Markdown is very beginner-friendly.  
+
 > **Plenty of Themes**: Tons of available themes make it easy to create a beautiful site.
 
 Using Hexo allowed me to focus on content creation without getting bogged down by technical details. For someone just starting out with web development, it was the ideal choice.
