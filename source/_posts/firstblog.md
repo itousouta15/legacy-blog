@@ -1,6 +1,5 @@
 ---
 title: My First Experience Building a Website
-lang: en
 date: 2025-04-04 18:29:32
 tags:
   - Hexo
