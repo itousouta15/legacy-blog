@@ -72,16 +72,16 @@ injector:
 
 # Footer copyright
 copyright: # Inject code snippet right in the footer copyright
-# Need help choosing? Please see...
-# https://creativecommons.org/choose/
-# https://choosealicense.com/
- copyright: |-
-  <div style="flex-direction:column;align-items: center;">
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-      <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
-    </a>
-    All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
-  </div>
+  # Need help choosing? Please see...
+  # https://creativecommons.org/choose/
+  # https://choosealicense.com/
+  copyright: |-
+    <div style="flex-direction:column;align-items: center;">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+      </a>
+      All website licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+    </div>
 
 footer:
   since: 2020 # 2020-current year
@@ -124,11 +124,11 @@ social:
   # steam: https://steamcommunity.com/id/yourname
 
 widgets:
-   - category
-   - tag
-   - tagcloud
-   - archive
-   - recent_posts
+  - category
+  - tag
+  - tagcloud
+  - archive
+  - recent_posts
 
 # Widget behavior
 archive_type: "monthly"
@@ -139,7 +139,7 @@ i18n:
   enable: false
   type: [page, post]
   generator: [archive, category, tag, index]
-  languages: [zh-TW,zh-CN,en,ja]
+  languages: []
 
 ########################################
 # CSS
@@ -150,7 +150,7 @@ anchor_icon: # default use '#' icon, you can use a hexadecimal representation of
 reimu_cursor:
   enable: true
   cursor:
-    default: ../images/cursor/reimu-cursor-default.png  # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
+    default: ../images/cursor/reimu-cursor-default.png # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
     pointer: ../images/cursor/reimu-cursor-pointer.png
     text: ../images/cursor/reimu-cursor-text.png
 
@@ -260,7 +260,7 @@ valine:
   appKey: # leancloud application app key
   pageSize: 10 # comment list page size
   avatar: mp # gravatar style https://valine.js.org/#/avatar
-  lang: zh-tw # i18n: zh-cn/en
+  lang: zh-TW # i18n: zh-TW/en
   placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
   guest_info: nick,mail,link #valine comment header info
   recordIP: true # whether to record the IP address of the commenters
@@ -308,7 +308,7 @@ gitalk:
   admin:
   md5: false
 
-# https://giscus.app/zh-CN
+# https://giscus.app/zh-TW
 giscus:
   enable: false
   repo:
@@ -321,7 +321,7 @@ giscus:
   emitMetadata: 0
   inputPosition: bottom
   # commentTheme: light # this option is invalid, because the theme is set by the theme itself
-  lang: zh-CN
+  lang: zh-TW
 
 ########################################
 # Search
@@ -438,7 +438,7 @@ home_categories:
   enable: true
   content:
     - categories: hexo # string (single-layer category) or array (multi-layer category)
-      cover: /img/neko.webp # empty means random cover: 
+      cover: /img/neko.webp # empty means random cover:
 
 # whether to display the notification when the article is outdated
 outdate:
@@ -481,7 +481,7 @@ article_copyright:
 top:
   enable: true
   position: right # left or right
-  icon: 
+  icon:
     url: "../images/taichi.png" # this path is relative to the css/style.css, so it needs to go up one level to reach the images folder
     rotate: true
     mask: true # whether to use the images as a mask
@@ -547,7 +547,7 @@ player:
       autoplay:
       loop:
       order:
-      preload: 
+      preload:
       volume:
       mutex:
       listFolded:
