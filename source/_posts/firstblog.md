@@ -27,7 +27,7 @@ Using Hexo allowed me to focus on content creation without getting bogged down b
 
 ## Applying a Theme
 
-The moment I decided to use Hexo, I already had a theme in mind. Out of countless options, the Reimu theme by D-Sketon instantly caught the eye of my inner ~~otaku~~.  
+The moment I decided to use Hexo, I already had a theme in mind. Out of countless options, the Reimu theme by D-Sketon instantly caught the eye of my inner.  
 Little did I know, **that was just the beginning of my descent into hell…**
 
 # Hands-On Experience & Takeaways
