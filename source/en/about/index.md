@@ -52,14 +52,16 @@ a img:hover {
 
 <br>
 
-<details>
-<summary>More About Me</summary>
+---
 
-# cout << "hello! world\n"; ✨
+# `cout << "hello! world\n"`; ✨
 ## 👋 Hi, I'm Itou Souta!
+> *“The world goes quiet when I write code.”*  
 
+### Welcome to my digital playground!  
 I'm a **high school student from Taiwan** passionate about **C++**, **web development**, and **cybersecurity**.  
 Here, I share my projects, experiments, and learning notes. For me, every line of code is a step toward understanding both the world — and myself — a little better.  
+
 
 ## 🌟 About Me
 - 🏫 High school student (Grade 11) from Taiwan  
@@ -83,10 +85,10 @@ Here, I share my projects, experiments, and learning notes. For me, every line o
 - **2025**: Web security, launch blog, hackathon awards
 
 ## 🤝 Communities & Clubs
-- SCAICT — (https://scaict.org/)
-- THJCC — (IG: @thjcc.tw)
-- stddllm — (IG: @std_dllm_)
-- DLHIT — (IG: @dlhit_)
+- [SCAICT](https://scaict.org/)
+- [THJCC CTF](https://www.instagram.com/thjcc.tw/)
+- [std_dllm](https://www.instagram.com/std_dllm_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
+- [DLHIT](https://www.instagram.com/dlhit_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
 
 ## 🎯 Goals for 2025
 - 🏆 Compete in more **programming contests** and **CTFs**  
@@ -95,4 +97,19 @@ Here, I share my projects, experiments, and learning notes. For me, every line o
 - 🛡️ Contribute to **open-source cybersecurity tools**  
 - 🤝 Collaborate with like-minded developers and communities  
 
-</details>
+## 🤗 Open to Collaborate On
+- Security research (CTF/Web/AI X Security)
+- Open source tools
+- Joint blog or tech talks (Mandarin/English)
+
+## 📫 Connect with Me
+- Blog: [GitHub Pages](https://itousouta15.github.io) (My technical notes & learning journey)  
+- Instagram: [itou.souta15](https://www.instagram.com/itou.souta15) (Life & creativity)  
+- Threads: [@itou.souta15](https://www.threads.net/@itou.souta15)  
+- Discord https://discord.gg/WD6gVTRQWA
+
+
+![itousouta15's Stats](https://github-readme-stats.vercel.app/api?username=itousouta15&theme=default&show_icons=true&hide_border=true&count_private=true)
+---
+⭐ If you find my work interesting, feel free to **star my repos**, open an issue, or DM me!
+
