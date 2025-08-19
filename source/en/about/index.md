@@ -102,11 +102,5 @@ Here, I share my projects, experiments, and learning notes. For me, every line o
 - Open source tools
 - Joint blog or tech talks (Mandarin/English)
 
-## 📫 Connect with Me
-- Blog: [GitHub Pages](https://itousouta15.github.io) (My technical notes & learning journey)  
-- Instagram: [itou.souta15](https://www.instagram.com/itou.souta15) (Life & creativity)  
-- Threads: [@itou.souta15](https://www.threads.net/@itou.souta15)  
-- Discord https://discord.gg/WD6gVTRQWA
-
 ⭐ If you find my work interesting, feel free to **star my repos**, open an issue, or DM me!
 
