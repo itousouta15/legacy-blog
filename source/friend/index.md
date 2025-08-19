@@ -113,7 +113,7 @@ comments: true
       </div>
       <div class="friend-info-wrap">
         <div class="friend-name">yochan06</div>
-        <div class="friend-desc">AIS3隊友 | 資安小電神</div>
+        <div class="friend-desc">AIS3隊友 | 資安電神</div>
       </div>
     </div>
   </div>

@@ -39,7 +39,7 @@ I still don't know exactly why this works, but at least it did (◉３◉)
 
 (2025/04/09 update) I realized that to implement i18n, I'd have to rewrite the whole structure...
 
-## The Impact of `Cursor AI`
+## The Impact of `AI`
 The recently popular "Vibe Coding" emphasizes **"going with the flow, embracing AI, and forgetting about the code itself"**. This approach frees developers' minds, making the creative process more like painting or composing music, rather than writing code line by line.
 
 Although this project wasn't true "vibe coding," about **40% of the problems** I encountered were discovered and solved with AI's help. From CSS syntax errors to YAML formatting issues and Hexo config details, AI caught bugs I hadn't even noticed and offered fixes.
@@ -81,7 +81,7 @@ Besides frontend, I want to learn backend tech like Node.js or Python Flask to u
 As someone familiar with C++ and interested in cybersecurity and competitive programming, I want to combine these skills. For example, while learning web development, I'll try to understand common vulnerabilities (like XSS, SQL injection) and how to prevent them. I can also study how to apply efficient algorithms to web features.
 
 > **Reduce reliance on AI tools**:
-While `Cursor AI` is super convenient, I hope to gradually rely less on it and do more development on my own.
+While `AI` is super convenient, I hope to gradually rely less on it and do more development on my own.
 
 # Conclusion
 

@@ -55,48 +55,44 @@ a img:hover {
 <details>
 <summary>More About Me</summary>
 
-# `cout << "hello! world\n";` ✨  
+# cout << "hello! world\n"; ✨
+## 👋 Hi, I'm Itou Souta!
 
-## 👋 Hi, I'm Itou Souta! <span style="font-size:1.2em;">🦊</span>
-
-Welcome to my little corner of the internet! <span style="font-size:1.2em;">🌏</span>  
-I’m a **high school student from Taiwan** who codes for fun, curiosity, and sometimes for snacks. <span style="font-size:1.1em;">🍪</span>  
-Here you’ll find my experiments, learning notes, and projects—plus the occasional bug (collect them all!).
+I'm a **high school student from Taiwan** passionate about **C++**, **web development**, and **cybersecurity**.  
+Here, I share my projects, experiments, and learning notes. For me, every line of code is a step toward understanding both the world — and myself — a little better.  
 
 ## 🌟 About Me
+- 🏫 High school student (Grade 11) from Taiwan  
+- 🌏 Multilingual: Mandarin (native), English (fluent reading), Japanese (reading)  
+- 🎮 Enjoys challenging algorithmic & geometry problems, especially those with creative or visual twists  
+- 💡 Fascinated by the intersection of **code**, **security**, and **creativity**  
+- 📚 Passionate lifelong learner, always exploring new technical horizons  
 
-- 🏫 First-year high school student in Taiwan  
-- 🌏 Trilingual: Chinese (native), English, Japanese  
-- 🎮 Loves creative algorithm and geometry puzzles (bonus points if it’s visual!)  
-- 💡 Always chasing the spark between code, cybersecurity, and wild ideas  
-- 📚 Lifelong learner—if it’s new, I want to try it!  
 
-## 🚀 Current Goals
+## 🎓 Activities & Achievements
+- **Scrapyard Taiwan Hackathon – 9th Place**  
+- **AIS3 Pre-exam 2025 – Ranked #67**  
+- **AIS3 2025 – Software, Web, and ToI Security**  
+- **5th SCAICT – Information Technology Division**  
+- **3th THJCC – Network Administration Division**  
+- **2th DLHIT – Instructor for OJ System Setup and Web Security & Programming**
+- **1th std_dllm - Art Editor**
 
-- 🔥 Level up my C++ skills (for both contests and real-world wizardry)  
-- 🌐 Build modern, responsive, and sometimes silly websites with HTML, CSS, JS, and Hexo  
-- 🕵️‍♂️ Explore cybersecurity: CTFs, network mysteries, and white-hat gadgets  
-- 🤖 Play with AI and see what magic (or chaos) happens  
-- 📝 Keep sharing tech notes (and maybe a meme or two)  
-- 💡 Find new ways to mix creativity and code  
+## 🗓️ My Coding Roadmap
+- **2024**: Start C++, join first CTF
+- **2025**: Web security, launch blog, hackathon awards
 
-## 📚 My Learning Journey
+## 🤝 Communities & Clubs
+- SCAICT — (https://scaict.org/)
+- THJCC — (IG: @thjcc.tw)
+- stddllm — (IG: @std_dllm_)
+- DLHIT — (IG: @dlhit_)
 
-I started coding because I wanted to know how websites and games worked—then fell down the rabbit hole of algorithms, contests, and cybersecurity.  
-Now I love joining online competitions and CTFs (sometimes for the glory, always for the fun).
+## 🎯 Goals for 2025
+- 🏆 Compete in more **programming contests** and **CTFs**  
+- 📖 Master advanced **C++ concepts** & design patterns  
+- 🌍 Launch a **trilingual tech blog** (Mandarin, English, Japanese)  
+- 🛡️ Contribute to **open-source cybersecurity tools**  
+- 🤝 Collaborate with like-minded developers and communities  
 
-Lately, I’ve been tinkering with frontend frameworks, static site generators, and AI tools.  
-My dream? To build digital things that are useful, beautiful, and (mostly) bug-free.
-
-## 🎯 Aspirations
-
-- 🏆 Join more programming contests & CTFs (and maybe win a few!)  
-- 📖 Master advanced C++ and design patterns (like a true code ninja)  
-- 🌍 Launch a trilingual tech blog and share cool tutorials  
-- 🛡️ Build and contribute to open-source cybersecurity tools  
-- 🤝 Collaborate, make friends, and learn from awesome devs everywhere  
-
-## 💬 My Philosophy
-"Every bug is a plot twist. Every project is an adventure.  
-The best way to learn? Dive in, break things, laugh, and refactor!"
 </details>
