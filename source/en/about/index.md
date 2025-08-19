@@ -108,8 +108,5 @@ Here, I share my projects, experiments, and learning notes. For me, every line o
 - Threads: [@itou.souta15](https://www.threads.net/@itou.souta15)  
 - Discord https://discord.gg/WD6gVTRQWA
 
-
-![itousouta15's Stats](https://github-readme-stats.vercel.app/api?username=itousouta15&theme=default&show_icons=true&hide_border=true&count_private=true)
----
 ⭐ If you find my work interesting, feel free to **star my repos**, open an issue, or DM me!
 
