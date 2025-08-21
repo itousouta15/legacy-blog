@@ -92,7 +92,7 @@ From setting up a blog, learning Hexo, customizing themes and styles, then resea
 
 Finally, I want to encourage all beginners not to fear trying new things. Even if you start by using templates or AI help, **every effort is part of your growth.** In the future, I look forward to creating an entirely my own site, combining my cybersecurity and competitive programming background to realize more possibilities.
 
-![Homepage](/img/FB/主頁)
+![Homepage](/img/FB/主頁.webp)
 (captured on 2025/8/21)
 
 # Special Thanks
