@@ -52,10 +52,9 @@ a img:hover {
 
 ---
 
-# `cout << "hello! world\n";` ✨
-
+# `cout << "hello world!";`
 ## 👋，我是伊藤蒼太！
-
+> *“The world goes quiet when I write code.”*  
 我是一位來自台灣的**高中生**，熱衷於**C++**、**網頁開發**以及**資安領域**。  
 在這裡，我分享自己的專案、實驗和學習筆記。對我來說，每一行程式碼都是理解世界與自我的重要一步。
 

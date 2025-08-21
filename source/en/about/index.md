@@ -54,14 +54,12 @@ a img:hover {
 
 ---
 
-# `cout << "hello! world\n"`; ✨
+# `cout << "hello world!";`
 ## 👋 Hi, I'm Itou Souta!
 > *“The world goes quiet when I write code.”*  
 
-### Welcome to my digital playground!  
 I'm a **high school student from Taiwan** passionate about **C++**, **web development**, and **cybersecurity**.  
 Here, I share my projects, experiments, and learning notes. For me, every line of code is a step toward understanding both the world — and myself — a little better.  
-
 
 ## 🌟 About Me
 - 🏫 High school student (Grade 11) from Taiwan  
