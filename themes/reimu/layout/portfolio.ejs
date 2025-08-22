@@ -1,7 +1,7 @@
 <section class="main-content">
   <div class="article-list">
     <% var portfolioPosts = site.posts.filter(function(post){
-      return post.categories && post.categories.data.some(function(cat){ return cat.name === '作品集'; }) && post.portfolio;
+      return post.categories && post.categories.data.some(function(cat){ return cat.name === 'program'; }) && post.portfolio;
     }); %>
     <% if (portfolioPosts.length === 0) { %>
       <p>目前尚無作品，請稍後再來！</p>

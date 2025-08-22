@@ -40,7 +40,7 @@
 
 <% if (page.related_posts && page.related_posts.length) { %>
   <% let related = page.related_posts.filter(function(post){
-    return !(post.categories && post.categories.data.some(function(cat){ return cat.name === '作品集'; }));
+    return !(post.categories && post.categories.data.some(function(cat){ return cat.name === 'program'; }));
   }); %>
   <% if (related.length) { %>
     <div class="related-posts">

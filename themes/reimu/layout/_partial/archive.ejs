@@ -1,19 +1,16 @@
 <% let posts = page.posts;
 if (home === true) {
   posts = posts.filter(function(post){
-    // 首頁排除所有 categories: 作品集 的文章
-    return !(post.categories && post.categories.data.some(function(cat){ return cat.name === '作品集'; }));
+    return !(post.categories && post.categories.data.some(function(cat){ return cat.name === 'program'; }));
   });
 }
-if (page.category && page.category === '作品集') {
-  // 作品集分類頁只顯示作品集
+if (page.category && page.category === 'program') {
   posts = posts.filter(function(post){
-    return post.categories && post.categories.data.some(function(cat){ return cat.name === '作品集'; });
+    return post.categories && post.categories.data.some(function(cat){ return cat.name === 'program'; });
   });
-} else if (page.category && page.category !== '作品集') {
-  // 其他分類頁排除作品集
+} else if (page.category && page.category !== 'program') {
   posts = posts.filter(function(post){
-    return !(post.categories && post.categories.data.some(function(cat){ return cat.name === '作品集'; }));
+    return !(post.categories && post.categories.data.some(function(cat){ return cat.name === 'program'; }));
   });
 }
 // 渲染文章列表
