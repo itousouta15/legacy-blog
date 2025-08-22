@@ -69,14 +69,26 @@ Here, I share my projects, experiments, and learning notes. For me, every line o
 - 📚 Passionate lifelong learner, always exploring new technical horizons  
 
 
-## 🎓 Activities & Achievements
-- **Scrapyard Taiwan Hackathon – 9th Place**  
-- **AIS3 Pre-exam 2025 – Ranked #67**  
-- **AIS3 2025 – Software, Web, and ToI Security**  
-- **5th SCAICT – Information Technology Division**  
-- **3th THJCC – Network Administration Division**  
-- **2th DLHIT – Instructor for OJ System Setup and Web Security & Programming**
-- **1th std_dllm - Art Editor**
+## 🎓 Experiences:
+
+### 🏆 Competitions:
+- **Scrapyard Taiwan Hackathon — 9th Place**
+- **APCS (first attempt was pretty miserable 🙃)**
+- **AIS3 Pre-exam 2025 — Rank 67**
+
+### 📚 Courses:
+- **AIS3 2025: Software, Web, and ToI Security - 1**
+- **Feng Chia University: Smart Chip and Sensor Applications**
+- **Feng Chia University: Simple AI Control and Design**
+- **SCAICT 2025: "Keep Going Despite Difficulties"**
+
+### 🌐 Communities:
+- **5th SCAICT 中部高中電資社團聯合會議 — Information Division**
+- **1st DLHIT 大里高中資訊校隊 — Teaching**
+- **3rd THJCC CTF — Network Administration**
+- **2nd SCINT 北臺灣學生資訊社群 — Media & Design**
+- **1st std_dllm — Media & Design**
+
 
 ## 🗓️ My Coding Roadmap
 - **2024**: Start C++, join first CTF
