@@ -2396,11 +2396,6 @@ pre .javascript .function {
     background: var(--top-icon) no-repeat center/100%;
   }
 }
-.sidebar-top-taichi {
-  background-color: #0000FF !important; /* 強制設置為藍色 */
-  mask: url("/images/taichi.png") no-repeat center/100%;
-  -webkit-mask: url("/images/taichi.png") no-repeat center/100%;
-}
 #sidebar {
   display: none;
 }

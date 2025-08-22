@@ -15,8 +15,8 @@ url: https://itousouta15.github.io
 permalink: :year/:month/:day/:urlname/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # 設置為 false 以移除網址中的 'index.html'
-  trailing_html: true # 設置為 false 以移除網址中的 '.html'
+  trailing_index: false # 設置為 false 以移除網址中的 'index.html'
+  trailing_html: false # 設置為 false 以移除網址中的 '.html'
 
 # 目錄
 source_dir: source
@@ -41,16 +41,18 @@ post_asset_folder: false
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
+
 highlight:
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
-  hljs: false
+  hljs: true
 prismjs:
   preprocess: true
   line_number: true
   tab_replace: ''
+
 
 # 首頁設置
 index_generator:
@@ -166,7 +168,6 @@ theme_config:
       url: "/images/taichi.png"
       rotate: true
       mask: true
-      color: "#0000FF" # 確保設置為藍色
 
   # 回到頂部配置
   top:
@@ -174,7 +175,6 @@ theme_config:
       url: "/images/taichi.png"
       rotate: true
       mask: true
-      color: "#0000FF" # 確保設置為藍色
 
   # 贊助配置
   sponsor:
@@ -182,14 +182,14 @@ theme_config:
       url: "/images/taichi.png"
       rotate: true
       mask: true
-      color: "#0000FF" # 確保設置為藍色
+
 
   # 預加載配置
   preloader:
     enable: true
     text: 載入中...
     icon: "/images/taichi.png"
-    color: "#0000FF" # 設置為藍色
+
 
   # 錨點圖標
   anchor_icon: f292 # 預設使用 '#' 圖標，您可以使用 fontawesome 或 icon_font 的十六進制表示，例如 'f0c1'

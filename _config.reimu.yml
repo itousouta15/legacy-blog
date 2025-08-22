@@ -71,7 +71,6 @@ footer:
     url: "../images/taichi.png" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
     rotate: true
     mask: true
-    color: "#0000FF" # 確保設置為藍色
 
 # 側邊欄
 sidebar: left
@@ -308,7 +307,7 @@ firework:
       - shape: circle
         move: ["emit"]
         easing: easeOutExpo
-        colors: ["#ADD8E6", "#B0E0E6", "#87CEEB", "#E0FFFF"] # 更淡的藍色漸變效果
+        colors: ["#ADD8E6", "#B0E0E6", "#87CEEB", "#E0FFFF"]
         number: 20
         duration: [1200, 1800]
         shapeOptions:
@@ -317,7 +316,7 @@ firework:
       - shape: circle
         move: ["diffuse"]
         easing: easeOutExpo
-        colors: ["#ADD8E6"] # 純淺藍色
+        colors: ["#ADD8E6"]
         number: 1
         duration: [1200, 1800]
         shapeOptions:
@@ -384,7 +383,7 @@ top:
     url: "../images/taichi.png" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
     rotate: true
     mask: true # 是否將圖片用作遮罩
-    color: "#0000FF" # 確保設置為藍色
+
 
 share:
   # - facebook
@@ -475,98 +474,98 @@ vendor:
   webcache: https://npm.webcache.cn/
   js:
     clipboard:
-      src: webcache|clipboard@2.0.11/dist/clipboard.min.js
+      src: cdn_jsdelivr_npm|clipboard@2.0.11/dist/clipboard.min.js
       integrity: sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q
     lazysizes:
-      src: webcache|lazysizes@5.3.2/lazysizes.min.js
+      src: cdn_jsdelivr_npm|lazysizes@5.3.2/lazysizes.min.js
       integrity: sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf+e
     photoswipe:
-      src: webcache|photoswipe@5.4.4/dist/photoswipe.esm.min.js
+      src: cdn_jsdelivr_npm|photoswipe@5.4.4/dist/photoswipe.esm.min.js
       integrity: sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s
     photoswipe_lightbox:
-      src: webcache|photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js
+      src: cdn_jsdelivr_npm|photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js
       integrity: sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/
     valine:
-      src: webcache|valine@1.5.1/dist/Valine.min.js
+      src: cdn_jsdelivr_npm|valine@1.5.1/dist/Valine.min.js
       integrity: sha384-3ma91AExDeMAZ1rjTjaP8V2A2obQE+s5ltKRwYlwdpArz9xVbp0tF3b0VV2ACNPn
     waline:
-      src: webcache|@waline/client@2.15.8/dist/waline.mjs
+      src: cdn_jsdelivr_npm|@waline/client@2.15.8/dist/waline.mjs
       integrity: sha384-9sbqJjrfGjbkI6/PI4nU/MvBfEmkkPC4YK9I4zBeMIf1CVCZdCMH/KinBEAZII/5
     twikoo:
-      src: webcache|twikoo@1.6.16/dist/twikoo.all.min.js
-      integrity: sha384-lDHsr5aZmkMS0eKnsUu6e9RWP+dRmn7sgJw7fuvXBt9W/OChF/Ijx+aUuBDqQwEk
+      src: cdn_jsdelivr_npm|twikoo@1.6.16/dist/twikoo.all.min.js
+      integrity: sha384-lDHsr5aZmkMS0eKnsUu6e9RWP+dRmn7sgjRAKGOAoXfMyzbUK6Qi86zZK7R+KvRV
     gitalk:
-      src: webcache|gitalk@1.8.0/dist/gitalk.min.js
+      src: cdn_jsdelivr_npm|gitalk@1.8.0/dist/gitalk.min.js
       integrity: sha384-kspnZUWBoSWwoJHa0hBCXYbHGbhvU/lcEH5O8eVbSDhbPwsiVUTp/aGX/z/5EuMA
     busuanzi:
-      src: webcache|busuanzi@2.3.0/bsz.pure.mini.js
+      src: cdn_jsdelivr_npm|busuanzi@2.3.0/bsz.pure.mini.js
       integrity: sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S
     algolia:
-      src: webcache|algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
+      src: cdn_jsdelivr_npm|algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js
       integrity: sha384-xvLS0jfKuoREs7pqkRI/OI8GcqohO5S+jQz7ZBtQXnsXmD+9jDOOY4cL6dCPzlrk
     instantsearch:
-      src: webcache|instantsearch.js@4.56.1/dist/instantsearch.production.min.js
+      src: cdn_jsdelivr_npm|instantsearch.js@4.56.1/dist/instantsearch.production.min.js
       integrity: sha384-hHJCflT4KBLQyHfKO9vpstIcFKn/Y+KHTORelMMEn7mOp2AVPp+7fr03dLgZiV3J
     pace:
-      src: webcache|pace-js@1.2.4/pace.min.js
+      src: cdn_jsdelivr_npm|pace-js@1.2.4/pace.min.js
       integrity: sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8
     mermaid:
-      src: webcache|mermaid@9.4.3/dist/mermaid.min.js
+      src: cdn_jsdelivr_npm|mermaid@9.4.3/dist/mermaid.min.js
       integrity: sha384-aG3Gai4tbCHF0iXo48HwLoOZyut7mBl50oMC9GD1m75xyHfJDv6w8hD/kZRD47aJ
     firework:
-      src: webcache|mouse-firework@0.1.0/dist/index.umd.js
-      integrity: sha384-KM6i7tu43nYd6e0beIljxHMC5tZc58XBDu7pPA58w50h18Jsx7gLdimfS09RXlKv
+      src: cdn_jsdelivr_npm|mouse-firework@0.1.1/dist/index.umd.js
+      integrity: sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d
     pjax:
-      src: webcache|theme-shokax-pjax@0.0.3/dist/index.umd.js
+      src: cdn_jsdelivr_npm|theme-shokax-pjax@0.0.3/dist/index.umd.js
       integrity: sha384-xneY1WY8hOfUzswrE4CrYq35N4BdVcxqxwHPr9zawE/jMSCxD+jAPU55x/jj3wlf
     live2d:
-      base: fastly_jsdelivr_gh|D-Sketon/plugin-live2d/
-      js: fastly_jsdelivr_gh|D-Sketon/plugin-live2d/js/live2d-autoload.js
+      base: cdn_jsdelivr_gh|D-Sketon/plugin-live2d/
+      js: cdn_jsdelivr_gh|D-Sketon/plugin-live2d/js/live2d-autoload.js
     live2d_widgets:
-      src: webcache|live2d-widgets@0.9.0/autoload.js
+      src: cdn_jsdelivr_npm|live2d-widgets@0.9.0/autoload.js
       integrity: sha384-poTN7wN/SqNhQqo3jdFeX20ikddWeFGkUkDEzsKjgH/ez8aQLn81oI0Cw6q5xNyB
     md5:
-      src: webcache|blueimp-md5@2.19.0/js/md5.min.js
+      src: cdn_jsdelivr_npm|blueimp-md5@2.19.0/js/md5.min.js
       integrity: sha384-JmVtRz6RWiXnA14QbIOJzPuU3MidULOpBP66deeLLyyoF4Tr/gZlbkHkL6vTthxH
     quicklink:
-      src: webcache|quicklink@2.3.0/dist/quicklink.umd.js
-      integrity: sha384-aD7FsuQkS1ohgFKY41fJfeA+Wd/RNnrOd9Bs58K3FzKdJJv8yPnYU8Tnp5z1agS
+      src: cdn_jsdelivr_npm|quicklink@2.3.0/dist/quicklink.umd.js
+      integrity: sha384-aD7FsuQkS1ohgFKY41fJfeA+Wd/QRNnrOd9Bs58K3FzKdJJv8yPnYU8Tnp5z1agS
     katex:
-      src: webcache|katex@0.16.11/dist/katex.min.js
+      src: cdn_jsdelivr_npm|katex@0.16.11/dist/katex.min.js
       integrity: sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg
     katex_auto_render:
-      src: webcache|katex@0.16.11/dist/contrib/auto-render.min.js
-      integrity: sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeMIf/+rCMvRwr4yROQP43s0Xk
+      src: cdn_jsdelivr_npm|katex@0.16.11/dist/contrib/auto-render.min.js
+      integrity: sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk
     mathjax:
-      src: webcache|mathjax@3.2.2/es5/tex-mml-chtml.js
+      src: cdn_jsdelivr_npm|mathjax@3.2.2/es5/tex-mml-chtml.js
       integrity: sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei
     aplayer:
-      src: webcache|aplayer@1.10.1/dist/APlayer.min.js
+      src: cdn_jsdelivr_npm|aplayer@1.10.1/dist/APlayer.min.js
       integrity: sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr+h5UfruuRL/aORyw+5+HZoU6e
     meting:
-      src: webcache|meting@2.0.1/dist/Meting.min.js
+      src: cdn_jsdelivr_npm|meting@2.0.1/dist/Meting.min.js
       integrity: sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8+0maanw1S/IyB+Y4JG+ZDU7GpKE8
     qrcode:
-      src: webcache|qrcode@1.4.4/build/qrcode.min.js
+      src: cdn_jsdelivr_npm|qrcode@1.4.4/build/qrcode.min.js
       integrity: sha384-0RsG1yo/crf/1Qc14sho26SXXOTngNCjgJw7fuvXBt9W/OChF/Ijx+aUuBDqQwEk
     html2image:
-      src: webcache|html-to-image@1.11.11/dist/html-to-image.js
+      src: cdn_jsdelivr_npm|html-to-image@1.11.11/dist/html-to-image.js
       integrity: sha384-UbfRVKN3/elS1r7JcK2FhmPP+KlJ4CvYwbyYD7tH+uTkbT9bNJr9eJeQ0FoFbAgz
     dompurify:
-      src: webcache|dompurify@3.2.4/dist/purify.min.js
+      src: cdn_jsdelivr_npm|dompurify@3.2.4/dist/purify.min.js
       integrity: sha384-eEu5CTj3qGvu9PdJuS+YlkNi7d2XxQROAFYOr59zgObtlcux1ae1Il3u7jvdCSWu/
   css:
-    photoswipe: webcache|photoswipe@5.4.4/dist/photoswipe.css
-    katex: webcache|katex@0.16.11/dist/katex.min.css
-    waline: webcache|@waline/client@2.15.8/dist/waline.css
-    gitalk: webcache|gitalk/dist/gitalk.css
+    photoswipe: cdn_jsdelivr_npm|photoswipe@5.4.4/dist/photoswipe.css
+    katex: cdn_jsdelivr_npm|katex@0.16.11/dist/katex.min.css
+    waline: cdn_jsdelivr_npm|@waline/client@2.15.8/dist/waline.css
+    gitalk: cdn_jsdelivr_npm|gitalk@1.8.0/dist/gitalk.css
     fontawesome:
       high_priority:
-        - webcache|@fortawesome/fontawesome-free@6.5.1/css/regular.min.css
-        - webcache|@fortawesome/fontawesome-free@6.5.1/css/solid.min.css
+        - cdn_jsdelivr_npm|@fortawesome/fontawesome-free@6.5.1/css/regular.min.css
+        - cdn_jsdelivr_npm|@fortawesome/fontawesome-free@6.5.1/css/solid.min.css
       low_priority:
-        - webcache|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
-        - webcache|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
-        - webcache|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
-    aos: webcache|@reimujs/aos@0.1.0/dist/aos.css
-    aplayer: webcache|aplayer@1.10.1/dist/APlayer.min.css
+        - cdn_jsdelivr_npm|@fortawesome/fontawesome-free@6.5.1/css/brands.min.css
+        - cdn_jsdelivr_npm|@fortawesome/fontawesome-free@6.5.1/css/v5-font-face.min.css
+        - cdn_jsdelivr_npm|@fortawesome/fontawesome-free@6.5.1/css/v4-font-face.min.css
+    aos: cdn_jsdelivr_npm|@reimujs/aos@0.1.0/dist/aos.css
+    aplayer: cdn_jsdelivr_npm|aplayer@1.10.1/dist/APlayer.min.css
