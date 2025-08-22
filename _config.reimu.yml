@@ -9,6 +9,9 @@ menu:
   - name: home
     url: /
     icon:
+  - name: portfolio
+    url: /portfolio
+    icon:
   - name: archives
     url: /archives
     icon:
