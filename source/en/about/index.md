@@ -23,7 +23,7 @@ a img:hover {
 <div align="center">
   <img src="/img/avatar.webp" alt="avatar" width="120" style="border-radius:50%;margin-bottom:1em;" />  
   <h1>Itou Souta</h1>  
-  <p>flag{i_@m_no0b}</p>  
+  <p>Cybersecurity & Front-End Development Enthusiast</p>  
   <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.5em;">  
     <!-- Social links omitted in translation -->
   </div>  
@@ -31,7 +31,7 @@ a img:hover {
     <a href="https://x.com/itou_souta15" target="_blank">
       <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" />
     </a>
-    <a href="https://github.com/itousouta15" target="_blank">
+    <a href="https://github.com/itousouta" target="_blank">
       <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
     </a>
     <a href="https://www.threads.net/@itou.souta15" target="_blank">
