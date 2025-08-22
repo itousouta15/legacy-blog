@@ -96,6 +96,7 @@ Here, I share my projects, experiments, and learning notes. For me, every line o
 
 ## 🤝 Communities & Clubs
 - [SCAICT](https://scaict.org/)
+- [SCINT](https://scint.org/)
 - [THJCC CTF](https://www.instagram.com/thjcc.tw/)
 - [std_dllm](https://www.instagram.com/std_dllm_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
 - [DLHIT](https://www.instagram.com/dlhit_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)

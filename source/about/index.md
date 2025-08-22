@@ -89,6 +89,7 @@ a img:hover {
 
 ## 🤝 Communities & Clubs
 - [SCAICT 中部電資社團聯合會議](https://scaict.org/)
+- [SCINT 北臺灣學生資訊社群](https://scint.org/)
 - [THJCC CTF](https://www.instagram.com/thjcc.tw/)
 - [std_dllm](https://www.instagram.com/std_dllm_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
 - [DLHIT 大里高中資訊校隊](https://www.instagram.com/dlhit_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
