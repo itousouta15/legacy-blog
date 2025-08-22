@@ -24,7 +24,7 @@ a img:hover {
 <div align="center">
   <img src="/img/avatar.webp" alt="avatar" width="120" style="border-radius:50%;margin-bottom:1em;" />
   <h1>伊藤蒼太</h1>
-  <p>資訊安全 & 前端開發愛好者</p>
+  <p>flag{i_@m_no0b}</p>
   <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.5em;">
     <a href="https://x.com/itou_souta15" target="_blank">
       <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" />

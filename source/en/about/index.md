@@ -23,7 +23,7 @@ a img:hover {
 <div align="center">
   <img src="/img/avatar.webp" alt="avatar" width="120" style="border-radius:50%;margin-bottom:1em;" />  
   <h1>Itou Souta</h1>  
-  <p>Cybersecurity & Front-End Development Enthusiast</p>  
+  <p>flag{i_@m_no0b}</p>  
   <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.5em;">  
     <!-- Social links omitted in translation -->
   </div>  
