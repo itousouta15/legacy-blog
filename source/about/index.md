@@ -29,7 +29,7 @@ a img:hover {
     <a href="https://x.com/itou_souta15" target="_blank">
       <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" />
     </a>
-    <a href="https://github.com/itou-souta" target="_blank">
+    <a href="https://github.com/itousouta15" target="_blank">
       <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
     </a>
     <a href="https://www.threads.net/@itou.souta15" target="_blank">
