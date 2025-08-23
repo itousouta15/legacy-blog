@@ -140,6 +140,69 @@ int main()
     return 0;
 }
 ```
+### a040. 阿姆斯壯數
+https://zerojudge.tw/ShowProblem?problemid=a040
+```CPP
+#include<bits/stdc++.h>
+using namespace std;
+
+bool have =0;
+void sp(int i){
+    string s = to_string(i);
+    int sum=0;
+    for(int j=0;j<s.size();j++){
+        int spn=0;
+        int d = s[j] - '0';
+        spn = pow(d,s.size());
+        sum+=spn;
+    }
+    if(sum==i){
+        have =1;
+        cout << i << " ";
+    }
+}
+
+int main(){
+    int s,e;
+    cin >> s >> e;
+    for(int i = s;i <= e;++i){
+        sp(i);
+    }
+    if(have == 0){
+        cout << "none";
+    }
+}
+```
+### a024. 最大公因數(GCD)
+https://zerojudge.tw/ShowProblem?problemid=a024
+
+偷懶大法(use __gcd())
+```CPP
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int a,b,c;
+    cin >> a >> b;
+    c = __gcd(a,b);
+    cout << c ;
+}
+```
+### a065. 提款卡密碼
+https://zerojudge.tw/ShowProblem?problemid=a065
+```CPP
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    string a;
+    cin >> a;
+    for(int i=1;i<a.size();i++){
+        int far = abs(a[i]-a[i-1]);
+        cout << far ;
+    }
+}
+```
 ## TOI
 ### n630. 電影院 (Cinema)
 ```CPP
