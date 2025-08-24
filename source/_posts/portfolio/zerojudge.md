@@ -44,20 +44,20 @@ https://zerojudge.tw/ShowProblem?problemid=a003
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     int a, b;
-    bool result=(a*2+b)%3;
-    cin>>a>>b;
-    if (result==0){
-    cout<<"普通";
+    cin >> a >> b;
+
+    int result = (a * 2 + b) % 3;
+
+    if (result == 0) {
+        cout << "普通";
+    } else if (result == 1) {
+        cout << "吉";
+    } else if (result == 2) {
+        cout << "大吉";
     }
-    else if(result==1){
-    cout<<"吉";
-    }
-    else if(result==2){
-    cout<<"大吉";
-    }
+
     return 0;
 }
 ```
