@@ -63,9 +63,9 @@ hexo.extend.filter.register("stylus:renderer", (style) => {
   const shareKeys = themeConfig.share || [];
 
   // custom icons
-  const footerIcon = themeConfig.footer.icon.url || "../images/taichi.png";
-  const sponsorIcon = themeConfig.sponsor.icon.url || "../images/taichi.png";
-  const topIcon = themeConfig.top.icon.url || "../images/taichi.png";
+  const footerIcon = themeConfig.footer.icon.url || "../images/taichi.svg";
+  const sponsorIcon = themeConfig.sponsor.icon.url || "../images/taichi.svg";
+  const topIcon = themeConfig.top.icon.url || "../images/taichi.svg";
 
   // reimu_cursor
   // just for compatible

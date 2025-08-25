@@ -403,7 +403,7 @@ share:
 
 # 實驗性功能，可能有很多錯誤，請謹慎開啟！
 pjax:
-  enable: false
+  enable: true
 
 # 實驗性功能
 # https://github.com/GoogleChromeLabs/quicklink
