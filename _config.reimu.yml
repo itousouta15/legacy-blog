@@ -69,7 +69,7 @@ footer:
   since: 2025 
   powered: true
   count: true # 顯示字數和閱讀時間
-  busuanzi: false
+  busuanzi: true
   icon:
     url: "../images/taichi.svg" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
     rotate: true
