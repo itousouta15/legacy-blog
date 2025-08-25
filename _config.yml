@@ -148,19 +148,19 @@ theme_config:
   menu:
     - name: home
       url: /
-      icon:
+      icon: f015
     - name: portfolio
       url: /portfolio
-      icon:
+      icon: f02e
     - name: archives
       url: /archives
-      icon:
+      icon: f07c
     - name: about
       url: /about
-      icon:
+      icon: f2bd
     - name: friend
       url: /friend
-      icon:
+      icon: f0c0
 
   # 底部配置
   footer:
