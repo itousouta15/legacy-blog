@@ -71,7 +71,7 @@ footer:
   count: true # 顯示字數和閱讀時間
   busuanzi: false
   icon:
-    url: "../images/taichi.png" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
+    url: "../images/taichi.svg" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
     rotate: true
     mask: true
 
@@ -273,7 +273,7 @@ preloader:
   enable: true
   text: 載入中...
   icon:
-    url: "../images/taichi.png" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
+    url: "../images/taichi.svg" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
 
 # 參見 https://github.com/D-Sketon/aos.js
 animation:
@@ -358,7 +358,7 @@ sponsor:
   enable: false
   tip: 请作者喝杯咖啡吧！
   icon:
-    url: "../images/taichi.png" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
+    url: "../images/taichi.svg" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
     rotate: true
     mask: true # 是否將圖片用作遮罩
   qr:
@@ -383,7 +383,7 @@ top:
   enable: true
   position: right # left or right
   icon:
-    url: "../images/taichi.png" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
+    url: "../images/taichi.svg" # 此路徑相對於 css/style.css，因此需要向上一層到達 images 資料夾
     rotate: true
     mask: true # 是否將圖片用作遮罩
 

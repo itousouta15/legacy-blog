@@ -165,21 +165,21 @@ theme_config:
   # 底部配置
   footer:
     icon: 
-      url: "/images/taichi.png"
+      url: "/images/taichi.svg"
       rotate: true
       mask: true
 
   # 回到頂部配置
   top:
     icon: 
-      url: "/images/taichi.png"
+      url: "/images/taichi.svg"
       rotate: true
       mask: true
 
   # 贊助配置
   sponsor:
     icon: 
-      url: "/images/taichi.png"
+      url: "/images/taichi.svg"
       rotate: true
       mask: true
 
@@ -188,7 +188,7 @@ theme_config:
   preloader:
     enable: true
     text: 載入中...
-    icon: "/images/taichi.png"
+    icon: "/images/taichi.svg"
 
 
   # 錨點圖標
