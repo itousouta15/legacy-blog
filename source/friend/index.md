@@ -116,4 +116,53 @@ comments: true
         <div class="friend-desc">AIS3隊友 | 資安電神</div>
       </div>
     </div>
+              <div class="friend-item-wrap">
+      <a href="https://www.instagram.com/shooting.twcat?igsh=OWx2djZmbDB6ZW1k" rel="external nofollow noopener noreferrer" target="_blank"></a>
+      <div class="friend-icon-wrap">
+        <div class="friend-icon">
+          <img data-src="https://cdn.discordapp.com/attachments/1359107722460528682/1410199994413219840/803641651238404146.gif?ex=68b02696&is=68aed516&hm=7960b02fb0c94fbc70a7d829384f821ca4a1829bb7482bfbde0c88e0d32f24e5&" data-sizes="auto" alt="yochan06" class="lazyautosizes lazyloaded" sizes="70px" src="https://cdn.discordapp.com/attachments/1359107722460528682/1410199994413219840/803641651238404146.gif?ex=68b02696&is=68aed516&hm=7960b02fb0c94fbc70a7d829384f821ca4a1829bb7482bfbde0c88e0d32f24e5&">
+        </div>
+      </div>
+      <div class="friend-info-wrap">
+        <div class="friend-name">伊藤喵喵</div>
+        <div class="friend-desc">喵</div>
+      </div>
+    </div>
+    <div class="friend-item-wrap">
+  <a href="htttps://l.ummit.dev" rel="external nofollow noopener noreferrer" target="_blank"></a>
+  <div class="friend-icon-wrap">
+    <div class="friend-icon">
+      <img data-src="https://avatars.githubusercontent.com/u/128139875?v=4" data-sizes="auto" alt="UmmIt Kin" class="lazyautosizes lazyloaded" sizes="70px" src="https://avatars.githubusercontent.com/u/128139875?v=4">
+    </div>
+  </div>
+  <div class="friend-info-wrap">
+    <div class="friend-name">UmmIt Kin</div>
+    <div class="friend-desc">Can't life without GNU/Linux</div>
+  </div>
+</div>
+<div class="friend-item-wrap">
+  <a href="https://橘.tw" rel="external nofollow noopener noreferrer" target="_blank"></a>
+  <div class="friend-icon-wrap">
+    <div class="friend-icon">
+      <img data-src="https://橘.tw/resource/佩佩.png" data-sizes="auto" alt="橘子" class="lazyautosizes lazyloaded" sizes="70px" src="https://橘.tw/resource/佩佩.png">
+    </div>
+  </div>
+  <div class="friend-info-wrap">
+    <div class="friend-name">橘子</div>
+    <div class="friend-desc">橘子喵</div>
+  </div>
+</div>
+<div class="friend-item-wrap">
+  <a href="https://siewilly.github.io" rel="external nofollow noopener noreferrer" target="_blank"></a>
+  <div class="friend-icon-wrap">
+    <div class="friend-icon">
+      <img data-src="https://cdn.discordapp.com/avatars/1340926461749629011/4fc9caf6dcc197a3137319f2885f2eee.png?size=512" data-sizes="auto" alt="伊藤有梄" class="lazyautosizes lazyloaded" sizes="70px" src="https://cdn.discordapp.com/avatars/1340926461749629011/4fc9caf6dcc197a3137319f2885f2eee.png?size=512">
+    </div>
+  </div>
+  <div class="friend-info-wrap">
+    <div class="friend-name">伊藤有梄</div>
+    <div class="friend-desc">競程新手</div>
+  </div>
+</div>
+  </div>
   </div>
