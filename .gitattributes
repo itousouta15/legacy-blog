@@ -1,8 +1,0 @@
-# 将某些文件标记为供应商代码，不计入语言统计
-lib/*.css linguist-vendored=true
-assets/vendor/* linguist-vendored=true
-
-# 强制识别特定文件的语言
-*.html linguist-language=HTML
-*.js linguist-language=JavaScript
-```
