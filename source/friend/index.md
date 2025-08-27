@@ -129,7 +129,7 @@ comments: true
       </div>
     </div>
     <div class="friend-item-wrap">
-  <a href="htttps://l.ummit.dev" rel="external nofollow noopener noreferrer" target="_blank"></a>
+  <a href="https://l.ummit.dev" rel="external nofollow noopener noreferrer" target="_blank"></a>
   <div class="friend-icon-wrap">
     <div class="friend-icon">
       <img data-src="https://avatars.githubusercontent.com/u/128139875?v=4" data-sizes="auto" alt="UmmIt Kin" class="lazyautosizes lazyloaded" sizes="70px" src="https://avatars.githubusercontent.com/u/128139875?v=4">
