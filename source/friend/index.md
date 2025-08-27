@@ -164,37 +164,43 @@ comments: true
     <div class="friend-desc">競程新手</div>
   </div>
 </div>
-<!-- Friend Card: 小一 -->
-<div class="friend-card">
-  <a href="https://www.instagram.com/littleonechung/" target="_blank">
-    <img src="https://cdn.discordapp.com/attachments/1359107722460528682/1410237032030273658/hello.png?ex=68b04915&is=68aef795&hm=9f49d4391dd98ef5707bffdc380e7cd3ae162d83f326d0a9ad5d38c13cbc3a34&" alt="小一" class="friend-avatar" />
-    <div class="friend-info">
-      <div class="friend-name">小一</div>
-      <div class="friend-desc">一個喜歡開發遊戲的人類</div>
+<div class="friend-item-wrap">
+  <a href="https://www.instagram.com/littleonechung/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+  <div class="friend-icon-wrap">
+    <div class="friend-icon">
+      <img data-src="https://cdn.discordapp.com/attachments/1359107722460528682/1410237032030273658/hello.png?ex=68b04915&is=68aef795&hm=9f49d4391dd98ef5707bffdc380e7cd3ae162d83f326d0a9ad5d38c13cbc3a34&" data-sizes="auto" alt="小一" class="lazyautosizes lazyloaded" sizes="70px" src="https://cdn.discordapp.com/attachments/1359107722460528682/1410237032030273658/hello.png?ex=68b04915&is=68aef795&hm=9f49d4391dd98ef5707bffdc380e7cd3ae162d83f326d0a9ad5d38c13cbc3a34&">
     </div>
-  </a>
+  </div>
+  <div class="friend-info-wrap">
+    <div class="friend-name">小一</div>
+    <div class="friend-desc">一個喜歡開發遊戲的人類</div>
+  </div>
 </div>
 
-<!-- Friend Card: 鴨鴨 -->
-<div class="friend-card">
-  <a href="https://ya-ya-12.github.io/" target="_blank">
-    <img src="https://cdn.discordapp.com/avatars/1124954310527164456/66d8378f5e4b614d2a4c81e99c944468.png?size=512" alt="鴨鴨" class="friend-avatar" />
-    <div class="friend-info">
-      <div class="friend-name">鴨鴨</div>
-      <div class="friend-desc">我是一個小廢廢</div>
+<div class="friend-item-wrap">
+  <a href="https://ya-ya-12.github.io/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+  <div class="friend-icon-wrap">
+    <div class="friend-icon">
+      <img data-src="https://cdn.discordapp.com/avatars/1124954310527164456/66d8378f5e4b614d2a4c81e99c944468.png?size=512" data-sizes="auto" alt="鴨鴨" class="lazyautosizes lazyloaded" sizes="70px" src="https://cdn.discordapp.com/avatars/1124954310527164456/66d8378f5e4b614d2a4c81e99c944468.png?size=512">
     </div>
-  </a>
+  </div>
+  <div class="friend-info-wrap">
+    <div class="friend-name">鴨鴨</div>
+    <div class="friend-desc">我是一個小廢廢</div>
+  </div>
 </div>
 
-<!-- Friend Card: 匿名用戶9487 -->
-<div class="friend-card">
-  <a href="https://qwo877.github.io/me/" target="_blank">
-    <img src="https://cdn.discordapp.com/attachments/1359107722460528682/1410220154608029736/image14841987481.png?ex=68b0395d&is=68aee7dd&hm=545e8a77dd63b9423a21ea66cab82dd479050353c30c03f536ad417c43357d06&" alt="匿名用戶9487" class="friend-avatar" />
-    <div class="friend-info">
-      <div class="friend-name">匿名用戶9487</div>
-      <div class="friend-desc">被電爛的廢物</div>
+<div class="friend-item-wrap">
+  <a href="https://qwo877.github.io/me/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+  <div class="friend-icon-wrap">
+    <div class="friend-icon">
+      <img data-src="https://cdn.discordapp.com/attachments/1359107722460528682/1410220154608029736/image14841987481.png?ex=68b0395d&is=68aee7dd&hm=545e8a77dd63b9423a21ea66cab82dd479050353c30c03f536ad417c43357d06&" data-sizes="auto" alt="匿名用戶9487" class="lazyautosizes lazyloaded" sizes="70px" src="https://cdn.discordapp.com/attachments/1359107722460528682/1410220154608029736/image14841987481.png?ex=68b0395d&is=68aee7dd&hm=545e8a77dd63b9423a21ea66cab82dd479050353c30c03f536ad417c43357d06&">
     </div>
-  </a>
+  </div>
+  <div class="friend-info-wrap">
+    <div class="friend-name">匿名用戶9487</div>
+    <div class="friend-desc">被電爛的廢物</div>
+  </div>
 </div>
   </div>
   </div>
