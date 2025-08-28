@@ -18,6 +18,7 @@ Leave a comment on this page with the following format:
 ~~~
 
 ## friends
+## 夥伴們
 <div class="friend-wrap">
   <div class="friend-item-wrap">
     <a href="https://d-sketon.github.io/" rel="external nofollow noopener noreferrer" target="_blank"></a>
@@ -28,7 +29,7 @@ Leave a comment on this page with the following format:
     </div>
     <div class="friend-info-wrap">
       <div class="friend-name">D-Sketon</div>
-      <div class="friend-desc">A Train Enthusiast</div>
+      <div class="friend-desc">A Touhou fan</div>
     </div>
   </div>
   <div class="friend-item-wrap">
@@ -40,7 +41,7 @@ Leave a comment on this page with the following format:
     </div>
     <div class="friend-info-wrap">
       <div class="friend-name">Small R</div>
-      <div class="friend-desc">A Full-Stack Developer</div>
+      <div class="friend-desc">A full-stack developer</div>
     </div>
   </div>
   <div class="friend-item-wrap">
@@ -52,7 +53,7 @@ Leave a comment on this page with the following format:
     </div>
     <div class="friend-info-wrap">
       <div class="friend-name">PepperSauce</div>
-      <div class="friend-desc">A Beginner on the Programming Path</div>
+      <div class="friend-desc">A newbie on the programming journey</div>
     </div>
   </div>
   <div class="friend-item-wrap">
@@ -64,19 +65,19 @@ Leave a comment on this page with the following format:
     </div>
     <div class="friend-info-wrap">
       <div class="friend-name">Small Z</div>
-      <div class="friend-desc">A Front-End Developer</div>
+      <div class="friend-desc">A front-end developer</div>
     </div>
   </div>
   <div class="friend-item-wrap">
     <a href="https://nangong5421.github.io/" rel="external nofollow noopener noreferrer" target="_blank"></a>
     <div class="friend-icon-wrap">
       <div class="friend-icon">
-        <img data-src="/img/南宮.webp" data-sizes="auto" alt="Nan Gong Liu Xin" class="lazyautosizes lazyloaded" sizes="70px" src="/img/南宮.webp">
+        <img data-src="/img/南宮.webp" data-sizes="auto" alt="南宮柳信" class="lazyautosizes lazyloaded" sizes="70px" src="/img/南宮.webp">
       </div>
     </div>
     <div class="friend-info-wrap">
-      <div class="friend-name">Nan Gong Liu Xin</div>
-      <div class="friend-desc">So Electric That I Can't Raise My Head</div>
+      <div class="friend-name">南宮柳信</div>
+      <div class="friend-desc">So electrified I can't lift my head</div>
     </div>
   </div>
   <div class="friend-item-wrap">
@@ -88,7 +89,7 @@ Leave a comment on this page with the following format:
     </div>
     <div class="friend-info-wrap">
       <div class="friend-name">Chumy</div>
-      <div class="friend-desc">AIS3 Teammate | Cybersecurity Grandmaster</div>
+      <div class="friend-desc">AIS3 teammate | Cybersecurity expert</div>
     </div>
   </div>
   <div class="friend-item-wrap">
@@ -100,7 +101,7 @@ Leave a comment on this page with the following format:
     </div>
     <div class="friend-info-wrap">
       <div class="friend-name">Frank</div>
-      <div class="friend-desc">AIS3 Teammate | Cybersecurity Grandmaster</div>
+      <div class="friend-desc">AIS3 teammate | Cybersecurity expert</div>
     </div>
   </div>
   <div class="friend-item-wrap">
@@ -112,7 +113,127 @@ Leave a comment on this page with the following format:
     </div>
     <div class="friend-info-wrap">
       <div class="friend-name">yochan06</div>
-      <div class="friend-desc">AIS3 Teammate | Cybersecurity Junior</div>
+      <div class="friend-desc">AIS3 teammate | Cybersecurity talent</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://www.instagram.com/shooting.twcat?igsh=OWx2djZmbDB6ZW1k" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://avatars.githubusercontent.com/u/130988476?v=4" data-sizes="auto" alt="yochan06" class="lazyautosizes lazyloaded" sizes="70px" src="https://avatars.githubusercontent.com/u/130988476?v=4">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">伊藤喵喵</div>
+      <div class="friend-desc">Meow</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://l.ummit.dev" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://avatars.githubusercontent.com/u/128139875?v=4" data-sizes="auto" alt="UmmIt Kin" class="lazyautosizes lazyloaded" sizes="70px" src="https://avatars.githubusercontent.com/u/128139875?v=4">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">UmmIt Kin</div>
+      <div class="friend-desc">Can't live without GNU/Linux</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://橘.tw" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://橘.tw/resource/佩佩.png" data-sizes="auto" alt="橘子" class="lazyautosizes lazyloaded" sizes="70px" src="https://橘.tw/resource/佩佩.png">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">橘子</div>
+      <div class="friend-desc">Orange meow</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://siewilly.github.io" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://cdn.discordapp.com/avatars/1340926461749629011/4fc9caf6dcc197a3137319f2885f2eee.png?size=512" data-sizes="auto" alt="伊藤有梄" class="lazyautosizes lazyloaded" sizes="70px" src="https://cdn.discordapp.com/avatars/1340926461749629011/4fc9caf6dcc197a3137319f2885f2eee.png?size=512">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">伊藤有梄</div>
+      <div class="friend-desc">Competitive programming beginner</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://www.instagram.com/littleonechung/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://avatars.githubusercontent.com/u/67142736?v=4" data-sizes="auto" alt="小一" class="lazyautosizes lazyloaded" sizes="70px" src="https://avatars.githubusercontent.com/u/67142736?v=4">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">小一</div>
+      <div class="friend-desc">A human who enjoys game development</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://ya-ya-12.github.io/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://cdn.discordapp.com/avatars/1124954310527164456/66d8378f5e4b614d2a4c81e99c944468.png?size=512" data-sizes="auto" alt="鴨鴨" class="lazyautosizes lazyloaded" sizes="70px" src="https://cdn.discordapp.com/avatars/1124954310527164456/66d8378f5e4b614d2a4c81e99c944468.png?size=512">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">鴨鴨</div>
+      <div class="friend-desc">I am a little trash</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://qwo877.github.io/me/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://avatars.githubusercontent.com/u/178977233?v=4" data-sizes="auto" alt="匿名用戶9487" class="lazyautosizes lazyloaded" sizes="70px" src="https://avatars.githubusercontent.com/u/178977233?v=4">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">匿名用戶9487</div>
+      <div class="friend-desc">A piece of trash electrocuted badly</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://github.com/su2u4-1/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://avatars.githubusercontent.com/u/70791378?v=4" data-sizes="auto" alt="su2u4" class="lazyautosizes lazyloaded" sizes="70px" src="https://avatars.githubusercontent.com/u/70791378?v=4">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">su2u4</div>
+      <div class="friend-desc">Su</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://blog-lemontea.pages.dev/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://blog-lemontea.pages.dev/avatar/avator.png" data-sizes="auto" alt="lemontea" class="lazyautosizes lazyloaded" sizes="70px" src="https://blog-lemontea.pages.dev/avatar/avator.png">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">檸檬茶</div>
+      <div class="friend-desc">A little trash (just kidding)</div>
+    </div>
+  </div>
+  <div class="friend-item-wrap">
+    <a href="https://justin0711.com/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://justin0711.com/static/img/profile.jpg" data-sizes="auto" alt="lemontea" class="lazyautosizes lazyloaded" sizes="70px" src="https://justin0711.com/static/img/profile.jpg">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">Justin</div>
+      <div class="friend-desc">Great electrical god</div>
     </div>
   </div>
 </div>
