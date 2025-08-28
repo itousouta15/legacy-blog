@@ -203,6 +203,35 @@ int main(){
     }
 }
 ```
+### c315. I, ROBOT 前傳
+https://zerojudge.tw/ShowProblem?problemid=c315
+```CPP
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n,a,b;
+    int x=0,y=0;
+    cin >> n;
+    for(int i=0;i<n;i++){
+        cin >> a >> b;
+        if(a==0){
+            y+=b;
+        }
+        if(a==1){
+            x+=b;
+        }
+        if(a==2){
+            y-=b;
+        }
+        if(a==3){
+            x-=b;
+        }
+    }
+    cout << x <<" "<< y;
+}
+
+```
 ## TOI
 ### n630. 電影院 (Cinema)
 ```CPP
