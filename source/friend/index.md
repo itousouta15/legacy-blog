@@ -6,7 +6,7 @@ comments: true
 ## 本站資訊
 - 站名： 伊藤蒼太's blog
 - 站長： 伊藤蒼太
-- 網址： https://itousouta15.github.io
+- 網址： https://itousouta15.tw
 
 ## 申請方法
 - 增加本站後，在本頁留言，格式如下

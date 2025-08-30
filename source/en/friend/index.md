@@ -6,7 +6,7 @@ comments: true
 ## About This Site
 - 站名： 伊藤蒼太's blog
 - 站長： 伊藤蒼太
-- 網址： https://itousouta15.github.io
+- 網址： https://itousouta15.tw
 
 ## How to Apply
 Leave a comment on this page with the following format:
