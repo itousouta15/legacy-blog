@@ -11,7 +11,7 @@ author: 伊藤蒼太
 language: zh-TW
 timezone: 'Asia/Taipei'
 
-url: https://itousouta15.github.io
+url: https://itousouta15.tw
 permalink: :year/:month/:day/:urlname/
 permalink_defaults:
 pretty_urls:
