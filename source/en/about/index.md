@@ -83,7 +83,7 @@ Here, I share my projects, experiments, and learning notes. For me, every line o
 - **SCAICT 2025: "Keep Going Despite Difficulties"**
 
 ### 🌐 Communities:
-- **5th SCAICT 中部高中電資社團聯合會議 — Information Division**
+- **5th SCAICT 中部高中電資社團聯合會議 — Information Division Leader and Vice President"**
 - **2st DLHIT 大里高中資訊校隊 — Teaching**
 - **3rd THJCC CTF — Network Administration**
 - **2nd SCINT 北臺灣學生資訊社群 — Media & Design**
