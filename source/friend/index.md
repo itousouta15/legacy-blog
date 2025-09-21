@@ -236,4 +236,16 @@ comments: true
       <div class="friend-desc">大電神</div>
     </div>
   </div>
+  <div class="friend-item-wrap">
+    <a href="https://jackoha.github.io/about/" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="https://jackoha.github.io/avatar/jackoha.webp" data-sizes="auto" alt="lemontea" class="lazyautosizes lazyloaded" sizes="70px" src="https://jackoha.github.io/avatar/jackoha.webp">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">jackoha</div>
+      <div class="friend-desc">東方廚</div>
+    </div>
+  </div>
 </div>
