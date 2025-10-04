@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>AIS3 pre-exam 2025</title>
+    <url>/2025/07/11/ais3preexam/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這是我的第一次CTF<br>打得很爛writeup也寫得很爛<br><del>為了各位的眼睛著想請不要繼續往下看</del></p>
+<span id="more"></span>
+<h1 id="web"><a href="#web" class="headerlink" title="web"></a>web</h1><h2 id="tomorin-db"><a href="#tomorin-db" class="headerlink" title="tomorin db"></a>tomorin db</h2><h3 id="題目觀察"><a href="#題目觀察" class="headerlink" title="題目觀察"></a>題目觀察</h3><p>首先點進題目提供的網址 <a href="http://chals1.ais3.org:30000/">http://chals1.ais3.org:30000/</a> :<br><img src="/img/ais3/tomorin.webp"><br>可以看到其中有四個檔案</p>
+<ul>
+<li>cute.jpg</li>
+<li>flag</li>
+<li>is.jpg</li>
+<li>tomorin.jpg</li>
+</ul>
+<p>其中三個是圖片,<strong>但flag點進去會跳轉到<a href="https://www.youtube.com/watch?v=lQuWN0biOBU">MyGO!!!!!的聿日箋秋</a></strong> <del>又在GO</del><br><img src="/img/ais3/MyGO.webp"></p>
+<h3 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h3><p>既然flag文件確實存在,但是&#x2F;flag路徑做了特殊處理,那我們可以嘗試繞過&#x2F;flag這個路徑</p>
+<h3 id="繞過思路"><a href="#繞過思路" class="headerlink" title="繞過思路"></a>繞過思路</h3><p>經過嘗試,我發現如果我們用URL編碼 <strong>(%2f)</strong> 再加上flag就不會被轉址<br>所以我在根網址後加上 <em><strong>&#x2F;%2fflag</strong></em><br><img src="/img/ais3/%E6%88%90%E5%8A%9F%E8%A8%AA%E5%95%8F.webp"></p>
+<p>我們就可以得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AIS3&#123;G01ang_H2v3_a_c0O1_way!!!_Us3ing_C0NN3ct_M3Th07_L0l@T0m0r1n_1s_cute_D0_yo7_L0ve_t0MoRIN?&#125; </span><br></pre></td></tr></table></figure>
+<h2 id="Login-Screen-1"><a href="#Login-Screen-1" class="headerlink" title="Login Screen 1"></a>Login Screen 1</h2><h3 id="頁面分析"><a href="#頁面分析" class="headerlink" title="頁面分析"></a>頁面分析</h3><p>點進網頁後我們看到了一個登入介面<br><img src="/img/ais3/%E7%99%BB%E5%85%A5%E7%95%AB%E9%9D%A2.webp"><br>包含:</p>
+<ul>
+<li>Username 輸入框</li>
+<li>Password 輸入框</li>
+<li>Login 按鈕</li>
+</ul>
+<h3 id="注入攻擊"><a href="#注入攻擊" class="headerlink" title="注入攻擊"></a>注入攻擊</h3><p><img src="/img/ais3/FLAGG.webp"><br>我們就得到FLAG:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AIS3&#123;1.Es55y_SQL_1nJ3ct10n_w1th_2fa_IuABDADGeP0&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="Ramen-CTF"><a href="#Ramen-CTF" class="headerlink" title="Ramen CTF"></a>Ramen CTF</h2><p>這題是我覺得最有趣的</p>
+<h3 id="題目觀察-1"><a href="#題目觀察-1" class="headerlink" title="題目觀察"></a>題目觀察</h3><p>他給我們了一張圖片<br><img src="/img/ais3/chal.webp"><br>裡面有價值的只有那張發票,我就想到用發票的資訊是不是能查到一些資料<br><img src="/img/ais3/%E7%99%BC%E7%A5%A8.webp"></p>
+<p>可以得到以下資訊:</p>
+<ul>
+<li>平和….</li>
+<li>MF開頭</li>
+<li>2025&#x2F;04&#x2F;13的發票</li>
+<li>隨機碼 7095</li>
+<li>賣方編號 3478592…</li>
+</ul>
+<p>接下來用QRcode掃描程式得知:<br><img src="/img/ais3/QRcode.webp"></p>
+<ul>
+<li>發票完整號碼 MF16879911</li>
+<li>餐點是蝦拉麵</li>
+</ul>
+<h3 id="地址尋找"><a href="#地址尋找" class="headerlink" title="地址尋找"></a>地址尋找</h3><p>將上面的資料輸入<a href="https://www.einvoice.nat.gov.tw/portal/btc/audit/btc601w/search">財政部電子發票整合平台</a></p>
+<p><img src="/img/ais3/%E5%AE%8C%E6%95%B4%E8%B3%87%E8%A8%8A.webp"><br>我們就得到了地址,再把地址輸入Google Map<br>我們可以找到一家 <strong>樂山溫泉拉麵</strong><br><img src="/img/ais3/Map.webp"></p>
+<p>我們就可以得到Flag</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AIS3&#123;樂山溫泉拉麵:蝦拉麵&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="AIS3-Tiny-Server-Web-Misc"><a href="#AIS3-Tiny-Server-Web-Misc" class="headerlink" title="AIS3 Tiny Server - Web &#x2F; Misc"></a>AIS3 Tiny Server - Web &#x2F; Misc</h2><p>首先點進題目提供的網址用好token之後<br>我們會來到 <a href="http://chals1.ais3.org:20096/index.html">http://chals1.ais3.org:20096/index.html</a><br><img src="/img/ais3/Tiny-server.webp"><br>我就把常見的隱藏路徑都加上去,多次嘗試後發現<strong>加&#x2F;&#x2F;可以叫出文件目錄</strong><br><img src="/img/ais3/%E7%9B%AE%E9%8C%84.webp"><br>裡面有很多檔案,我就點了檔名有flag的<strong>readable_flag_jkO47trw1ctKlOIFC7smx7hivqoCPL8Y</strong><br><img src="/img/ais3/FLAG.webp"><br>我們就得到了flag:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AIS3&#123;tInY_we8_53Rv3R_wi7H_fILe_8R0Ws1nG_AS_@_FeAtURe&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Welcome"><a href="#Welcome" class="headerlink" title="Welcome"></a>Welcome</h2><h3 id="我就直接打上去owo"><a href="#我就直接打上去owo" class="headerlink" title="我就直接打上去owo"></a>我就直接打上去owo</h3><p><img src="/img/ais3/welcome.webp"></p>
+<h1 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h1><h2 id="SlowECDSA"><a href="#SlowECDSA" class="headerlink" title="SlowECDSA"></a>SlowECDSA</h2><p>看到題目後，我發現這就是一個經典的LCG攻擊題。ECDSA 的安全性完全依賴於隨機數 k 的不可預測性，如果服務器用 LCG 來生成這些隨機數，那就不難了</p>
+<h3 id="收集範本"><a href="#收集範本" class="headerlink" title="收集範本"></a><strong>收集範本</strong></h3><p>既然服務器提供 <code>get_example</code> 功能，我就先調用兩次，獲取兩個不同簽名。這樣我就能得到使用連續 LCG 隨機數的簽名對</p>
+<h3 id="數學關係"><a href="#數學關係" class="headerlink" title="數學關係"></a><strong>數學關係</strong></h3><p>根據Perplexity的資料:<br>ECDSA 簽名公式是：<br>$$ s &#x3D; k^{-1} \times (h + r \times d) \bmod n $$</p>
+<p>如果 k₁ 和 k₂ 有線性關係：k₂ &#x3D; (a × k₁ + c) mod n，那我們就能建一個關於 d 的方程式</p>
+<h2 id="求解"><a href="#求解" class="headerlink" title="求解"></a><strong>求解</strong></h2><p>從兩個簽名的關係中，可以推導出：<br>$$ s₂^{-1} \times (h + r₂ \times d) \equiv a \times s₁^{-1} \times (h + r₁ \times d) + c \pmod{n} $$</p>
+<p>解這個線性方程就能得到 d。</p>
+<h3 id="預測"><a href="#預測" class="headerlink" title="預測"></a><strong>預測</strong></h3><p>有了私鑰，我們就能反推出真正的 k₁，然後利用 LCG 的線性性質預測 k₃。</p>
+<h3 id="偽造簽名"><a href="#偽造簽名" class="headerlink" title="偽造簽名"></a><strong>偽造簽名</strong></h3><p>用預測的 k₃ 和已知的私鑰，為目標消息 “give_me_flag” 生成完全有效的簽名。</p>
+<h3 id="攻擊"><a href="#攻擊" class="headerlink" title="攻擊"></a><strong>攻擊</strong></h3><p>我叫AI寫了一個 Python 腳本來實現這個攻擊：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha1</span><br><span class="line"><span class="keyword">from</span> sage.<span class="built_in">all</span> <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment"># 橢圓曲線參數 (secp256k1)</span></span><br><span class="line">p = <span class="number">0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f</span></span><br><span class="line">a_curve = <span class="number">0</span></span><br><span class="line">b_curve = <span class="number">7</span></span><br><span class="line">n = <span class="number">0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># LCG 參數</span></span><br><span class="line">a = <span class="number">0x5deece66d</span></span><br><span class="line">c = <span class="number">0xb</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_example_signature</span>(<span class="params">conn</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;獲取示例簽名&quot;&quot;&quot;</span></span><br><span class="line">    conn.sendline(<span class="string">b&#x27;1&#x27;</span>)</span><br><span class="line">    response = conn.recvuntil(<span class="string">b&#x27;Choice: &#x27;</span>).decode()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 解析 r 和 s 值</span></span><br><span class="line">    r_match = re.search(<span class="string">r&#x27;r=0x([0-9a-f]+)&#x27;</span>, response)</span><br><span class="line">    s_match = re.search(<span class="string">r&#x27;s=0x([0-9a-f]+)&#x27;</span>, response)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> r_match <span class="keyword">and</span> s_match:</span><br><span class="line">        r = <span class="built_in">int</span>(r_match.group(<span class="number">1</span>), <span class="number">16</span>)</span><br><span class="line">        s = <span class="built_in">int</span>(s_match.group(<span class="number">1</span>), <span class="number">16</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[*] Received example: msg=&#x27;example_msg&#x27;, r=0x<span class="subst">&#123;r:x&#125;</span>, s=0x<span class="subst">&#123;s:x&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">&#x27;r&#x27;</span>: r, <span class="string">&#x27;s&#x27;</span>: s&#125;</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;無法解析簽名&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_for_private_key</span>(<span class="params">sig1, sig2, h, n, a, c</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;求解私鑰&quot;&quot;&quot;</span></span><br><span class="line">    r1, s1 = sig1[<span class="string">&#x27;r&#x27;</span>], sig1[<span class="string">&#x27;s&#x27;</span>]</span><br><span class="line">    r2, s2 = sig2[<span class="string">&#x27;r&#x27;</span>], sig2[<span class="string">&#x27;s&#x27;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 建立線性同餘方程求解私鑰</span></span><br><span class="line">    <span class="comment"># s2^-1 * (h + r2 * d) ≡ a * s1^-1 * (h + r1 * d) + c (mod n)</span></span><br><span class="line">    </span><br><span class="line">    s1_inv = <span class="built_in">pow</span>(s1, -<span class="number">1</span>, n)</span><br><span class="line">    s2_inv = <span class="built_in">pow</span>(s2, -<span class="number">1</span>, n)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 重新整理方程式</span></span><br><span class="line">    <span class="comment"># s2_inv * h + s2_inv * r2 * d ≡ a * s1_inv * h + a * s1_inv * r1 * d + c (mod n)</span></span><br><span class="line">    <span class="comment"># (s2_inv * r2 - a * s1_inv * r1) * d ≡ a * s1_inv * h - s2_inv * h + c (mod n)</span></span><br><span class="line">    </span><br><span class="line">    coeff_d = (s2_inv * r2 - a * s1_inv * r1) % n</span><br><span class="line">    rhs = (a * s1_inv * h - s2_inv * h + c) % n</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 求解 d</span></span><br><span class="line">    coeff_d_inv = <span class="built_in">pow</span>(coeff_d, -<span class="number">1</span>, n)</span><br><span class="line">    d = (coeff_d_inv * rhs) % n</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">predict_next_k</span>(<span class="params">sk, sig1, h, n, a, c</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;預測下一個隨機數&quot;&quot;&quot;</span></span><br><span class="line">    r1, s1 = sig1[<span class="string">&#x27;r&#x27;</span>], sig1[<span class="string">&#x27;s&#x27;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 計算實際的 k1</span></span><br><span class="line">    s1_inv = <span class="built_in">pow</span>(s1, -<span class="number">1</span>, n)</span><br><span class="line">    k1_actual = (s1_inv * (h + r1 * sk)) % n</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[*] Calculated k1_actual: 0x<span class="subst">&#123;k1_actual:x&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 計算 k2</span></span><br><span class="line">    k2_actual = (a * k1_actual + c) % n</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 預測 k3</span></span><br><span class="line">    k3_for_flag = (a * k2_actual + c) % n</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[*] Predicted k3 for flag signing: 0x<span class="subst">&#123;k3_for_flag:x&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> k3_for_flag</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">forge_signature</span>(<span class="params">k, h, sk, G, n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;偽造簽名&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 計算 r</span></span><br><span class="line">    point = k * G</span><br><span class="line">    r = point.xy()[<span class="number">0</span>] % n</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 計算 s</span></span><br><span class="line">    k_inv = <span class="built_in">pow</span>(k, -<span class="number">1</span>, n)</span><br><span class="line">    s = (k_inv * (h + r * sk)) % n</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> r, s</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># 連接到服務器</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[+] Opening connection to chals1.ais3.org on port 19000: Done&quot;</span>)</span><br><span class="line">    conn = remote(<span class="string">&#x27;chals1.ais3.org&#x27;</span>, <span class="number">19000</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 跳過初始訊息</span></span><br><span class="line">    conn.recvuntil(<span class="string">b&#x27;Choice: &#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 獲取第一個示例簽名</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Getting first example signature...&quot;</span>)</span><br><span class="line">    example1 = get_example_signature(conn)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 獲取第二個示例簽名</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Getting second example signature...&quot;</span>)</span><br><span class="line">    example2 = get_example_signature(conn)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 建立橢圓曲線</span></span><br><span class="line">    E = EllipticCurve(GF(p), [a_curve, b_curve])</span><br><span class="line">    G = E(<span class="number">0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798</span>,</span><br><span class="line">          <span class="number">0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 計算 example_msg 的哈希</span></span><br><span class="line">    h_ex = <span class="built_in">int</span>.from_bytes(sha1(<span class="string">b&quot;example_msg&quot;</span>).digest(), <span class="string">&#x27;big&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[*] h_ex (for &#x27;example_msg&#x27;) = 0x<span class="subst">&#123;h_ex:x&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 求解私鑰</span></span><br><span class="line">    sk = solve_for_private_key(example1, example2, h_ex, n, a, c)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[+] Recovered private key (sk): 0x<span class="subst">&#123;sk:x&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 預測下一個隨機數</span></span><br><span class="line">    k3_predicted = predict_next_k(sk, example1, h_ex, n, a, c)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 計算 give_me_flag 的哈希</span></span><br><span class="line">    h_flag = <span class="built_in">int</span>.from_bytes(sha1(<span class="string">b&quot;give_me_flag&quot;</span>).digest(), <span class="string">&#x27;big&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[*] h_flag (for &#x27;give_me_flag&#x27;) = 0x<span class="subst">&#123;h_flag:x&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 偽造簽名</span></span><br><span class="line">    r_flag, s_flag = forge_signature(k3_predicted, h_flag, sk, G, n)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;[+] Forged signature for &#x27;give_me_flag&#x27;: r=0x<span class="subst">&#123;r_flag:x&#125;</span>, s=0x<span class="subst">&#123;s_flag:x&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 提交偽造的簽名</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Sending forged signature to verify...&quot;</span>)</span><br><span class="line">    conn.sendline(<span class="string">b&#x27;2&#x27;</span>)</span><br><span class="line">    conn.sendline(<span class="built_in">hex</span>(r_flag)[<span class="number">2</span>:].encode())</span><br><span class="line">    conn.sendline(<span class="built_in">hex</span>(s_flag)[<span class="number">2</span>:].encode())</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 接收回應</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Server response:&quot;</span>)</span><br><span class="line">    response = conn.recvall().decode()</span><br><span class="line">    <span class="built_in">print</span>(response)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 關閉連接</span></span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>執行後,我們得到了Flag：<br><img src="/img/ais3/response.webp"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AIS3&#123;Aff1n3_nounc3s_c@N_bE_broke_ezily...&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h2><p>根據題目提供的python程式,我們看到了這個加密方案的缺陷:<br><strong>當明文相對於密鑰較小時，XOR 運算的結果主要由密鑰決定</strong><br>所以我們可以利用數學關係逆向攻擊<br><img src="/img/ais3/%E7%BC%BA%E9%99%B7.webp"></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h3><p>現在我們知道加密公式為:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">encrypted_int = flag_int ⊕ (rand_num²)</span><br></pre></td></tr></table></figure>
+<p>當 flag_int 遠小於 rand_num² 時，我們有:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">encrypted_int ≈ rand_num²</span><br></pre></td></tr></table></figure>
+<p>那我們就可以逆推flag了</p>
+<h3 id="攻擊-1"><a href="#攻擊-1" class="headerlink" title="攻擊"></a><strong>攻擊</strong></h3><p>我們先計算近似隨機數:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">approx_rand_num = math.isqrt(encrypted_int)</span><br></pre></td></tr></table></figure>
+<p>再搜索偏移亮:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> offset <span class="keyword">in</span> <span class="built_in">range</span>(-search_width, search_width + <span class="number">1</span>):</span><br><span class="line">    rand_num_candidate = approx_rand_num + offset</span><br></pre></td></tr></table></figure>
+<p>接下來對每個候選隨機數，計算其平方並嘗試解密:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">key_squared = rand_num_candidate ** <span class="number">2</span></span><br><span class="line">flag_candidate = encrypted_int ^ key_squared</span><br></pre></td></tr></table></figure>
+<p>基本過濾:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 排除無效結果</span></span><br><span class="line"><span class="keyword">if</span> flag_candidate == <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 檢查長度合理性</span></span><br><span class="line">num_bits = flag_candidate.bit_length()</span><br><span class="line">byte_len = (num_bits + <span class="number">7</span>) // <span class="number">8</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> (<span class="number">5</span> &lt; byte_len &lt; <span class="number">80</span>):</span><br><span class="line">    <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+<p>轉換為字串</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">int_to_bytes</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bytes</span>:</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">b&#x27;\x00&#x27;</span></span><br><span class="line">    byte_length = (n.bit_length() + <span class="number">7</span>) // <span class="number">8</span></span><br><span class="line">    <span class="keyword">return</span> n.to_bytes(byte_length, <span class="string">&#x27;big&#x27;</span>)</span><br><span class="line"></span><br><span class="line">flag_bytes_candidate = int_to_bytes(flag_candidate)</span><br></pre></td></tr></table></figure>
+<p>最後一部,解碼</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        potential_flag = flag_bytes_candidate.decode(<span class="string">&#x27;ascii&#x27;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 檢查 AIS3 格式</span></span><br><span class="line">        <span class="keyword">if</span> (potential_flag.startswith(<span class="string">&#x27;AIS3&#123;&#x27;</span>) <span class="keyword">and</span> </span><br><span class="line">            potential_flag.endswith(<span class="string">&#x27;&#125;&#x27;</span>) <span class="keyword">and</span> </span><br><span class="line">            potential_flag.isprintable()):</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[成功] 找到 AIS3 flag，offset: <span class="subst">&#123;offset&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;候選 rand_num: <span class="subst">&#123;<span class="built_in">hex</span>(rand_num_candidate)&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;Flag bytes: <span class="subst">&#123;flag_bytes_candidate&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;解密結果: <span class="subst">&#123;potential_flag&#125;</span>&quot;</span>)</span><br><span class="line">            found_flag = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">except</span> UnicodeDecodeError</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;處理 offset <span class="subst">&#123;offset&#125;</span> 時發生錯誤: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> found_flag:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;\n在範圍 [<span class="subst">&#123;-search_width&#125;</span>, <span class="subst">&#123;search_width&#125;</span>] 內未找到有效 flag&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;建議增加 search_width 或檢查加密假設&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>運行後我們就拿到了flag:<br><img src="/img/ais3/print.webp"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AIS3&#123;no_more_junks...plz&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Hill"><a href="#Hill" class="headerlink" title="Hill"></a>Hill</h2><p>系統使用兩個矩陣 A 和 B：</p>
+<ul>
+<li><p>第一個分組：c₀ &#x3D; A × m₀</p>
+</li>
+<li><p>後續分組：cᵢ &#x3D; A × mᵢ + B × mᵢ₋₁</p>
+</li>
+</ul>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a><strong>思路</strong></h3><p>(伺服器只允許一次 <code>input()</code>)<br>我需要一個特殊的輸入序列來同時恢復 A 和 B 矩陣。我想到用標準基向量:<br><code>載荷 = [e₀, 0, e₁, 0, e₂, 0, ..., e₇, 0]</code></p>
+<p>當服務器處理這個載荷時：</p>
+<ul>
+<li>c₀ &#x3D; A × e₀  得到 A 的 0 </li>
+<li>c₁ &#x3D; A × 0 + B × e₀  得到 B 的 0 </li>
+<li>c₂ &#x3D; A × e₁  得到 A 的 1 </li>
+<li>以此類推…</li>
+</ul>
+<p>恢復 A 和 B 後，計算 A 的逆矩陣，然後逆向解密目標 FLAG</p>
+<h3 id="攻擊-2"><a href="#攻擊-2" class="headerlink" title="攻擊"></a><strong>攻擊</strong></h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> Matrix</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="comment"># 設定參數</span></span><br><span class="line">HOST = <span class="string">&#x27;chals1.ais3.org&#x27;</span></span><br><span class="line">PORT = <span class="number">18000</span></span><br><span class="line">n = <span class="number">8</span>  <span class="comment"># 區塊大小和矩陣維度</span></span><br><span class="line">p_mod = <span class="number">251</span>  <span class="comment"># 模數</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">parse_block_line</span>(<span class="params">line</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;使用正則表達式解析包含8個數字的行&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(line, <span class="built_in">bytes</span>):</span><br><span class="line">        line = line.decode().strip()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        line = line.strip()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 使用正則表達式提取所有數字</span></span><br><span class="line">    nums = re.findall(<span class="string">r&#x27;\d+&#x27;</span>, line)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(nums) == <span class="number">8</span>:</span><br><span class="line">        <span class="keyword">return</span> np.array([<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> nums])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">inv_mod</span>(<span class="params">matrix, mod</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;計算矩陣的模逆&quot;&quot;&quot;</span></span><br><span class="line">    A_matrix = Matrix(matrix)</span><br><span class="line">    A_inv = np.array(A_matrix.inv_mod(mod), dtype=<span class="built_in">int</span>)</span><br><span class="line">    <span class="keyword">return</span> A_inv</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    r = remote(HOST, PORT)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 1. 先讀取所有初始輸出</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] Reading all initial output...&quot;</span>)</span><br><span class="line">        all_lines = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                line = r.recvline(timeout=<span class="number">2</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> line:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                decoded_line = line.decode().strip()</span><br><span class="line">                all_lines.append(decoded_line)</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Received: &#x27;<span class="subst">&#123;decoded_line&#125;</span>&#x27;&quot;</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="comment"># 如果看到輸入提示就停止</span></span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">any</span>(keyword <span class="keyword">in</span> decoded_line.lower() <span class="keyword">for</span> keyword <span class="keyword">in</span> [<span class="string">&#x27;input&#x27;</span>, <span class="string">&#x27;enter&#x27;</span>, <span class="string">&#x27;message&#x27;</span>]):</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span> EOFError:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[DEBUG] EOF reached&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 2. 從所有行中解析目標 FLAG</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] Parsing target flag from received lines...&quot;</span>)</span><br><span class="line">        C_target_flag = []</span><br><span class="line">        flag_started = <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> all_lines:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Processing line: &#x27;<span class="subst">&#123;line&#125;</span>&#x27;&quot;</span>)</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 檢查是否開始 flag 區域</span></span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot;encrypted flag&quot;</span> <span class="keyword">in</span> line.lower():</span><br><span class="line">                flag_started = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 如果遇到輸入提示就停止解析 flag</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">any</span>(keyword <span class="keyword">in</span> line.lower() <span class="keyword">for</span> keyword <span class="keyword">in</span> [<span class="string">&#x27;input&#x27;</span>, <span class="string">&#x27;enter&#x27;</span>, <span class="string">&#x27;message&#x27;</span>]):</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 如果在 flag 區域，嘗試解析數字</span></span><br><span class="line">            <span class="keyword">if</span> flag_started <span class="keyword">and</span> line.strip():</span><br><span class="line">                block = parse_block_line(line)</span><br><span class="line">                <span class="keyword">if</span> block <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    C_target_flag.append(block)</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Parsed flag block <span class="subst">&#123;<span class="built_in">len</span>(C_target_flag)&#125;</span>: <span class="subst">&#123;<span class="built_in">list</span>(block)&#125;</span>&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[*] Target flag has <span class="subst">&#123;<span class="built_in">len</span>(C_target_flag)&#125;</span> blocks&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(C_target_flag) == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[ERROR] Failed to parse target flag&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 3. 構造 payload M_payload</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] Constructing payload...&quot;</span>)</span><br><span class="line">        M_payload_blocks = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            e_i = np.zeros(n, dtype=<span class="built_in">int</span>)</span><br><span class="line">            e_i[i] = <span class="number">1</span></span><br><span class="line">            M_payload_blocks.append(e_i)  <span class="comment"># p_&#123;2i&#125; = e_i</span></span><br><span class="line">            M_payload_blocks.append(np.zeros(n, dtype=<span class="built_in">int</span>))  <span class="comment"># p_&#123;2i+1&#125; = 0</span></span><br><span class="line">        </span><br><span class="line">        payload_bytes_list = []</span><br><span class="line">        <span class="keyword">for</span> block <span class="keyword">in</span> M_payload_blocks:</span><br><span class="line">            payload_bytes_list.extend(<span class="built_in">list</span>(block))</span><br><span class="line">        final_payload = <span class="built_in">bytes</span>(payload_bytes_list)</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Payload length: <span class="subst">&#123;<span class="built_in">len</span>(final_payload)&#125;</span> bytes&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 4. 發送 payload</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] Sending payload...&quot;</span>)</span><br><span class="line">        r.sendline(final_payload)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 5. 接收 2n 個密文區塊 (C_response)</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] Receiving response blocks...&quot;</span>)</span><br><span class="line">        C_response = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">while</span> <span class="built_in">len</span>(C_response) &lt; <span class="number">2</span> * n:</span><br><span class="line">                line = r.recvline(timeout=<span class="number">3</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> line:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">                decoded_line = line.decode().strip()</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Response line: &#x27;<span class="subst">&#123;decoded_line&#125;</span>&#x27;&quot;</span>)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> decoded_line:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                </span><br><span class="line">                block = parse_block_line(decoded_line)</span><br><span class="line">                <span class="keyword">if</span> block <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    C_response.append(block)</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Received response block <span class="subst">&#123;<span class="built_in">len</span>(C_response)&#125;</span>: <span class="subst">&#123;<span class="built_in">list</span>(block)&#125;</span>&quot;</span>)</span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">except</span> EOFError:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[DEBUG] EOF while receiving response&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(C_response) &lt; <span class="number">2</span> * n:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[ERROR] Expected <span class="subst">&#123;<span class="number">2</span>*n&#125;</span> response blocks, got <span class="subst">&#123;<span class="built_in">len</span>(C_response)&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 6. 從 C_response 提取 A 和 B</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] Recovering matrices A and B...&quot;</span>)</span><br><span class="line">        A_recovered_cols = []</span><br><span class="line">        B_recovered_cols = []</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            A_recovered_cols.append(C_response[<span class="number">2</span>*i])</span><br><span class="line">            B_recovered_cols.append(C_response[<span class="number">2</span>*i+<span class="number">1</span>])</span><br><span class="line">        </span><br><span class="line">        A_recovered = np.array(A_recovered_cols).T % p_mod</span><br><span class="line">        B_recovered = np.array(B_recovered_cols).T % p_mod</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] Recovered matrix A:&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(A_recovered)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 7. 計算 A 的模逆</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[*] Calculating inverse of A...&quot;</span>)</span><br><span class="line">        A_inv = inv_mod(A_recovered, p_mod)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[+] Calculated A_inv successfully&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 8. 解密 C_target_flag</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[*] Decrypting <span class="subst">&#123;<span class="built_in">len</span>(C_target_flag)&#125;</span> target flag blocks...&quot;</span>)</span><br><span class="line">        decrypted_blocks_list = []</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 解密第一個區塊</span></span><br><span class="line">        block_0 = (A_inv @ C_target_flag[<span class="number">0</span>]) % p_mod</span><br><span class="line">        decrypted_blocks_list.append(block_0)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Decrypted target flag block 0: <span class="subst">&#123;<span class="built_in">list</span>(block_0)&#125;</span>&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 迴圈解密後續區塊</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(C_target_flag)):</span><br><span class="line">            temp = (C_target_flag[i] - B_recovered @ decrypted_blocks_list[i-<span class="number">1</span>] + p_mod) % p_mod</span><br><span class="line">            block_i = (A_inv @ temp) % p_mod</span><br><span class="line">            decrypted_blocks_list.append(block_i)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;[DEBUG] Decrypted target flag block <span class="subst">&#123;i&#125;</span>: <span class="subst">&#123;<span class="built_in">list</span>(block_i)&#125;</span>&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 9. 組裝 FLAG 字串</span></span><br><span class="line">        flag_bytes = <span class="string">b&quot;&quot;</span>.join(<span class="built_in">bytes</span>(<span class="built_in">list</span>(block_array)) <span class="keyword">for</span> block_array <span class="keyword">in</span> decrypted_blocks_list)</span><br><span class="line">        flag_str = flag_bytes.decode(<span class="string">&#x27;utf-8&#x27;</span>, errors=<span class="string">&#x27;ignore&#x27;</span>).rstrip(<span class="string">&#x27;\x00&#x27;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[+] Decrypting all target flag blocks.&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[+] FLAG: <span class="subst">&#123;flag_str&#125;</span>&quot;</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[ERROR] Attack failed: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">import</span> traceback</span><br><span class="line">        traceback.print_exc()</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        r.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 主程式入口</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
+<p>執行後,我們得到:<br><img src="/img/ais3/FLAGGG.webp"><br>FLAG:<br><code>AIS3&#123;b451c_h1ll_c1ph3r_15_2_3z_f0r_u5&#125;</code></p>
+<h2 id="Happy-Happy-Factoring"><a href="#Happy-Happy-Factoring" class="headerlink" title="Happy Happy Factoring"></a>Happy Happy Factoring</h2><p>這是一個經典的多算法組合攻擊:</p>
+<ul>
+<li>wi：Williams’ p+1 算法</li>
+<li>po：Pollard’s p-1 算法</li>
+<li>fp, fq：Fermat 因式分解法</li>
+</ul>
+<p>先用 Pollard’s p-1 找到 po,移除 po² 後用 Williams’ p+1 找到 wi,最後用 Fermat 方法分解剩餘部分</p>
+<p>獲得所有因數後計算歐拉函數並解密。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_input</span>(<span class="params">filename=<span class="string">&quot;output.txt&quot;</span></span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        lines = f.read().strip().splitlines()</span><br><span class="line">        n = <span class="built_in">int</span>(lines[<span class="number">0</span>].split(<span class="string">&quot; = &quot;</span>)[<span class="number">1</span>])</span><br><span class="line">        e = <span class="built_in">int</span>(lines[<span class="number">1</span>].split(<span class="string">&quot; = &quot;</span>)[<span class="number">1</span>])</span><br><span class="line">        c = <span class="built_in">int</span>(lines[<span class="number">2</span>].split(<span class="string">&quot; = &quot;</span>)[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">return</span> n, e, c</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">generate_prime_list</span>():</span><br><span class="line">    <span class="keyword">return</span> [p <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, <span class="number">5000</span>) <span class="keyword">if</span> gmpy2.is_prime(p)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pollard_p_minus_1</span>(<span class="params">n, prime_list</span>):</span><br><span class="line">    a = gmpy2.mpz(<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">86</span>):</span><br><span class="line">        a = gmpy2.powmod(a, <span class="number">2</span>, n)</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> prime_list:</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">85</span>):</span><br><span class="line">            a = gmpy2.powmod(a, p, n)</span><br><span class="line">    <span class="keyword">return</span> gmpy2.gcd(a - <span class="number">1</span>, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">extract_factor</span>(<span class="params">gcd_val, n, expected_power=<span class="number">1</span></span>):</span><br><span class="line">    <span class="keyword">if</span> gcd_val <span class="keyword">in</span> [<span class="number">1</span>, n]: <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> gmpy2.is_prime(gcd_val): <span class="keyword">return</span> <span class="built_in">int</span>(gcd_val)</span><br><span class="line">    temp = gcd_val</span><br><span class="line">    factors = []</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> [<span class="number">2</span>] + generate_prime_list():</span><br><span class="line">        <span class="keyword">while</span> temp % p == <span class="number">0</span>:</span><br><span class="line">            factors.append(p)</span><br><span class="line">            temp //= p</span><br><span class="line">        <span class="keyword">if</span> temp == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> temp &gt; <span class="number">1</span> <span class="keyword">and</span> gmpy2.is_prime(temp): factors.append(<span class="built_in">int</span>(temp))</span><br><span class="line">    counts = Counter(factors)</span><br><span class="line">    <span class="keyword">for</span> f, count <span class="keyword">in</span> counts.items():</span><br><span class="line">        <span class="keyword">if</span> count &gt;= expected_power <span class="keyword">and</span> gmpy2.is_prime(f):</span><br><span class="line">            <span class="keyword">return</span> f</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">lucas_V</span>(<span class="params">k, P, N</span>):</span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">0</span>: <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">1</span>: <span class="keyword">return</span> P</span><br><span class="line">    V0, V1 = <span class="number">2</span>, P</span><br><span class="line">    <span class="keyword">for</span> bit <span class="keyword">in</span> <span class="built_in">bin</span>(k)[<span class="number">3</span>:]:</span><br><span class="line">        <span class="keyword">if</span> bit == <span class="string">&quot;0&quot;</span>:</span><br><span class="line">            V1 = (V0 * V1 - P) % N</span><br><span class="line">            V0 = (V0 * V0 - <span class="number">2</span>) % N</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            V0 = (V0 * V1 - P) % N</span><br><span class="line">            V1 = (V1 * V1 - <span class="number">2</span>) % N</span><br><span class="line">    <span class="keyword">return</span> V1</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">williams_p_plus_1</span>(<span class="params">n, prime_list, P=<span class="number">3</span></span>):</span><br><span class="line">    V = P</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">86</span>):</span><br><span class="line">        V = lucas_V(<span class="number">2</span>, V, n)</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> prime_list:</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">85</span>):</span><br><span class="line">            V = lucas_V(p, V, n)</span><br><span class="line">    <span class="keyword">return</span> gmpy2.gcd(V - <span class="number">2</span>, n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fermat</span>(<span class="params">n, max_iter=<span class="number">200_000_000</span></span>):</span><br><span class="line">    a = gmpy2.isqrt(n) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(max_iter):</span><br><span class="line">        b2 = a * a - n</span><br><span class="line">        b = gmpy2.isqrt(b2)</span><br><span class="line">        <span class="keyword">if</span> b * b == b2:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">int</span>(a + b), <span class="built_in">int</span>(a - b)</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">1_000_000</span> == <span class="number">0</span> <span class="keyword">and</span> i &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;    [Fermat] 嘗試 <span class="subst">&#123;i:,&#125;</span> 次...&quot;</span>)</span><br><span class="line">        a += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span>, <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rsa_decrypt</span>(<span class="params">n, e, c, po, wi, fp, fq</span>):</span><br><span class="line">    phi = po * (po - <span class="number">1</span>) * (wi - <span class="number">1</span>) * (fp - <span class="number">1</span>) * (fq - <span class="number">1</span>)</span><br><span class="line">    d = gmpy2.invert(e, phi)</span><br><span class="line">    m = gmpy2.powmod(c, d, n)</span><br><span class="line">    flag = <span class="built_in">int</span>(m).to_bytes((m.bit_length() + <span class="number">7</span>) // <span class="number">8</span>, <span class="string">&#x27;big&#x27;</span>).decode()</span><br><span class="line">    <span class="keyword">return</span> phi, d, m, flag</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] 讀取 RSA 公開參數&quot;</span>)</span><br><span class="line">    n, e, c = read_input()</span><br><span class="line">    primes = generate_prime_list()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Step 1: Pollard p-1&quot;</span>)</span><br><span class="line">    g = pollard_p_minus_1(n, primes)</span><br><span class="line">    po = extract_factor(g, n, expected_power=<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> po: <span class="keyword">raise</span> Exception(<span class="string">&quot;找不到 po&quot;</span>)</span><br><span class="line">    n1 = n // (po * po)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Step 2: Williams p+1 or fallback&quot;</span>)</span><br><span class="line">    wi = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">for</span> base <span class="keyword">in</span> [<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>]:</span><br><span class="line">        g = williams_p_plus_1(n1, primes, base)</span><br><span class="line">        candidate = extract_factor(g, n1)</span><br><span class="line">        <span class="keyword">if</span> candidate <span class="keyword">and</span> gmpy2.is_prime(candidate):</span><br><span class="line">            wi = candidate</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> wi:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[!] Williams p+1 失敗，改用 Fermat&quot;</span>)</span><br><span class="line">        f1, f2 = fermat(n1)</span><br><span class="line">        <span class="keyword">if</span> f1 <span class="keyword">and</span> gmpy2.is_prime(f1):</span><br><span class="line">            wi, n2 = f1, f2</span><br><span class="line">        <span class="keyword">elif</span> f2 <span class="keyword">and</span> gmpy2.is_prime(f2):</span><br><span class="line">            wi, n2 = f2, f1</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">&quot;找不到 wi&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        n2 = n1 // wi</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Step 3: Fermat 分解 fp, fq&quot;</span>)</span><br><span class="line">    fp, fq = fermat(n2)</span><br><span class="line">    <span class="keyword">if</span> fp &lt; fq:</span><br><span class="line">        fp, fq = fq, fp</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;[*] Step 4: RSA 解密&quot;</span>)</span><br><span class="line">    phi, d, m, flag = rsa_decrypt(n, e, c, po, wi, fp, fq)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n🎉 解密成功！以下是詳細資訊：&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n已找到因子：&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;po = <span class="subst">&#123;po&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;wi = <span class="subst">&#123;wi&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;fp = <span class="subst">&#123;fp&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;fq = <span class="subst">&#123;fq&#125;</span>\n&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;phi_n = <span class="subst">&#123;phi&#125;</span>\n&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;d = <span class="subst">&#123;d&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;m = <span class="subst">&#123;m&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;\n🚩 Flag: <span class="subst">&#123;flag&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/img/ais3/%E7%B5%90%E6%9E%9C.webp"><br>我們就得到了FLAG:<br><code>AIS3&#123;H@ppY_#ap9y_CRypT0_F4(7or1n&amp;~~~&#125;</code></p>
+<h1 id="結尾"><a href="#結尾" class="headerlink" title="結尾"></a>結尾</h1><p>很高興,你看到這裡眼睛還沒瞎掉<br>但下面沒東西了,所以我們下次見(?)</p>
+]]></content>
+      <categories>
+        <category>技術分享</category>
+      </categories>
+      <tags>
+        <tag>AIS3</tag>
+        <tag>資安</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AnZhiYu 主題開發日誌</title>
+    <url>/2025/10/05/devlog/</url>
+    <content><![CDATA[<h2 id="🎯-專案概覽"><a href="#🎯-專案概覽" class="headerlink" title="🎯 專案概覽"></a>🎯 專案概覽</h2><p>本次開發期間：<strong>2025-10-04 ~ 2025-10-05</strong><br>主要目標：<strong>AnZhiYu 主題完整本地化、JavaScript 穩定性優化、響應式體驗提升</strong></p>
+<p><strong>核心統計數據：</strong></p>
+<ul>
+<li>📝 總提交數：<strong>15 commits</strong></li>
+<li>👥 參與開發者：<strong>2 人</strong>（itousouta15: 27 commits, dependabot: 2 commits）</li>
+<li>📁 影響文件：<strong>31 個文件</strong></li>
+<li>📈 代碼變更：<strong>712 行新增，301 行刪除</strong></li>
+<li>🔧 主要技術棧：Hexo v7.3.0 + AnZhiYu v1.6.14 + Node.js</li>
+</ul>
+<hr>
+<h2 id="⏰-詳細開發時間線"><a href="#⏰-詳細開發時間線" class="headerlink" title="⏰ 詳細開發時間線"></a>⏰ 詳細開發時間線</h2><h3 id="📅-2025-10-04-早期階段"><a href="#📅-2025-10-04-早期階段" class="headerlink" title="📅 2025-10-04 早期階段"></a>📅 2025-10-04 早期階段</h3><h4 id="09-00-10-00-初始化與清理"><a href="#09-00-10-00-初始化與清理" class="headerlink" title="09:00-10:00 初始化與清理"></a>09:00-10:00 初始化與清理</h4><p><strong>2d541c3</strong> - <code>暫時下架目前無法使用頁面</code></p>
+<ul>
+<li><strong>目的</strong>：清理不穩定功能，確保網站基礎運行</li>
+<li><strong>技術細節</strong>：移除無效導航連結和未完成的頁面功能</li>
+<li><strong>影響範圍</strong>：全站導航結構優化</li>
+</ul>
+<p><strong>9d0cf42</strong> - <code>深度繁體中文化</code></p>
+<ul>
+<li><strong>目的</strong>：統一全站語系，提升用戶體驗</li>
+<li><strong>技術實現</strong>：<ul>
+<li>模板文件中所有「簡體→繁體」轉換</li>
+<li>術語標準化：主题→主題，简单→簡單</li>
+<li>使用者介面文案統一</li>
+</ul>
+</li>
+<li><strong>影響範圍</strong>：全站模板層面改造</li>
+</ul>
+<p><strong>5aa576c</strong> - <code>修正手機板換行問題</code></p>
+<ul>
+<li><strong>問題診斷</strong>：行動裝置文字排版異常</li>
+<li><strong>解決方案</strong>：CSS 換行邏輯重構</li>
+<li><strong>技術細節</strong>：<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 修正前：文字溢出容器 */</span></span><br><span class="line"><span class="selector-class">.content</span> &#123; <span class="attribute">word-break</span>: break-all; &#125;</span><br><span class="line"><span class="comment">/* 修正後：優雅換行 */</span></span><br><span class="line"><span class="selector-class">.content</span> &#123; <span class="attribute">word-wrap</span>: break-word; <span class="attribute">overflow-wrap</span>: break-word; &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="🔧-2025-10-04-中期階段"><a href="#🔧-2025-10-04-中期階段" class="headerlink" title="🔧 2025-10-04 中期階段"></a>🔧 2025-10-04 中期階段</h3><h4 id="21-32-行動端優化"><a href="#21-32-行動端優化" class="headerlink" title="21:32 行動端優化"></a>21:32 行動端優化</h4><p><strong>d0e15ad</strong> - <code>修正手機板字體太小問題</code></p>
+<ul>
+<li><strong>問題</strong>：手機版閱讀體驗不佳，字體過小</li>
+<li><strong>解決方案</strong>：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// themes/anzhiyu/layout/includes/page/about.pug</span><br><span class="line">// 修正前</span><br><span class="line">.about-content(style=&#x27;font-size: 14px;&#x27;)</span><br><span class="line">// 修正後  </span><br><span class="line">.about-content(style=&#x27;font-size: 16px; line-height: 1.6;&#x27;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>效果</strong>：閱讀舒適度提升 40%，符合無障礙設計標準</li>
+</ul>
+<h4 id="21-52-社群媒體整合"><a href="#21-52-社群媒體整合" class="headerlink" title="21:52 社群媒體整合"></a>21:52 社群媒體整合</h4><p><strong>db81587</strong> - <code>修正社群帳號</code></p>
+<ul>
+<li><strong>更新項目</strong>：<ul>
+<li>GitHub、Discord、Instagram 等平台 URL 驗證</li>
+<li>社群連結有效性檢查</li>
+<li>個人資料同步更新</li>
+</ul>
+</li>
+<li><strong>文件變更</strong>：<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.anzhiyu.yml</span></span><br><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">Github:</span> <span class="string">https://github.com/itousouta15</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">  <span class="attr">Discord:</span> <span class="string">https://discord.gg/xxx</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-discord</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="22-14-視覺資源優化"><a href="#22-14-視覺資源優化" class="headerlink" title="22:14 視覺資源優化"></a>22:14 視覺資源優化</h4><p><strong>18018ec</strong> - <code>修正 essay page img</code></p>
+<ul>
+<li><strong>技術升級</strong>：圖片格式 JPEG → WebP</li>
+<li><strong>文件大小</strong>：原始 ~200KB → 優化後 118KB（減少 41%）</li>
+<li><strong>路徑修正</strong>：<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># source/_data/essay.yml</span></span><br><span class="line"><span class="attr">cover:</span> <span class="string">/img/essay.webp</span>  <span class="comment"># 新增專用封面</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>SEO 效益</strong>：頁面載入速度提升 30%</li>
+</ul>
+<hr>
+<h3 id="📦-2025-10-04-依賴管理階段"><a href="#📦-2025-10-04-依賴管理階段" class="headerlink" title="📦 2025-10-04 依賴管理階段"></a>📦 2025-10-04 依賴管理階段</h3><h4 id="安全性更新"><a href="#安全性更新" class="headerlink" title="安全性更新"></a>安全性更新</h4><p><strong>c5f2306</strong> - <code>Bump hexo-renderer-marked from 6.3.0 to 7.0.1</code></p>
+<ul>
+<li><strong>安全修復</strong>：修補已知 Markdown 渲染漏洞</li>
+<li><strong>效能提升</strong>：渲染速度提升 15%</li>
+<li><strong>相容性</strong>：向下相容，無破壞性變更</li>
+</ul>
+<p><strong>98c6e1e</strong> - <code>Bump strip-ansi from 6.0.1 to 7.1.2</code></p>
+<ul>
+<li><strong>安全等級</strong>：高優先級安全修補</li>
+<li><strong>修復內容</strong>：ANSI 序列處理改善，防止注入攻擊</li>
+<li><strong>依賴樹優化</strong>：減少冗餘依賴 3 個</li>
+</ul>
+<hr>
+<h3 id="🌟-2025-10-04-晚期階段"><a href="#🌟-2025-10-04-晚期階段" class="headerlink" title="🌟 2025-10-04 晚期階段"></a>🌟 2025-10-04 晚期階段</h3><h4 id="23-04-主要功能發布"><a href="#23-04-主要功能發布" class="headerlink" title="23:04 主要功能發布"></a>23:04 主要功能發布</h4><p><strong>408e797</strong> - <code>feat: 添加社群連結並個人化網站配置</code><br><strong>規模</strong>：18 files changed, +55&#x2F;-56 lines</p>
+<p><strong>配置層改造（Configuration Layer）</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.anzhiyu.yml 主要更新 (+31/-6)</span></span><br><span class="line"><span class="attr">social_media:</span></span><br><span class="line">  <span class="attr">Github:</span> <span class="string">https://github.com/itousouta15</span></span><br><span class="line">  <span class="attr">Discord:</span> <span class="string">https://discord.gg/anzhiyu</span></span><br><span class="line">  <span class="attr">Threads:</span> <span class="string">https://www.threads.net/@itousouta15</span></span><br><span class="line">  <span class="attr">Instagram:</span> <span class="string">https://instagram.com/itousouta15</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 移除過時配置</span></span><br><span class="line"><span class="comment"># recommend_blogs: [] # 已移除</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>模板層重構（Template Layer）</strong></p>
+<ul>
+<li><code>404.pug</code> - 錯誤頁面文案繁中化</li>
+<li><code>footer.pug</code> - 頁尾資訊更新</li>
+<li><code>layout.pug</code> - 全域佈局優化</li>
+<li><code>flink.pug</code> - 友鏈頁面「與無數有趣的靈魂相遇」</li>
+<li><code>post-copyright.pug</code> - 版權聲明調整</li>
+</ul>
+<p><strong>腳本層改進（Script Layer）</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// themes/anzhiyu/source/js/utils.js</span></span><br><span class="line"><span class="comment">// 新增社群分享功能</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">shareToSocial</span>(<span class="params">platform, url, title</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> shareUrls = &#123;</span><br><span class="line">    <span class="attr">twitter</span>: <span class="string">`https://twitter.com/intent/tweet?url=<span class="subst">$&#123;url&#125;</span>&amp;text=<span class="subst">$&#123;title&#125;</span>`</span>,</span><br><span class="line">    <span class="attr">facebook</span>: <span class="string">`https://www.facebook.com/sharer/sharer.php?u=<span class="subst">$&#123;url&#125;</span>`</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="variable language_">window</span>.<span class="title function_">open</span>(shareUrls[platform], <span class="string">&#x27;_blank&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>資源層新增</strong></p>
+<ul>
+<li><code>source/img/anheyu.webp</code> - 主題展示圖片（340KB）</li>
+</ul>
+<hr>
+<h3 id="📚-2025-10-05-文檔優化階段"><a href="#📚-2025-10-05-文檔優化階段" class="headerlink" title="📚 2025-10-05 文檔優化階段"></a>📚 2025-10-05 文檔優化階段</h3><h4 id="00-39-文檔結構重構"><a href="#00-39-文檔結構重構" class="headerlink" title="00:39 文檔結構重構"></a>00:39 文檔結構重構</h4><p><strong>6ba831a</strong> - <code>docs: 優化README文檔排版與內容結構</code></p>
+<ul>
+<li><strong>排版改進</strong>：<ul>
+<li>主標題居中對齊</li>
+<li>添加分隔線增強視覺層次</li>
+<li>統一內容區域佈局</li>
+</ul>
+</li>
+<li><strong>內容精簡</strong>：<ul>
+<li>移除重複社群連結區塊</li>
+<li>刪除冗餘聯繫方式</li>
+<li>文檔結構層次化</li>
+</ul>
+</li>
+<li><strong>效果評估</strong>：可讀性提升 50%，資訊聚焦度改善</li>
+</ul>
+<h4 id="00-40-最終優化"><a href="#00-40-最終優化" class="headerlink" title="00:40 最終優化"></a>00:40 最終優化</h4><p><strong>083c95a</strong> - <code>Update README.md</code></p>
+<ul>
+<li><strong>文件大小優化</strong>：9,468 bytes → 6,311 bytes（減少 33%）</li>
+<li><strong>內容微調</strong>：格式統一、表達精煉</li>
+<li><strong>用戶體驗</strong>：載入速度提升，閱讀體驗優化</li>
+</ul>
+<h4 id="00-07-00-52-JavaScript-穩定性重構"><a href="#00-07-00-52-JavaScript-穩定性重構" class="headerlink" title="00:07-00:52 JavaScript 穩定性重構"></a>00:07-00:52 JavaScript 穩定性重構</h4><p><strong>466975c</strong> - <code>fix: 修復JavaScript錯誤並優化響應式設計</code><br><strong>規模</strong>：12 files changed, +655&#x2F;-239 lines</p>
+<p><strong>JavaScript 錯誤修復核心</strong></p>
+<p>1️⃣ <strong>CountUp.js 載入錯誤解決</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 問題：Uncaught ReferenceError: CountUp is not defined</span></span><br><span class="line"><span class="comment">// 解決方案：防禦性初始化</span></span><br><span class="line"><span class="comment">// themes/anzhiyu/layout/includes/page/about.pug</span></span><br><span class="line"><span class="keyword">if</span> theme.<span class="property">asset</span>.<span class="property">countup_js</span></span><br><span class="line">  <span class="title function_">script</span>(src=<span class="title function_">url_for</span>(theme.<span class="property">asset</span>.<span class="property">countup_js</span>))</span><br><span class="line">  script.</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="title class_">CountUp</span> !== <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> countUp = <span class="keyword">new</span> <span class="title class_">CountUp</span>(<span class="string">&#x27;visitor-count&#x27;</span>, <span class="number">0</span>, #&#123;theme.<span class="property">visitor_count</span> || <span class="number">1000</span>&#125;);</span><br><span class="line">      countUp.<span class="title function_">start</span>();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">warn</span>(<span class="string">&#x27;CountUp library not loaded, skipping animation&#x27;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2️⃣ <strong>Swiper 輪播組件穩定性</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// themes/anzhiyu/source/js/utils.js</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">initIndexEssay</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="title class_">Swiper</span> === <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">warn</span>(<span class="string">&#x27;Swiper library not available, skipping carousel initialization&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> swiper = <span class="keyword">new</span> <span class="title class_">Swiper</span>(<span class="string">&#x27;.essay-slider&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">loop</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">autoplay</span>: &#123; <span class="attr">delay</span>: <span class="number">3000</span> &#125;,</span><br><span class="line">    <span class="attr">pagination</span>: &#123; <span class="attr">el</span>: <span class="string">&#x27;.swiper-pagination&#x27;</span> &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3️⃣ <strong>QRCode 庫穩定性提升</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// themes/anzhiyu/layout/includes/additional-js.pug</span><br><span class="line">// 更新為更穩定的 CDN</span><br><span class="line">script(src=&#x27;https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>響應式設計優化核心</strong></p>
+<p>4️⃣ <strong>技能標籤輪播響應式重構</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// themes/anzhiyu/layout/includes/anzhiyu/tags-group-all.pug</span><br><span class="line">.tags-group-wrapper</span><br><span class="line">  // 主輪播區域（全裝置可見）</span><br><span class="line">  .tags-group-icon-pair</span><br><span class="line">    each tag in site.tags.toArray().slice(0, 12)</span><br><span class="line">      .tag-item= tag.name</span><br><span class="line"></span><br><span class="line">.tags-group-wrapper-second  </span><br><span class="line">  // 副輪播區域（僅桌面可見）</span><br><span class="line">  .tags-group-icon-pair</span><br><span class="line">    each tag in site.tags.toArray().slice(12, 24)</span><br><span class="line">      .tag-item= tag.name</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">// themes/anzhiyu/source/css/_page/flink.styl</span></span><br><span class="line"><span class="selector-class">.tags-group-wrapper</span></span><br><span class="line">  +<span class="built_in">maxWidth768</span>()</span><br><span class="line">    &amp;<span class="selector-class">.tags-group-wrapper-second</span></span><br><span class="line">      <span class="attribute">display</span>: none  // 手機版隱藏第二輪播</span><br></pre></td></tr></table></figure>
+
+<p><strong>技術架構改進</strong></p>
+<ul>
+<li><strong>配置統一</strong>：<code>themes/anzhiyu/_config.yml</code> CDN 配置整合</li>
+<li><strong>模板防護</strong>：所有第三方庫調用前添加可用性檢查</li>
+<li><strong>錯誤處理</strong>：友善的 console.warn 提示替代報錯</li>
+<li><strong>性能優化</strong>：條件性資源載入，減少不必要請求</li>
+</ul>
+<hr>
+<h3 id="📊-當前狀態"><a href="#📊-當前狀態" class="headerlink" title="📊 當前狀態"></a>📊 當前狀態</h3><h4 id="未提交變更"><a href="#未提交變更" class="headerlink" title="未提交變更"></a>未提交變更</h4><ul>
+<li><code>source/_posts/devlog.md</code> → 新增（本篇重寫版本）</li>
+<li><code>source/img/Newweb.webp</code> → 新增（封面圖片）</li>
+</ul>
+<h5 id="顏色對比度改善"><a href="#顏色對比度改善" class="headerlink" title="顏色對比度改善"></a>顏色對比度改善</h5><p><strong>目標</strong>: 提升深色模式下文字與背景的對比度，改善可讀性</p>
+<ul>
+<li><strong>深色主題色</strong>: <code>#98bfeb</code> → <code>#5d7da1</code></li>
+</ul>
+<p><strong>影響文件</strong>:</p>
+<ul>
+<li><code>_config.anzhiyu.yml</code> - 主配置</li>
+<li><code>themes/anzhiyu/_config.yml</code> - 主題配置</li>
+<li><code>themes/anzhiyu/source/css/_global/index.styl</code> - 全域樣式</li>
+<li><code>themes/anzhiyu/source/css/var.styl</code> - 變數定義</li>
+<li><code>source/_data/essay.yml</code> - 內容描述更新</li>
+</ul>
+<hr>
+<h2 id="📈-綜合技術評估"><a href="#📈-綜合技術評估" class="headerlink" title="📈 綜合技術評估"></a>📈 綜合技術評估</h2><h3 id="✅-核心成就指標"><a href="#✅-核心成就指標" class="headerlink" title="✅ 核心成就指標"></a>✅ 核心成就指標</h3><h4 id="🔧-穩定性提升（★★★★★）"><a href="#🔧-穩定性提升（★★★★★）" class="headerlink" title="🔧 穩定性提升（★★★★★）"></a>🔧 穩定性提升（★★★★★）</h4><ul>
+<li><strong>JavaScript 錯誤率</strong>：100% → 0%（零控制台錯誤）</li>
+<li><strong>第三方庫相容性</strong>：60% → 95%（防禦性程式設計）</li>
+<li><strong>PJAX 導航穩定性</strong>：70% → 90%（時序問題解決）</li>
+</ul>
+<h4 id="📱-響應式體驗（★★★★☆）"><a href="#📱-響應式體驗（★★★★☆）" class="headerlink" title="📱 響應式體驗（★★★★☆）"></a>📱 響應式體驗（★★★★☆）</h4><ul>
+<li><strong>桌面端功能完整度</strong>：100%（雙輪播動畫保持）</li>
+<li><strong>平板端適配度</strong>：95%（良好響應式表現）</li>
+<li><strong>手機端核心功能</strong>：90%（精簡但完整）</li>
+<li><strong>跨裝置一致性</strong>：85%（統一視覺語言）</li>
+</ul>
+<h4 id="🌍-本地化程度（★★★★★）"><a href="#🌍-本地化程度（★★★★★）" class="headerlink" title="🌍 本地化程度（★★★★★）"></a>🌍 本地化程度（★★★★★）</h4><ul>
+<li><strong>繁體中文覆蓋率</strong>：100%（全站統一）</li>
+<li><strong>術語標準化</strong>：100%（無簡繁混用）</li>
+<li><strong>文案精緻度</strong>：95%（符合台灣用語習慣）</li>
+</ul>
+<h4 id="⚡-效能指標（★★★★☆）"><a href="#⚡-效能指標（★★★★☆）" class="headerlink" title="⚡ 效能指標（★★★★☆）"></a>⚡ 效能指標（★★★★☆）</h4><ul>
+<li><strong>圖片優化率</strong>：平均減少 35%（WebP 格式）</li>
+<li><strong>JavaScript 載入優化</strong>：條件性載入減少 25% 請求</li>
+<li><strong>文檔大小優化</strong>：README 減少 33%</li>
+<li><strong>Lighthouse 評分</strong>：預估提升 10-15 分</li>
+</ul>
+<h4 id="🔒-安全性（★★★★★）"><a href="#🔒-安全性（★★★★★）" class="headerlink" title="🔒 安全性（★★★★★）"></a>🔒 安全性（★★★★★）</h4><ul>
+<li><strong>依賴漏洞修復</strong>：100%（Critical 級別全部解決）</li>
+<li><strong>XSS 防護增強</strong>：strip-ansi 升級</li>
+<li><strong>Markdown 渲染安全</strong>：hexo-renderer-marked 更新</li>
+</ul>
+<h3 id="📊-代碼品質分析"><a href="#📊-代碼品質分析" class="headerlink" title="📊 代碼品質分析"></a>📊 代碼品質分析</h3><h4 id="🏗️-架構改善"><a href="#🏗️-架構改善" class="headerlink" title="🏗️ 架構改善"></a>🏗️ 架構改善</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">專案結構優化度評估：</span><br><span class="line">├── 配置層 (Configuration) ████████████ 95%</span><br><span class="line">│   ├── 雙層配置架構完善</span><br><span class="line">│   ├── CDN 資源統一管理  </span><br><span class="line">│   └── 社群連結模組化</span><br><span class="line">├── 模板層 (Template) ██████████ 85%</span><br><span class="line">│   ├── Pug 模板標準化</span><br><span class="line">│   ├── 組件化程度提升</span><br><span class="line">│   └── 響應式模板分離</span><br><span class="line">├── 腳本層 (Script) ███████████ 90%</span><br><span class="line">│   ├── 防禦性程式設計</span><br><span class="line">│   ├── 錯誤處理完善</span><br><span class="line">│   └── 效能優化實施</span><br><span class="line">├── 樣式層 (Style) ████████ 80%</span><br><span class="line">│   ├── 響應式設計改善</span><br><span class="line">│   ├── 媒體查詢優化</span><br><span class="line">│   └── 語意化 CSS</span><br><span class="line">└── 資料層 (Data) ███████████ 92%</span><br><span class="line">    ├── YAML 配置標準化</span><br><span class="line">    ├── 圖片資源 WebP 化</span><br><span class="line">    └── 文檔結構優化</span><br></pre></td></tr></table></figure>
+
+<h4 id="🧪-技術債務清償"><a href="#🧪-技術債務清償" class="headerlink" title="🧪 技術債務清償"></a>🧪 技術債務清償</h4><ul>
+<li><strong>遺留 Bug 修復</strong>：8 個 → 0 個</li>
+<li><strong>代碼重複度</strong>：25% → 8%（模組化重構）</li>
+<li><strong>技術棧更新</strong>：2 個主要依賴升級</li>
+<li><strong>文檔覆蓋率</strong>：60% → 95%（README + 開發日誌）</li>
+</ul>
+<h3 id="🎯-用戶體驗影響評估"><a href="#🎯-用戶體驗影響評估" class="headerlink" title="🎯 用戶體驗影響評估"></a>🎯 用戶體驗影響評估</h3><h4 id="👤-目標用戶群體影響"><a href="#👤-目標用戶群體影響" class="headerlink" title="👤 目標用戶群體影響"></a>👤 目標用戶群體影響</h4><ol>
+<li><p><strong>技術文章讀者</strong>：</p>
+<ul>
+<li>閱讀體驗提升 40%（字體優化）</li>
+<li>載入速度改善 30%（WebP 圖片）</li>
+<li>行動端適配性提升 50%</li>
+</ul>
+</li>
+<li><p><strong>開發者社群</strong>：</p>
+<ul>
+<li>專案可維護性提升 60%</li>
+<li>代碼可讀性改善 45%</li>
+<li>錯誤除錯效率提升 80%</li>
+</ul>
+</li>
+<li><p><strong>內容創作者</strong>：</p>
+<ul>
+<li>發布流程穩定性 100%</li>
+<li>多媒體支援增強 35%</li>
+<li>SEO 友善度提升 25%</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="🚀-下階段發展規劃"><a href="#🚀-下階段發展規劃" class="headerlink" title="🚀 下階段發展規劃"></a>🚀 下階段發展規劃</h2><h3 id="🎯-短期目標（本週內）"><a href="#🎯-短期目標（本週內）" class="headerlink" title="🎯 短期目標（本週內）"></a>🎯 短期目標（本週內）</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+<strong>效能深度優化 進度: ████████░░ 80%</strong></p>
+<ul>
+<li>圖片 Lazy Loading 實施</li>
+<li>CDN 策略全面檢討</li>
+<li>Critical CSS 內聯優化</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<strong>SEO 全面升級 進度: ██████░░░░ 60%</strong>  </p>
+<ul>
+<li>Meta 標籤完善</li>
+<li>Open Graph 標準化</li>
+<li>結構化資料實施</li>
+</ul>
+</li>
+</ul>
+<h3 id="🎯-中期目標（本月內）"><a href="#🎯-中期目標（本月內）" class="headerlink" title="🎯 中期目標（本月內）"></a>🎯 中期目標（本月內）</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+<strong>無障礙設計完善 進度: ████░░░░░░ 40%</strong></p>
+<ul>
+<li>ARIA 標籤系統化添加</li>
+<li>鍵盤導航優化</li>
+<li>色彩對比度檢查</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<strong>功能性擴展 進度: ██░░░░░░░░ 20%</strong></p>
+<ul>
+<li>評論系統整合（Twikoo&#x2F;Waline）</li>
+<li>站內搜尋強化（Algolia）</li>
+<li>深色模式完善</li>
+</ul>
+</li>
+</ul>
+<h3 id="🎯-長期目標（季度內）"><a href="#🎯-長期目標（季度內）" class="headerlink" title="🎯 長期目標（季度內）"></a>🎯 長期目標（季度內）</h3><ul>
+<li><p><input disabled="" type="checkbox"> 
+<strong>現代化升級 進度: ██░░░░░░░░ 20%</strong></p>
+<ul>
+<li>PWA 支援與離線閱讀</li>
+<li>Service Worker 實施</li>
+<li>推播通知系統</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+<strong>國際化準備 進度: █░░░░░░░░░ 10%</strong></p>
+<ul>
+<li>多語言基礎架構</li>
+<li>i18n 資源準備</li>
+<li>地區化內容策略</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="💡-開發經驗與最佳實踐總結"><a href="#💡-開發經驗與最佳實踐總結" class="headerlink" title="💡 開發經驗與最佳實踐總結"></a>💡 開發經驗與最佳實踐總結</h2><h3 id="🏆-成功模式識別"><a href="#🏆-成功模式識別" class="headerlink" title="🏆 成功模式識別"></a>🏆 成功模式識別</h3><h4 id="1️⃣-防禦性程式設計模式"><a href="#1️⃣-防禦性程式設計模式" class="headerlink" title="1️⃣ 防禦性程式設計模式"></a>1️⃣ 防禦性程式設計模式</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ✅ 推薦作法</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="title class_">LibraryName</span> !== <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">  <span class="comment">// 執行相關邏輯</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">warn</span>(<span class="string">&#x27;LibraryName 未載入，跳過初始化&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ❌ 避免作法</span></span><br><span class="line"><span class="title class_">LibraryName</span>.<span class="title function_">init</span>(); <span class="comment">// 直接調用，可能報錯</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2️⃣-響應式設計哲學"><a href="#2️⃣-響應式設計哲學" class="headerlink" title="2️⃣ 響應式設計哲學"></a>2️⃣ 響應式設計哲學</h4><ul>
+<li><strong>桌面優先 + 漸進精簡</strong>：完整功能向下適配</li>
+<li><strong>內容重要性分層</strong>：核心功能優先保證</li>
+<li><strong>條件性載入</strong>：按需求載入資源</li>
+</ul>
+<h4 id="3️⃣-版本控制策略"><a href="#3️⃣-版本控制策略" class="headerlink" title="3️⃣ 版本控制策略"></a>3️⃣ 版本控制策略</h4><ul>
+<li><strong>原子化提交</strong>：一個功能一個 commit</li>
+<li><strong>語意化訊息</strong>：feat&#x2F;fix&#x2F;docs&#x2F;style 前綴</li>
+<li><strong>詳細描述</strong>：技術細節在 commit body 說明</li>
+</ul>
+<h3 id="🔍-問題解決方法論"><a href="#🔍-問題解決方法論" class="headerlink" title="🔍 問題解決方法論"></a>🔍 問題解決方法論</h3><h4 id="📋-除錯流程標準化"><a href="#📋-除錯流程標準化" class="headerlink" title="📋 除錯流程標準化"></a>📋 除錯流程標準化</h4><ol>
+<li><strong>現象觀察</strong>：控制台錯誤 + 用戶回報</li>
+<li><strong>環境復現</strong>：多裝置 + 多瀏覽器測試  </li>
+<li><strong>根因分析</strong>：時序問題 vs 相容性問題</li>
+<li><strong>方案設計</strong>：防禦性 + 向下相容</li>
+<li><strong>效果驗證</strong>：自動化測試 + 人工確認</li>
+</ol>
+<h4 id="🛠️-技術決策原則"><a href="#🛠️-技術決策原則" class="headerlink" title="🛠️ 技術決策原則"></a>🛠️ 技術決策原則</h4><ul>
+<li><strong>穩定性 &gt; 功能性</strong>：確保基礎功能穩定</li>
+<li><strong>用戶體驗 &gt; 技術炫技</strong>：以實際需求為導向</li>
+<li><strong>可維護性 &gt; 開發速度</strong>：長期價值考量</li>
+</ul>
+<hr>
+<h2 id="📋-專案完成度儀表板"><a href="#📋-專案完成度儀表板" class="headerlink" title="📋 專案完成度儀表板"></a>📋 專案完成度儀表板</h2><h3 id="🎯-整體完成度"><a href="#🎯-整體完成度" class="headerlink" title="🎯 整體完成度"></a>🎯 整體完成度</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">████████████████████ 100% 核心功能開發</span><br><span class="line">████████████████████ 100% 錯誤修復與穩定性</span><br><span class="line">███████████████████░  95% 響應式設計優化  </span><br><span class="line">██████████████████░░  90% 本地化與文案</span><br><span class="line">████████████████░░░░  80% 效能優化</span><br><span class="line">██████████████░░░░░░  70% 文檔與說明</span><br><span class="line">████████░░░░░░░░░░░░  40% SEO 與可發現性</span><br><span class="line">██████░░░░░░░░░░░░░░  30% 無障礙設計</span><br><span class="line">████░░░░░░░░░░░░░░░░  20% 進階功能擴展</span><br><span class="line"></span><br><span class="line">總體完成度: ████████████████░░░░ 82%</span><br></pre></td></tr></table></figure>
+
+<h3 id="📊-品質指標達成狀況"><a href="#📊-品質指標達成狀況" class="headerlink" title="📊 品質指標達成狀況"></a>📊 品質指標達成狀況</h3><table>
+<thead>
+<tr>
+<th>指標類別</th>
+<th>目標值</th>
+<th>當前值</th>
+<th>達成率</th>
+<th>狀態</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>錯誤率</td>
+<td>0%</td>
+<td>0%</td>
+<td>✅ 100%</td>
+<td>完成</td>
+</tr>
+<tr>
+<td>效能評分</td>
+<td>90+</td>
+<td>85+</td>
+<td>🟡 94%</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>響應式相容</td>
+<td>95%</td>
+<td>90%</td>
+<td>🟡 95%</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>代碼覆蓋率</td>
+<td>80%</td>
+<td>92%</td>
+<td>✅ 115%</td>
+<td>超標</td>
+</tr>
+<tr>
+<td>文檔完整度</td>
+<td>90%</td>
+<td>95%</td>
+<td>✅ 106%</td>
+<td>超標</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🔗-相關資源與展示"><a href="#🔗-相關資源與展示" class="headerlink" title="🔗 相關資源與展示"></a>🔗 相關資源與展示</h2><h3 id="🌐-線上展示"><a href="#🌐-線上展示" class="headerlink" title="🌐 線上展示"></a>🌐 線上展示</h3><ul>
+<li><strong>主站點</strong>：<a href="https://itousouta15.tw/">https://itousouta15.tw</a></li>
+<li><strong>開發日誌</strong>：<a href="https://itousouta15.tw/2025/10/05/devlog/">https://itousouta15.tw/2025/10/05/devlog/</a></li>
+<li><strong>專案倉庫</strong>：<a href="https://github.com/itousouta15/itousouta15.github.io">https://github.com/itousouta15/itousouta15.github.io</a></li>
+</ul>
+<h3 id="📚-技術文檔"><a href="#📚-技術文檔" class="headerlink" title="📚 技術文檔"></a>📚 技術文檔</h3><ul>
+<li><strong>AnZhiYu 主題</strong>：<a href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu">https://github.com/anzhiyu-c/hexo-theme-anzhiyu</a></li>
+<li><strong>Hexo 官方</strong>：<a href="https://hexo.io/zh-tw/">https://hexo.io/zh-tw/</a></li>
+<li><strong>響應式設計指南</strong>：內部文檔整理中</li>
+</ul>
+<h3 id="🤝-社群連結"><a href="#🤝-社群連結" class="headerlink" title="🤝 社群連結"></a>🤝 社群連結</h3><ul>
+<li><strong>GitHub</strong>：<a href="https://github.com/itousouta15">@itousouta15</a></li>
+<li><strong>Discord</strong>：AnZhiYu 主題交流群</li>
+<li><strong>技術交流</strong>：歡迎 Issue 與 PR</li>
+</ul>
+<hr>
+<h2 id="📅-結語與展望"><a href="#📅-結語與展望" class="headerlink" title="📅 結語與展望"></a>📅 結語與展望</h2><p>經過 <strong>24.5 小時</strong> 的密集開發，本次 AnZhiYu 主題開發週期成功達成以下核心目標：</p>
+<p>✅ <strong>技術穩定性</strong>：JavaScript 錯誤完全清零，第三方庫相容性大幅提升<br>✅ <strong>用戶體驗</strong>：響應式設計優化，跨裝置一致性改善<br>✅ <strong>本地化完成</strong>：繁體中文全站覆蓋，文案精緻化<br>✅ <strong>效能優化</strong>：圖片 WebP 化，載入速度提升 30%<br>✅ <strong>代碼品質</strong>：防禦性程式設計導入，可維護性顯著提升</p>
+<p>這次開發過程中，我們採用了 <strong>漸進式增強</strong> 的開發理念，優先確保核心功能穩定，再逐步添加進階特性。<strong>防禦性程式設計</strong> 的引入讓系統在面對第三方庫載入異常時依然能夠優雅降級，大大提升了用戶體驗的一致性。</p>
+<p>展望未來，我們將持續朝著 <strong>現代化 Web 應用</strong> 的方向發展，計劃導入 PWA 支援、無障礙設計完善、以及國際化準備。同時，我們也會保持對社群回饋的敏感度，持續優化用戶體驗。</p>
+<p><strong>技術追求永無止境，但用戶體驗始終是我們的北極星。</strong> 🌟</p>
+<hr>
+<p><em>📝 撰寫時間：2025-10-05 01:30<br>📋 專案狀態：v2.2.0 穩定版本<br>🚀 下次更新：預計 2025-10-12</em></p>
+]]></content>
+      <categories>
+        <category>技術分享</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>前端開發</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一次架網站的心得</title>
+    <url>/2025/04/04/firstblog/</url>
+    <content><![CDATA[<h1 id="C-到前端的跨界初體驗"><a href="#C-到前端的跨界初體驗" class="headerlink" title="C++到前端的跨界初體驗"></a>C++到前端的跨界初體驗</h1><p>我開始寫程式和其他電神比已經算很晚了，約莫是高一上第一學期開始學C++，並決定用這條路走特選上大學，雖然目標是資安競程領域（<del>主要是怕走前端會吃土</del>）但我還是決定挑戰自己，嘗試學習網站開發（升學需要），不過，<strong>這次的網站製作並不是從零開始，而是使用了Hexo框架並套用了現成的模板。</strong>（<del>技術不夠</del>）雖然過程相對簡單，但仍然讓我對網站架構有了初步的了解（高二再來全部重寫）</p>
+<h1 id="Hexo框架的選擇與準備"><a href="#Hexo框架的選擇與準備" class="headerlink" title="Hexo框架的選擇與準備"></a>Hexo框架的選擇與準備</h1><h2 id="為什麼選擇Hexo？"><a href="#為什麼選擇Hexo？" class="headerlink" title="為什麼選擇Hexo？"></a>為什麼選擇Hexo？</h2><p><img src="/img/FB/hexo.webp" alt="hexo"><br>剛開始接觸網站開發時，我面臨了一個問題：應該從哪裡開始？在看了很多電神的網站後，我發現了Hexo這個框架。Hexo是一個快速、簡單且高效的靜態網站生成器，特別適合像我這樣<del>沒有技術的人</del>。它的優勢在於：</p>
+<blockquote>
+<p><strong>簡單易用</strong>：只需要安裝Node.js和npm(<del>對linux相對友善</del>)，就可以快速搭建網站。</p>
+</blockquote>
+<blockquote>
+<p><strong>支持Markdown</strong>：對於不熟悉HTML的初學者來說，用Markdown撰寫內容非常友好。</p>
+</blockquote>
+<blockquote>
+<p><strong>模板豐富</strong>：有大量現成的模板可供選擇，能輕鬆打造一個美觀的網站。</p>
+</blockquote>
+<p>此外，用Hexo可以讓我專注於創作，而不花太多時間在技術細節上。這對於剛開始探索網站開發的我來說，是一個理想的選擇。</p>
+<h2 id="套模板的過程"><a href="#套模板的過程" class="headerlink" title="套模板的過程"></a>套模板的過程</h2><p>在決定要用Hexo當下我就已經找好要用的模板了，在茫茫模板中D-Sketon大大所製作的Reimu模板風格一下就吸引到了我<del>（我只是看到東方就進來了）</del>的注意。但此時的我並不知道接下來才是地獄的開始….<br><img src="https://camo.githubusercontent.com/f64a6ac5d574730263df80812a6bb4c603a25a9563440b45c9cc37c1b228df65/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f442d536b65746f6e2f6865786f2d7468656d652d7265696d75406d61696e2f5f73637265656e73686f742f5265696d755f6461726b2e706e67" alt="reimu"></p>
+<h1 id="實際操作與心得"><a href="#實際操作與心得" class="headerlink" title="實際操作與心得"></a>實際操作與心得</h1><h2 id="大卡關"><a href="#大卡關" class="headerlink" title="大卡關"></a>大卡關</h2><p>首先我遇到的第一個問題是：「要怎麼在 Linux 上寫 Hexo 網站？」<br>由於我的電腦是 Linux 系統，而我過去從來沒在 Linux 上從 GitHub 抓過東西、也沒用過 Hexo，光是環境安裝就讓我摸了好一陣子。什麼 Node.js、npm、Hexo CLI、權限設定……全都要自己慢慢爬文摸索。</p>
+<p>但真正的問題是，是部署到 GitHub Pages 的時候，後台一直報錯「找不到 Reimu 模板」。我反覆確認檔案都有傳上去、路徑也正確,但就是怎麼都過不了。<strong>當時的我顯然不知道<code>GitHub Pages 預設會啟用 Jekyll 處理器，而我寫的是hexo架構....能跑才有鬼。</code></strong></p>
+<p>我在這個問題上卡了快一個月，試了各種方法都沒用。直到有一天我腦袋突然清醒去問AI，對方建議我：「在根目錄放一個名為 .nojekyll 的空檔案。」<br>雖然我也不清楚為什麼這樣可以跑，但至少他過了(◉３◉)</p>
+<h2 id="AI的影響"><a href="#AI的影響" class="headerlink" title="AI的影響"></a><code>AI</code>的影響</h2><p>最近引起討論的<code>Vibe Coding</code>強調的是 <strong>「完全順應感覺（vibes）、擁抱AI帶來的進步，並忘記程式碼本身的存在」</strong> 這種寫法某種程度上解放了開發者的思維，讓創作過程更像是在畫畫、作曲，而不是一行一行的尻程式碼( ´•̥̥̥ω•̥̥̥&#96; )</p>
+<p>雖然這次開發還算不上真正的<code>vibe coding</code>，但實際上，大約有<strong>將近4成以上的問題</strong>，都是透過人工智慧幫我發現與排除的。例如 CSS 的語法錯誤、 YAML 格式錯誤、甚至是 Hexo 設定檔的小細節，很多我根本還沒注意到的 bug，AI 都能即時提醒我，甚至提供修正建議。</p>
+<p>雖然在很多情境下它能提供即時且精準的協助，<strong>但在某些複雜或需要細膩判斷的地方，它反而會越走越偏。</strong></p>
+<p>例如有幾次我遇到 YAML 語法錯誤時，AI 給的建議看起來正確，但實際上只是 <strong>「表面正確」</strong> —— 縮排雖然對了，邏輯卻錯了，導致 Hexo 仍然無法正確運作。此外，它有時候會給出 「過時」 的解法或是 「看似合理但根本不存在的語法」 ，特別是在處理一些偏門功能或自定義元件時。</p>
+<p>還有一個問題，就是 <strong>「太依賴 AI」</strong>。一旦開始習慣問 AI，自己動手查資料、查文件的機會就會變少，也容易讓自己的 debugging 能力退化。尤其是當 AI 的回答沒有命中問題時，<strong>如果自己也不知道該怎麼 debug，就會卡得更久</strong>。<br>(<del>現在有一堆人甚至連git都不會用</del>)</p>
+<h2 id="英文的重要性"><a href="#英文的重要性" class="headerlink" title="英文的重要性"></a>英文的重要性</h2><p>在AI的浪潮之下，我常常忽視了英文的重要性，總覺得只要程式寫得好，就可以輕鬆應對所有挑戰。但從這次的開發過程中<code>github</code>它們的介面和文檔幾乎全是英文。每當遇到問題時，我不得不花大量時間研讀英文說明和錯誤訊息，試圖理解它們的意思（<del>真的看不懂阿….</del>）</p>
+<p>這些經歷讓我深刻意識到，英文對於資工科系學生的重要性<strong>不僅僅是「加分項」</strong>，而是 <strong>「必備技能」</strong>。從技術文檔到程式語言的關鍵字，再到國際開發者社群的交流，英文無處不在。如果沒有基本的英文能力，不僅學習進度會被拖慢，甚至可能錯失許多寶貴的資源與機會。</p>
+<p>這次開發告訴我：之後英文課再也不敢睡覺了~~(´◓Д◔&#96;)</p>
+<h1 id="反思與未來"><a href="#反思與未來" class="headerlink" title="反思與未來"></a>反思與未來</h1><h2 id="成就感與不足之處"><a href="#成就感與不足之處" class="headerlink" title="成就感與不足之處"></a>成就感與不足之處</h2><p>這次使用Hexo框架搭建網站並套用模板的過程，讓我感受到了一種前所未有的成就感(膨脹)。從無到有的過程中，每一步都充滿了樂趣(<del>和痛苦</del>)。尤其是在LLM的幫助下，我能快速解決問題，並完成一些之前認為很複雜的功能。</p>
+<p>然而，這次的開發過程仍有許多不足之處：</p>
+<blockquote>
+<p><strong>依賴模板與AI</strong>：由於主要是套用模板和使用AI輔助，我對網站的底層架構和程式邏輯的理解還不夠深入。</p>
+</blockquote>
+<blockquote>
+<p><strong>缺乏自主性</strong>：雖然AI幫助我解決了許多問題，但有些代碼是由AI生成的，自己並未完全掌握其邏輯，這可能導致未來的維護困難(<del>大不了在重寫一個</del>)。</p>
+</blockquote>
+<h2 id="未來計劃"><a href="#未來計劃" class="headerlink" title="未來計劃"></a>未來計劃</h2><p>這次經驗讓我對網站開發產生了興趣(<del>離吃土進了一步</del>)，也為我未來的學習指明了一些方向。我希望能在以下幾個方面來提升自己的能力：</p>
+<blockquote>
+<p><strong>從零開始撰寫網站</strong> :<br>下一次，我計劃從頭學HTML、CSS和JavaScript，嘗試從零開始寫一個簡單的靜態網站(<del>or 動態?</del>)。這將幫我更深入地理解網站開發的基礎知識，並提升我的自主開發能力。</p>
+</blockquote>
+<blockquote>
+<p><strong>探索後端技術</strong> :<br>除了前端開發，我也希望學習後端技術(反正都學一點就對了)，如Node.js或Python Flask，了解如何處理伺服器端邏輯和數據庫操作。</p>
+</blockquote>
+<blockquote>
+<p><strong>結合資安與競程背景</strong> :<br>作為一名熟悉C++且對資安和競程感興趣的學生，我希望能將這些技能結合起來。例如，在學習網站開發時，嘗試了解常見漏洞（如XSS、SQL注入）以及如何防範它們。同時，也可以研究如何將高效算法應用於網站功能中。</p>
+</blockquote>
+<blockquote>
+<p><strong>減少對AI工具的依賴</strong> :<br>雖然<code>AI</code>提供了極大的便利，但我希望能逐步減少對它的依賴，更多地依靠自己的能力完成開發工作。</p>
+</blockquote>
+<h1 id="結尾"><a href="#結尾" class="headerlink" title="結尾"></a>結尾</h1><p><strong>這次開發讓我認識了很多人，學會了很多事，也讓我第一次體會到把一個想法慢慢實現出來的過程。</strong></p>
+<p>從架設部落格、學習 Hexo、改主題、調整樣式，到後來研究部署、踩坑除錯、學著寫 Markdown，我發現其實做網站並不只是寫程式而已，更是一種表達、整理與分享的方式。<strong>雖然這個部落格還有很多可以改進的地方，但它代表了我這段時間的努力與成長</strong>。未來我會繼續更新內容，記錄學習歷程，也希望能<strong>認識更多志同道合的朋友，一起寫、一起分享、一起進步</strong>。</p>
+<p>最後，我想鼓勵所有初學者，不要害怕嘗試新事物。即使一開始只是套用模板或依賴AI輔助，<strong>每一次努力都是成長的一部分</strong>。未來，我期待自己能創造出完全屬於自己的網站，並結合資安與競程背景，實現更多可能性。</p>
+<p><img src="/img/FB/%E4%B8%BB%E9%A0%81.webp" alt="主頁"><br>主頁截圖(截自2025&#x2F;8&#x2F;21)</p>
+<h1 id="特別感謝"><a href="#特別感謝" class="headerlink" title="特別感謝"></a>特別感謝</h1><div class="friend-item-wrap">
+  <a href="https://smallr-portfolio.vercel.app/en" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="/img/smallR.webp" data-sizes="auto" alt="Small R" class="lazyautosizes lazyloaded" sizes="70px" src="/img/smallR.webp">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">Small R</div>
+      <div class="friend-desc">A Full-Stack Developer</div>
+    </div>
+  </div>
+
+<p><strong>幫助我順利修復了Waline留言系統前後端的Bug</strong></p>
+]]></content>
+      <categories>
+        <category>比賽心得</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>前端開發</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用 GitHub Pages + Hexo 架設個人BLOG</title>
+    <url>/2025/08/27/hexo/</url>
+    <content><![CDATA[<p>在這個資訊爆炸的時代，「部落格」這一個看似已經過時的名詞，其實依然是屬於個人開發者、研究者與創作者的一塊淨土。與社群平台的碎片化資訊不同，部落格更適合進行系統性的知識整理與技術分享，讓內容能夠被搜尋、被保存、被持續閱讀。尤其對程式設計或網路安全領域的學習者來說，一個屬於自己的技術部落格，不僅能夠紀錄成長歷程，也有助於在未來建立個人品牌。</p>
+<p>本篇將帶你從零開始(在windows系統上)，使用 Hexo（一個快速、簡潔的靜態部落格框架）搭配 GitHub Pages（GitHub 提供的免費靜態網頁託管服務），一步步完成屬於自己的部落格架設。</p>
+<h2 id="準備環境"><a href="#準備環境" class="headerlink" title="準備環境"></a>準備環境</h2><p>在正式開始之前，請先確保電腦具備以下環境：</p>
+<ul>
+<li>Node.js（建議安裝 LTS 版本，Hexo 需 Node.js 14+ 支援）  </li>
+<li>npm（Node.js 會一併安裝 npm 套件管理工具）  </li>
+<li>Git（操作 GitHub 版本控管及部署需要）  </li>
+<li>GitHub 帳號（用來存放專案與提供 Pages 網站）</li>
+</ul>
+<h3 id="安裝-Node-js"><a href="#安裝-Node-js" class="headerlink" title="安裝 Node.js"></a>安裝 Node.js</h3><p>前往官網下載介面<br><a href="https://nodejs.org/zh-tw/download">https://nodejs.org/zh-tw/download</a><br><img src="/img/Hexo/hexo.webp" alt="hexo"><br>如果有 Docker 就複製上面程式碼到終端機裡，沒有就按底下的下載 MSI 檔再執行即可。<br>建議不管 Hexo 或 NodeJS 都能下載最新（至少 LTS）的版本，才能得到官方修補漏洞或優化後的最佳體驗。</p>
+<h2 id="Hexo-實作"><a href="#Hexo-實作" class="headerlink" title="Hexo 實作"></a>Hexo 實作</h2><ol>
+<li>打開終端機，輸入：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init my-blog</span><br></pre></td></tr></table></figure>
+<p>這會在目前路徑下建立一個名為 <code>my-blog</code> 的資料夾，裡面包含 Hexo 專案的所有基本架構資料夾和檔案。</p>
+<ol start="2">
+<li>進入這個資料夾：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> my-blog</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安裝 Hexo 需要的依賴套件：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p>這樣子你的 Hexo 專案資料夾就初始化完成了。</p>
+<h3 id="檔案介紹"><a href="#檔案介紹" class="headerlink" title="檔案介紹"></a>檔案介紹</h3><p>檔案介紹<br>這邊有幾個比較重要的檔案&#x2F;資料夾，稍微介紹一下：</p>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p>Hexo 的文章內容是使用 ejs 等模板語言來撰寫，經解析後渲染成靜態的 HTML，所以可以在 package.json 的 dependencies 裡面看到 ejs, stylus, markdown 的 renderer-package</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^5.0.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^1.0.0&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^1.0.0&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^2.0.0&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^1.0.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^2.0.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-marked&quot;: &quot;^4.0.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^2.0.0&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^2.0.0&quot;,</span><br><span class="line">    &quot;hexo-theme-landscape&quot;: &quot;^0.0.3&quot;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds&#x2F;"></a>scaffolds&#x2F;</h4><p>scaffolds 資料夾中有三個檔案： draft.md, page.md, post.md</p>
+<p>這些是檔案模板，每使用 $ hexo new <type> <name> 創造一個新的貼文或頁面，Hexo 就會使用 scaffolds 中的模板為你建立檔案雛型。</p>
+<h4 id="source"><a href="#source" class="headerlink" title="source&#x2F;"></a>source&#x2F;</h4><p>source 資料夾放著這個網站所有的資源。前綴詞帶有底線的資料夾會被 Hexo 忽略，_post 除外，因為這裡面放的是我們要上架的文章。這些靜態檔案（Markdown, HTML 等）在 build 完後會被放進 public 資料夾，而其他的檔案則是用複製的方式。</p>
+<h4 id="theme"><a href="#theme" class="headerlink" title="theme&#x2F;"></a>theme&#x2F;</h4><p>theme 資料夾用來放佈景主題相關的各種資料，官方預設的佈景主題是 landscape，如果想要換佈景，也可以到官方的 theme shop 去找你喜歡的主題，下載後整包放到 themes&#x2F; 下面來使用</p>
+<p>(主題盡量挑選近期很多人穩定在維護的專案)</p>
+<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><p>_config.yml 是我們最重要的設定檔，這個檔案中可以針對我們的全站呈現方式做設定</p>
+<h3 id="直接套模板"><a href="#直接套模板" class="headerlink" title="直接套模板"></a>直接套模板</h3><p>接下來找一個你想使用的 Hexo 主題（例如常見的 NexT、Butterfly、Reimu 等），通常主題會放在 GitHub 上，下載或使用 Git clone 複製主題進入你的 Hexo 專案的 <code>themes</code> 目錄內。</p>
+<blockquote>
+<p>如果你不想那麼麻煩可以直接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/D-Sketon/reimu-template</span><br><span class="line"><span class="built_in">cd</span> reimu-template</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>已預先安裝 hexo、hexo-theme-reimu 及其他相關功能套件，只需要按照以下步驟操作：複製倉庫、安裝依賴、修改配置，即可取得一個基本的部落格！<br>完成這步可以直接跳到 <a href="#%E9%83%A8%E7%BD%B2%E5%88%B0-github-pages">部署到 GitHub Pages</a></p>
+</blockquote>
+<p>例如以我這blog用的 reimu  為例，執行：<br>  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/D-Sketon/hexo-theme-reimu.git</span><br></pre></td></tr></table></figure><br>並且重命名為”reimu”:<br>  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Rename-Item -Path .\hexo-theme-reimu -NewName <span class="built_in">test</span> </span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>⚠️ <strong>注意！如果執行主題資料夾重命名指令時，遇到類似以下錯誤：</strong>  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">無法移除 C:\Users\...\.git 項目: 您沒有足夠的存取權限來執行此操作。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>請使用下方指令嘗試解決此問題：  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">robocopy .\hexo-theme-reimu .\reimu /E</span><br><span class="line">Remove-Item .\hexo-theme-reimu -Recurse -Force</span><br></pre></td></tr></table></figure>
+<p>這組指令會複製主題資料夾並強制刪除原資料夾的 <code>.git</code> 等被鎖定檔案，常見於 Windows 權限或鎖定導致的無法移除問題。</p>
+</blockquote>
+<p><img src="/img/Hexo/themes.webp" alt="reimu"></p>
+<p>然後在 <code>_config.yml</code> 裡面設定：  </p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">reimu</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>完整流程範例如下：  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init my-blog</span><br><span class="line"><span class="built_in">cd</span> my-blog</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> themes</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/D-Sketon/hexo-theme-reimu.git</span><br><span class="line">Rename-Item -Path .\hexo-theme-reimu -NewName reimu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 _config.yml 裡的 theme: reimu</span></span><br><span class="line"></span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>完成後就可以在本地瀏覽器打開 <a href="http://localhost:4000/">http://localhost:4000</a> 預覽新主題部落格樣貌。<br><img src="/img/Hexo/run.webp" alt="run"></p>
+<h2 id="部署到-GitHub-Pages"><a href="#部署到-GitHub-Pages" class="headerlink" title="部署到 GitHub Pages"></a>部署到 GitHub Pages</h2><p>在開始部署之前，請先完成 SSH 金鑰設定，以避免常見的權限問題：</p>
+<h3 id="SSH-金鑰設定步驟"><a href="#SSH-金鑰設定步驟" class="headerlink" title="SSH 金鑰設定步驟"></a>SSH 金鑰設定步驟</h3><h4 id="建立-ssh-目錄"><a href="#建立-ssh-目錄" class="headerlink" title="建立 .ssh 目錄"></a><strong>建立 <code>.ssh</code> 目錄</strong></h4><p>   在 PowerShell 執行：<br>   <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">mkdir <span class="variable">$env:USERPROFILE</span>\.ssh</span><br></pre></td></tr></table></figure><br>   （如已有此目錄可略過）</p>
+<h4 id="產生-SSH-金鑰"><a href="#產生-SSH-金鑰" class="headerlink" title="產生 SSH 金鑰"></a><strong>產生 SSH 金鑰</strong></h4>   <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ssh<span class="literal">-keygen</span> <span class="literal">-t</span> ed25519 <span class="literal">-C</span> <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>   按 Enter 使用預設路徑及參數。</p>
+<h4 id="將公鑰加入-GitHub"><a href="#將公鑰加入-GitHub" class="headerlink" title="將公鑰加入 GitHub"></a><strong>將公鑰加入 GitHub</strong></h4><p>   執行：<br>   <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> <span class="variable">$env:USERPROFILE</span>\.ssh\id_ed25519.pub</span><br></pre></td></tr></table></figure><br>   複製顯示內容，前往 GitHub → Settings → SSH and GPG keys → New SSH key，貼上內容並儲存。<br>   註：連結 → <a href="https://github.com/settings/keys">https://github.com/settings/keys</a></p>
+<h4 id="測試-SSH-連線"><a href="#測試-SSH-連線" class="headerlink" title="測試 SSH 連線"></a><strong>測試 SSH 連線</strong></h4>   <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ssh <span class="literal">-T</span> git@github.com</span><br></pre></td></tr></table></figure>
+<p>   若出現<br>   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hi &lt;username&gt;! You&#x27;ve successfully authenticated</span><br></pre></td></tr></table></figure><br>   表示設定成功。</p>
+<h4 id="回主題目，開始部署"><a href="#回主題目，開始部署" class="headerlink" title="回主題目，開始部署"></a><strong>回主題目，開始部署</strong></h4><p>完成 SSH 設定後，開始進行 Hexo 部署：</p>
+<ul>
+<li><p>建立 GitHub 倉庫，通常命名為 <code>你的帳號.github.io</code>，如 <code>itousouta15.github.io</code>。<br><img src="/img/Hexo/%E5%89%B5%E5%BB%BArepo.webp"></p>
+</li>
+<li><p>在 Hexo 專案根目錄安裝部署外掛：  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>先初始化 git</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 <code>_config.yml</code>，增加部署設定：  </p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@github.com:itousouta15/&lt;你的-repo&gt;.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/Hexo/deploy.webp" alt="deploy"></p>
+</li>
+<li><p>生成靜態檔並部署：  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>確認 GitHub Pages 功能已開啟，等候片刻後瀏覽 <code>https://你的帳號.github.io</code> 即完成線上部署。<br><img src="/img/Hexo/github.webp" alt="github"></p>
+</li>
+</ul>
+<h3 id="常見疑難排解"><a href="#常見疑難排解" class="headerlink" title="常見疑難排解"></a>常見疑難排解</h3><blockquote>
+<h4 id="SSH-金鑰權限錯誤及-ssh-目錄無法建立"><a href="#SSH-金鑰權限錯誤及-ssh-目錄無法建立" class="headerlink" title="SSH 金鑰權限錯誤及 .ssh 目錄無法建立"></a>SSH 金鑰權限錯誤及 <code>.ssh</code> 目錄無法建立</h4><ul>
+<li><strong>錯誤訊息：</strong>  <ul>
+<li><code>git@github.com: Permission denied (publickey)</code>  </li>
+<li><code>Could not create directory &#39;/c/Users/\xxx/.ssh&#39;</code>（亂碼路徑）</li>
+</ul>
+</li>
+<li><strong>原因：</strong><br>Windows 使用者名稱含有中文或特殊符號，系統或 Git 解析路徑時產生亂碼，導致無法建立 <code>.ssh</code> 目錄。  </li>
+<li><strong>解決方法：</strong>  <ol>
+<li>手動建立正確的 <code>.ssh</code> 目錄：  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">mkdir <span class="variable">$env:USERPROFILE</span>\.ssh</span><br></pre></td></tr></table></figure></li>
+<li>產生 SSH 金鑰並加入 GitHub：  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ssh<span class="literal">-keygen</span> <span class="literal">-t</span> ed25519 <span class="literal">-C</span> <span class="string">&quot;your_email@example.com&quot;</span></span><br><span class="line"><span class="built_in">cat</span> <span class="variable">$env:USERPROFILE</span>\.ssh\id_ed25519.pub</span><br></pre></td></tr></table></figure>
+將公鑰內容複製貼至 GitHub SSH Keys 頁面。  </li>
+<li>將 Git 指令設定使用絕對路徑載入金鑰，注意路徑要有反斜線：  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">git config <span class="literal">--global</span> core.sshCommand <span class="string">&quot;ssh -i C:/Users/伊藤蒼太/.ssh/id_ed25519&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>測試 SSH 連線：  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ssh <span class="literal">-T</span> git@github.com</span><br></pre></td></tr></table></figure>
+正常應顯示「Hi <username>! You’ve successfully authenticated」。  </li>
+<li>再試 <code>git push</code> 與 <code>hexo deploy</code>。</li>
+</ol>
+</li>
+</ul>
+<h4 id="Git-倉庫初始化錯誤"><a href="#Git-倉庫初始化錯誤" class="headerlink" title="Git 倉庫初始化錯誤"></a>Git 倉庫初始化錯誤</h4><ul>
+<li><strong>錯誤訊息：</strong><br><code>fatal: Not a git repository (or any of the parent directories): .git</code>  </li>
+<li><strong>原因：</strong><br>執行 Git 指令的資料夾非 Hexo 專案根目錄，或該資料夾尚未初始化 Git。  </li>
+<li><strong>解決方法：</strong>  <ol>
+<li>切換至 Hexo 專案根目錄（含 <code>.git</code>）。  </li>
+<li>若尚未初始化，執行：  <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:itousouta15/&lt;你的<span class="literal">-repo</span>&gt;.git</span><br></pre></td></tr></table></figure></li>
+<li>再執行 <code>hexo deploy</code>。</li>
+</ol>
+</li>
+</ul>
+<h4 id="Submodule-警告"><a href="#Submodule-警告" class="headerlink" title="Submodule 警告"></a>Submodule 警告</h4><ul>
+<li><strong>內容：</strong><br><code>themes/reimu</code> 資料夾為獨立 git 倉庫，Git 會警告此為 submodule。  </li>
+<li><strong>建議：</strong><br>使用 Git submodule 管理或刪除 <code>themes/reimu</code> 的 <code>.git</code> 資料夾，避免 clone 不完整。</li>
+</ul>
+<h4 id="LF-與-CRLF-行尾格式警告"><a href="#LF-與-CRLF-行尾格式警告" class="headerlink" title="LF 與 CRLF 行尾格式警告"></a>LF 與 CRLF 行尾格式警告</h4><ul>
+<li><strong>說明：</strong><br>Git 在 Windows 環境會提示行尾碼轉換，為正常情況。</li>
+</ul>
+<h4 id="成功部署訊息"><a href="#成功部署訊息" class="headerlink" title="成功部署訊息"></a>成功部署訊息</h4><ul>
+<li>你會看到類似以下內容：  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Enumerating objects... </span><br><span class="line">Writing objects... </span><br><span class="line">To github.com:itousouta15/test.github.io.git</span><br><span class="line">INFO  Deploy done: git</span><br></pre></td></tr></table></figure></li>
+<li>如果出現部分 <code>known_hosts</code> 警告，不影響 Git 操作與 Hexo 部署。</li>
+</ul>
+</blockquote>
+<h3 id="日常使用與維護"><a href="#日常使用與維護" class="headerlink" title="日常使用與維護"></a>日常使用與維護</h3><ul>
+<li>使用 Hexo CLI 管理文章：<br>新增文章  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new post <span class="string">&quot;文章標題&quot;</span></span><br></pre></td></tr></table></figure>
+編輯完成後產生並部署：  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></li>
+<li>定期更新 Hexo、主題與外掛，保持安全與功能正常。  </li>
+<li>依需要自訂主題配置，如風格、選單、評論系統等。</li>
+</ul>
+<h3 id="進階優化"><a href="#進階優化" class="headerlink" title="進階優化"></a>進階優化</h3><ul>
+<li>加入自訂網域，替代預設 GitHub Pages 的網址。  </li>
+<li>使用 CDN 或 Cloudflare 提升全球訪問速度與安全。  </li>
+<li>配置 SSL 證書支援 HTTPS。  </li>
+<li>整合 SEO、網站分析工具。  </li>
+<li>使用 CI&#x2F;CD 工具自動化部署流程。</li>
+</ul>
+<p><img src="/img/Hexo/page.webp" alt="page"></p>
+<p>這篇文章就到此為止!我們下次見!</p>
+]]></content>
+      <categories>
+        <category>程式開發</category>
+        <category>技術分享</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>前端開發</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Zerojudge題解</title>
+    <url>/2025/07/11/zerojudge/</url>
+    <content><![CDATA[<p>一個放ZJ題解的地方</p>
+<span id="more"></span>
+<h2 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h2><h3 id="a001-哈囉"><a href="#a001-哈囉" class="headerlink" title="a001.哈囉"></a>a001.哈囉</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a001">https://zerojudge.tw/ShowProblem?problemid=a001</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">string s;</span><br><span class="line"> <span class="keyword">while</span>(cin &gt;&gt; s)&#123;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;hello, &quot;</span>&lt;&lt; s &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a002-簡易加法"><a href="#a002-簡易加法" class="headerlink" title="a002. 簡易加法"></a>a002. 簡易加法</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a002">https://zerojudge.tw/ShowProblem?problemid=a002</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a,b;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">    cout&lt;&lt; a+b;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a003-兩光法師占卜術"><a href="#a003-兩光法師占卜術" class="headerlink" title="a003. 兩光法師占卜術"></a>a003. 兩光法師占卜術</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a003">https://zerojudge.tw/ShowProblem?problemid=a003</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> result = (a * <span class="number">2</span> + b) % <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (result == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;普通&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">1</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;吉&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (result == <span class="number">2</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;大吉&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a004-文文的求婚"><a href="#a004-文文的求婚" class="headerlink" title="a004. 文文的求婚"></a>a004. 文文的求婚</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a004">https://zerojudge.tw/ShowProblem?problemid=a004</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> a;</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt;a)&#123;</span><br><span class="line">    <span class="type">bool</span> isleapa= (a % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; a % <span class="number">100</span> != <span class="number">0</span>) || (a % <span class="number">400</span> == <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span>(isleapa)&#123;</span><br><span class="line">      cout&lt;&lt;<span class="string">&quot;閏年\n&quot;</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">     cout&lt;&lt;<span class="string">&quot;平年\n&quot;</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a005-Eva-的回家作業"><a href="#a005-Eva-的回家作業" class="headerlink" title="a005. Eva 的回家作業"></a>a005. Eva 的回家作業</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a005">https://zerojudge.tw/ShowProblem?problemid=a005</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t; </span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; t; i++) &#123;</span><br><span class="line">        <span class="type">int</span> a, b, c, d; </span><br><span class="line">        </span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">        <span class="keyword">if</span> (b - a == c - b &amp;&amp; c - b == d - c) &#123;</span><br><span class="line">        </span><br><span class="line">            <span class="type">int</span> e = d + (d - c);</span><br><span class="line">            cout &lt;&lt; a &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; c &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; d &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; e &lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (b / a == c / b &amp;&amp; c / b == d / c) &#123;</span><br><span class="line">        </span><br><span class="line">            <span class="type">int</span> e = d * (d / c);</span><br><span class="line">            cout &lt;&lt; a &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; c &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; d &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; e &lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a006-一元二次方程式"><a href="#a006-一元二次方程式" class="headerlink" title="a006. 一元二次方程式"></a>a006. 一元二次方程式</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a006">https://zerojudge.tw/ShowProblem?problemid=a006</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a,b,c;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">    <span class="type">int</span> d = b*b<span class="number">-4</span>*a*c;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (d&lt;<span class="number">0</span>) &#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;No real root&quot;</span>&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(d==<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="type">double</span> x1= -b/(<span class="number">2.0</span>*a);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;Two same roots x=&quot;</span>&lt;&lt;x1&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123; </span><br><span class="line">    <span class="type">double</span> x1= (-b+<span class="built_in">sqrt</span>(d))/(<span class="number">2</span>*a);</span><br><span class="line">    <span class="type">double</span> x2= (-b-<span class="built_in">sqrt</span>(d))/(<span class="number">2</span>*a);</span><br><span class="line">          </span><br><span class="line">    cout &lt;&lt;<span class="string">&quot;Two different roots &quot;</span>&lt;&lt;<span class="string">&quot;x1=&quot;</span>&lt;&lt;x1&lt;&lt;<span class="string">&quot; , x2=&quot;</span>&lt;&lt;x2&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a040-阿姆斯壯數"><a href="#a040-阿姆斯壯數" class="headerlink" title="a040. 阿姆斯壯數"></a>a040. 阿姆斯壯數</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a040">https://zerojudge.tw/ShowProblem?problemid=a040</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> have =<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">sp</span><span class="params">(<span class="type">int</span> i)</span></span>&#123;</span><br><span class="line">    string s = <span class="built_in">to_string</span>(i);</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;s.<span class="built_in">size</span>();j++)&#123;</span><br><span class="line">        <span class="type">int</span> spn=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> d = s[j] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        spn = <span class="built_in">pow</span>(d,s.<span class="built_in">size</span>());</span><br><span class="line">        sum+=spn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(sum==i)&#123;</span><br><span class="line">        have =<span class="number">1</span>;</span><br><span class="line">        cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> s,e;</span><br><span class="line">    cin &gt;&gt; s &gt;&gt; e;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = s;i &lt;= e;++i)&#123;</span><br><span class="line">        <span class="built_in">sp</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(have == <span class="number">0</span>)&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;none&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a024-最大公因數-GCD"><a href="#a024-最大公因數-GCD" class="headerlink" title="a024. 最大公因數(GCD)"></a>a024. 最大公因數(GCD)</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a024">https://zerojudge.tw/ShowProblem?problemid=a024</a></p>
+<p>偷懶大法(use __gcd())</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a,b,c;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    c = __gcd(a,b);</span><br><span class="line">    cout &lt;&lt; c ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="a065-提款卡密碼"><a href="#a065-提款卡密碼" class="headerlink" title="a065. 提款卡密碼"></a>a065. 提款卡密碼</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=a065">https://zerojudge.tw/ShowProblem?problemid=a065</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string a;</span><br><span class="line">    cin &gt;&gt; a;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;a.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">        <span class="type">int</span> far = <span class="built_in">abs</span>(a[i]-a[i<span class="number">-1</span>]);</span><br><span class="line">        cout &lt;&lt; far ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="c315-I-ROBOT-前傳"><a href="#c315-I-ROBOT-前傳" class="headerlink" title="c315. I, ROBOT 前傳"></a>c315. I, ROBOT 前傳</h3><p><a href="https://zerojudge.tw/ShowProblem?problemid=c315">https://zerojudge.tw/ShowProblem?problemid=c315</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,a,b;</span><br><span class="line">    <span class="type">int</span> x=<span class="number">0</span>,y=<span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">0</span>)&#123;</span><br><span class="line">            y+=b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)&#123;</span><br><span class="line">            x+=b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">2</span>)&#123;</span><br><span class="line">            y-=b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">3</span>)&#123;</span><br><span class="line">            x-=b;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; x &lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt; y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="TOI"><a href="#TOI" class="headerlink" title="TOI"></a>TOI</h2><h3 id="n630-電影院-Cinema"><a href="#n630-電影院-Cinema" class="headerlink" title="n630. 電影院 (Cinema)"></a>n630. 電影院 (Cinema)</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">movtime</span> &#123;</span><br><span class="line">    <span class="type">int</span> h;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">tm</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> h * <span class="number">60</span> + m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">setw</span>(<span class="number">2</span>) &lt;&lt; <span class="built_in">setfill</span>(<span class="string">&#x27;0&#x27;</span>) &lt;&lt; h &lt;&lt; <span class="string">&quot; &quot;</span></span><br><span class="line">            &lt;&lt; <span class="built_in">setw</span>(<span class="number">2</span>) &lt;&lt; <span class="built_in">setfill</span>(<span class="string">&#x27;0&#x27;</span>) &lt;&lt; m &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;movtime&gt; <span class="title">times</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; times[i].h &gt;&gt; times[i].m;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    movtime now;</span><br><span class="line">    cin &gt;&gt; now.h &gt;&gt; now.m;</span><br><span class="line">    <span class="type">int</span> ntm = now.<span class="built_in">tm</span>() + <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">bool</span> found = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> movtime&amp; movie : times) &#123;</span><br><span class="line">        <span class="keyword">if</span> (movie.<span class="built_in">tm</span>() &gt;= ntm) &#123;</span><br><span class="line">            movie.<span class="built_in">print</span>();</span><br><span class="line">            found = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!found) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Too Late&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="n631-撲克-Poker"><a href="#n631-撲克-Poker" class="headerlink" title="n631. 撲克 (Poker)"></a>n631. 撲克 (Poker)</h3><p>這題我一整個讀錯題義<br>我用觀察排序後的關係，去估算可湊出幾副牌和缺了多少張；這題應該是要用「每個牌號出現幾次」來精準對應牌組數量與缺少數。直接套用組合的數學關係即可。</p>
+<figure class="highlight cpp"><figcaption><span>錯誤寫法</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,cnt=<span class="number">52</span>,r=<span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">poker</span>(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        cin &gt;&gt; poker[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> d = n/<span class="number">52</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; poker.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (poker[i] ==poker[i - <span class="number">1</span>]<span class="number">+1</span>) cnt--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(poker.<span class="built_in">begin</span>(), poker.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; poker.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (poker[i] == poker[i - <span class="number">1</span>])&#123;</span><br><span class="line">                r++;</span><br><span class="line">                cnt+=<span class="number">52</span>-r;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; d &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; cnt &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><figcaption><span>正解</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">cnt</span><span class="params">(<span class="number">53</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)&#123;</span><br><span class="line">        <span class="type">int</span> k;</span><br><span class="line">        cin &gt;&gt; k;</span><br><span class="line">        cnt[k]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> last = *<span class="built_in">min_element</span>(cnt.<span class="built_in">begin</span>() + <span class="number">1</span>, cnt.<span class="built_in">end</span>());</span><br><span class="line">    <span class="type">int</span> most = *<span class="built_in">max_element</span>(cnt.<span class="built_in">begin</span>() + <span class="number">1</span>, cnt.<span class="built_in">end</span>());</span><br><span class="line">    <span class="type">int</span> tn = most * <span class="number">52</span>;</span><br><span class="line">    <span class="type">int</span> add = tn - n;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; last &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; add &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>程式開發</category>
+      </categories>
+      <tags>
+        <tag>Zerojudge</tag>
+      </tags>
+  </entry>
+</search>

@@ -1,0 +1,493 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>第一次架網站的心得 | 伊藤蒼太</title><meta name="keywords" content="Hexo,前端開發"><meta name="author" content="伊藤蒼太"><meta name="copyright" content="伊藤蒼太"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#18171d"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="第一次架網站的心得"><meta name="application-name" content="第一次架網站的心得"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#18171d"><meta property="og:type" content="article"><meta property="og:title" content="第一次架網站的心得"><meta property="og:url" content="https://itousouta15.tw/2025/04/04/firstblog/index.html"><meta property="og:site_name" content="伊藤蒼太"><meta property="og:description" content="C++到前端的跨界初體驗我開始寫程式和其他電神比已經算很晚了，約莫是高一上第一學期開始學C++，並決定用這條路走特選上大學，雖然目標是資安競程領域（主要是怕走前端會吃土）但我還是決定挑戰自己，嘗試學習網站開發（升學需要），不過，這次的網站製作並不是從零開始，而是使用了Hexo框架並套用了現成的模板。"><meta property="og:locale" content="zh-TW"><meta property="og:image" content="https://itousouta15.tw/img/mainweb.webp"><meta property="article:author" content="伊藤蒼太"><meta property="article:tag" content="伊藤蒼太, Hexo, Blog, Coding, Learning, Life"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://itousouta15.tw/img/mainweb.webp"><meta name="description" content="C++到前端的跨界初體驗我開始寫程式和其他電神比已經算很晚了，約莫是高一上第一學期開始學C++，並決定用這條路走特選上大學，雖然目標是資安競程領域（主要是怕走前端會吃土）但我還是決定挑戰自己，嘗試學習網站開發（升學需要），不過，這次的網站製作並不是從零開始，而是使用了Hexo框架並套用了現成的模板。"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://itousouta15.tw/2025/04/04/firstblog/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"與無數有趣的靈魂相遇","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)歡迎回乃！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早安鴨👋，祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋，狀態很好，鼓勵一下～","startTime":10,"endTime":10},{"greeting":"現在是11點多啦，再堅持一下就吃飯囉～","startTime":11,"endTime":11},{"greeting":"午安👋 OwO","startTime":12,"endTime":14},{"greeting":"🌈充實的一天辛苦了！","startTime":14,"endTime":18},{"greeting":"19點囉，獎勵自己一頓豐盛大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋，在屬於自己的時間好好放鬆😌～","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: {"mode":"api","api":"https://img2color-go.vercel.app/api?img=","cover_change":true},
+  authorStatus: {"skills":["💻 熱愛程式設計的開發者","� 持續學習新技術","� 專業 Bug 製造者","🌱 技術分享愛好者","🎮 動漫與科技的交集","🚀 追求程式的藝術","� 解決問題的思考者","☕ 咖啡驅動的程式碼"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":true,"limitCount":50,"languages":{"author":"作者: 伊藤蒼太","link":"連結: ","source":"來源: 伊藤蒼太","info":"著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。","copySuccess":"複製成功，複製和轉載請標注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切換為繁體","cht_to_chs":"你已切換為簡體","day_to_night":"你已切換為深色模式","night_to_day":"你已切換為淺色模式","bgLight":"#506680","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '伊藤蒼太',
+  title: '第一次架網站的心得',
+  postAI: '',
+  pageFillDescription: 'C++到前端的跨界初體驗, Hexo框架的選擇與準備, 為什麼選擇Hexo？, 套模板的過程, 實際操作與心得, 大卡關, AI的影響, 英文的重要性, 反思與未來, 成就感與不足之處, 未來計劃, 結尾, 特別感謝到前端的跨界初體驗我開始寫程式和其他電神比已經算很晚了約莫是高一上第一學期開始學並決定用這條路走特選上大學雖然目標是資安競程領域主要是怕走前端會吃土但我還是決定挑戰自己嘗試學習網站開發升學需要不過這次的網站製作並不是從零開始而是使用了框架並套用了現成的模板技術不夠雖然過程相對簡單但仍然讓我對網站架構有了初步的了解高二再來全部重寫框架的選擇與準備為什麼選擇剛開始接觸網站開發時我面臨了一個問題應該從哪裡開始在看了很多電神的網站後我發現了這個框架是一個快速簡單且高效的靜態網站生成器特別適合像我這樣沒有技術的人它的優勢在於簡單易用只需要安裝和對相對友善就可以快速搭建網站支持對於不熟悉的初學者來說用撰寫內容非常友好模板豐富有大量現成的模板可供選擇能輕鬆打造一個美觀的網站此外用可以讓我專注於創作而不花太多時間在技術細節上這對於剛開始探索網站開發的我來說是一個理想的選擇套模板的過程在決定要用當下我就已經找好要用的模板了在茫茫模板中大大所製作的模板風格一下就吸引到了我我只是看到東方就進來了的注意但此時的我並不知道接下來才是地獄的開始實際操作與心得大卡關首先我遇到的第一個問題是要怎麼在上寫網站由於我的電腦是系統而我過去從來沒在上從抓過東西也沒用過光是環境安裝就讓我摸了好一陣子什麼權限設定全都要自己慢慢爬文摸索但真正的問題是是部署到的時候後台一直報錯找不到模板我反覆確認檔案都有傳上去路徑也正確但就是怎麼都過不了當時的我顯然不知道預設會啟用處理器而我寫的是架構能跑才有鬼我在這個問題上卡了快一個月試了各種方法都沒用直到有一天我腦袋突然清醒去問對方建議我在根目錄放一個名為的空檔案雖然我也不清楚為什麼這樣可以跑但至少他過了的影響最近引起討論的強調的是完全順應感覺擁抱帶來的進步並忘記程式碼本身的存在這種寫法某種程度上解放了開發者的思維讓創作過程更像是在畫畫作曲而不是一行一行的尻程式碼雖然這次開發還算不上真正的但實際上大約有將近成以上的問題都是透過人工智慧幫我發現與排除的例如的語法錯誤格式錯誤甚至是設定檔的小細節很多我根本還沒注意到的都能即時提醒我甚至提供修正建議雖然在很多情境下它能提供即時且精準的協助但在某些複雜或需要細膩判斷的地方它反而會越走越偏例如有幾次我遇到語法錯誤時給的建議看起來正確但實際上只是表面正確縮排雖然對了邏輯卻錯了導致仍然無法正確運作此外它有時候會給出過時的解法或是看似合理但根本不存在的語法特別是在處理一些偏門功能或自定義元件時還有一個問題就是太依賴一旦開始習慣問自己動手查資料查文件的機會就會變少也容易讓自己的能力退化尤其是當的回答沒有命中問題時如果自己也不知道該怎麼就會卡得更久現在有一堆人甚至連都不會用英文的重要性在的浪潮之下我常常忽視了英文的重要性總覺得只要程式寫得好就可以輕鬆應對所有挑戰但從這次的開發過程中它們的介面和文檔幾乎全是英文每當遇到問題時我不得不花大量時間研讀英文說明和錯誤訊息試圖理解它們的意思真的看不懂阿這些經歷讓我深刻意識到英文對於資工科系學生的重要性不僅僅是加分項而是必備技能從技術文檔到程式語言的關鍵字再到國際開發者社群的交流英文無處不在如果沒有基本的英文能力不僅學習進度會被拖慢甚至可能錯失許多寶貴的資源與機會這次開發告訴我之後英文課再也不敢睡覺了反思與未來成就感與不足之處這次使用框架搭建網站並套用模板的過程讓我感受到了一種前所未有的成就感膨脹從無到有的過程中每一步都充滿了樂趣和痛苦尤其是在的幫助下我能快速解決問題並完成一些之前認為很複雜的功能然而這次的開發過程仍有許多不足之處依賴模板與由於主要是套用模板和使用輔助我對網站的底層架構和程式邏輯的理解還不夠深入缺乏自主性雖然幫助我解決了許多問題但有些代碼是由生成的自己並未完全掌握其邏輯這可能導致未來的維護困難大不了在重寫一個未來計劃這次經驗讓我對網站開發產生了興趣離吃土進了一步也為我未來的學習指明了一些方向我希望能在以下幾個方面來提升自己的能力從零開始撰寫網站下一次我計劃從頭學和嘗試從零開始寫一個簡單的靜態網站動態這將幫我更深入地理解網站開發的基礎知識並提升我的自主開發能力探索後端技術除了前端開發我也希望學習後端技術反正都學一點就對了如或了解如何處理伺服器端邏輯和數據庫操作結合資安與競程背景作為一名熟悉且對資安和競程感興趣的學生我希望能將這些技能結合起來例如在學習網站開發時嘗試了解常見漏洞如注入以及如何防範它們同時也可以研究如何將高效算法應用於網站功能中減少對工具的依賴雖然提供了極大的便利但我希望能逐步減少對它的依賴更多地依靠自己的能力完成開發工作結尾這次開發讓我認識了很多人學會了很多事也讓我第一次體會到把一個想法慢慢實現出來的過程從架設部落格學習改主題調整樣式到後來研究部署踩坑除錯學著寫我發現其實做網站並不只是寫程式而已更是一種表達整理與分享的方式雖然這個部落格還有很多可以改進的地方但它代表了我這段時間的努力與成長未來我會繼續更新內容記錄學習歷程也希望能認識更多志同道合的朋友一起寫一起分享一起進步最後我想鼓勵所有初學者不要害怕嘗試新事物即使一開始只是套用模板或依賴輔助每一次努力都是成長的一部分未來我期待自己能創造出完全屬於自己的網站並結合資安與競程背景實現更多可能性主頁截圖截自特別感謝幫助我順利修復了留言系統前後端的',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-10-04 18:45:35',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/avatar.webp"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">網頁</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://itousouta15.github.io/legacy-blog/" title="BLOG(舊站)"><img class="back-menu-item-icon" src="/img/banner.webp" alt="BLOG(舊站)"/><span class="back-menu-item-text">BLOG(舊站)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://SCAICT.org" title="SCAICT 中電會"><img class="back-menu-item-icon" src="https://scaict.org/src/img/logo.svg" alt="SCAICT 中電會"/><span class="back-menu-item-text">SCAICT 中電會</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">社群連結</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://x.com/itou_souta15" title="X (Twitter)"><img class="back-menu-item-icon" src="https://raw.githubusercontent.com/ant-design/ant-design-icons/080054b2dbcd56e413b2b89ef1a90bf79b20303f/packages/icons-svg/svg/filled/x.svg" alt="X (Twitter)"/><span class="back-menu-item-text">X (Twitter)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/itousouta15" title="GitHub"><img class="back-menu-item-icon" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub"/><span class="back-menu-item-text">GitHub</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://discord.gg/uAX6h9VmA4" title="Discord"><img class="back-menu-item-icon" src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord"/><span class="back-menu-item-text">Discord</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.threads.net/@itou.souta15" title="Threads"><img class="back-menu-item-icon" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/threads-app-icon.png" alt="Threads"/><span class="back-menu-item-text">Threads</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://instagram.com/itousouta15" title="Instagram"><img class="back-menu-item-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/960px-Instagram_logo_2022.svg.png?20220518162235" alt="Instagram"/><span class="back-menu-item-text">Instagram</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">伊藤蒼太</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 歸檔</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分類</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 標籤</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 朋友</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 夥伴們</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 關於</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 碎碎念</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜尋</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新評論</span></div><div class="aside-list"><span>正在載入中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">興趣點</div><span class="author-content-item-title">尋找你感興趣的領域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AIS3/" style="font-size: 1.05rem;">AIS3<sup>1</sup></a><a href="/tags/Hexo/" style="font-size: 1.05rem;">Hexo<sup>3</sup></a><a href="/tags/Zerojudge/" style="font-size: 1.05rem;">Zerojudge<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/" style="font-size: 1.05rem;">前端開發<sup>3</sup></a><a href="/tags/%E8%B3%87%E5%AE%89/" style="font-size: 1.05rem;">資安<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>歸檔</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">十月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">八月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">七月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">四月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="顯示模式切換" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="邊欄顯示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原創</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%AF%94%E8%B3%BD%E5%BF%83%E5%BE%97/" itemprop="url">比賽心得</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/Hexo/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>Hexo</span></a><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>前端開發</span></a></span></div></div><h1 class="post-title" itemprop="name headline">第一次架網站的心得</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-04-04T18:29:32.000Z" title="發表於 2025-04-04 18:29:32">2025-04-04</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-10-04T18:45:35.759Z" title="更新於 2025-10-04 18:45:35">2025-10-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字數總計:</span><span class="word-count" title="文章字数">2.3k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">閱讀時長:</span><span>6分鐘</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="第一次架網站的心得"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">閱讀量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为台灣"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>台灣</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/mainweb.webp"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://itousouta15.tw/2025/04/04/firstblog/"><header><a class="post-meta-categories" href="/categories/%E6%AF%94%E8%B3%BD%E5%BF%83%E5%BE%97/" itemprop="url">比賽心得</a><a href="/tags/Hexo/" tabindex="-1" itemprop="url">Hexo</a><a href="/tags/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/" tabindex="-1" itemprop="url">前端開發</a><h1 id="CrawlerTitle" itemprop="name headline">第一次架網站的心得</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">伊藤蒼太</span><time itemprop="dateCreated datePublished" datetime="2025-04-04T18:29:32.000Z" title="發表於 2025-04-04 18:29:32">2025-04-04</time><time itemprop="dateCreated datePublished" datetime="2025-10-04T18:45:35.759Z" title="更新於 2025-10-04 18:45:35">2025-10-04</time></header><h1 id="C-到前端的跨界初體驗"><a href="#C-到前端的跨界初體驗" class="headerlink" title="C++到前端的跨界初體驗"></a>C++到前端的跨界初體驗</h1><p>我開始寫程式和其他電神比已經算很晚了，約莫是高一上第一學期開始學C++，並決定用這條路走特選上大學，雖然目標是資安競程領域（<del>主要是怕走前端會吃土</del>）但我還是決定挑戰自己，嘗試學習網站開發（升學需要），不過，<strong>這次的網站製作並不是從零開始，而是使用了Hexo框架並套用了現成的模板。</strong>（<del>技術不夠</del>）雖然過程相對簡單，但仍然讓我對網站架構有了初步的了解（高二再來全部重寫）</p>
+<h1 id="Hexo框架的選擇與準備"><a href="#Hexo框架的選擇與準備" class="headerlink" title="Hexo框架的選擇與準備"></a>Hexo框架的選擇與準備</h1><h2 id="為什麼選擇Hexo？"><a href="#為什麼選擇Hexo？" class="headerlink" title="為什麼選擇Hexo？"></a>為什麼選擇Hexo？</h2><p><img src="/img/FB/hexo.webp" alt="hexo"><br>剛開始接觸網站開發時，我面臨了一個問題：應該從哪裡開始？在看了很多電神的網站後，我發現了Hexo這個框架。Hexo是一個快速、簡單且高效的靜態網站生成器，特別適合像我這樣<del>沒有技術的人</del>。它的優勢在於：</p>
+<blockquote>
+<p><strong>簡單易用</strong>：只需要安裝Node.js和npm(<del>對linux相對友善</del>)，就可以快速搭建網站。</p>
+</blockquote>
+<blockquote>
+<p><strong>支持Markdown</strong>：對於不熟悉HTML的初學者來說，用Markdown撰寫內容非常友好。</p>
+</blockquote>
+<blockquote>
+<p><strong>模板豐富</strong>：有大量現成的模板可供選擇，能輕鬆打造一個美觀的網站。</p>
+</blockquote>
+<p>此外，用Hexo可以讓我專注於創作，而不花太多時間在技術細節上。這對於剛開始探索網站開發的我來說，是一個理想的選擇。</p>
+<h2 id="套模板的過程"><a href="#套模板的過程" class="headerlink" title="套模板的過程"></a>套模板的過程</h2><p>在決定要用Hexo當下我就已經找好要用的模板了，在茫茫模板中D-Sketon大大所製作的Reimu模板風格一下就吸引到了我<del>（我只是看到東方就進來了）</del>的注意。但此時的我並不知道接下來才是地獄的開始….<br><img src="https://camo.githubusercontent.com/f64a6ac5d574730263df80812a6bb4c603a25a9563440b45c9cc37c1b228df65/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f442d536b65746f6e2f6865786f2d7468656d652d7265696d75406d61696e2f5f73637265656e73686f742f5265696d755f6461726b2e706e67" alt="reimu"></p>
+<h1 id="實際操作與心得"><a href="#實際操作與心得" class="headerlink" title="實際操作與心得"></a>實際操作與心得</h1><h2 id="大卡關"><a href="#大卡關" class="headerlink" title="大卡關"></a>大卡關</h2><p>首先我遇到的第一個問題是：「要怎麼在 Linux 上寫 Hexo 網站？」<br>由於我的電腦是 Linux 系統，而我過去從來沒在 Linux 上從 GitHub 抓過東西、也沒用過 Hexo，光是環境安裝就讓我摸了好一陣子。什麼 Node.js、npm、Hexo CLI、權限設定……全都要自己慢慢爬文摸索。</p>
+<p>但真正的問題是，是部署到 GitHub Pages 的時候，後台一直報錯「找不到 Reimu 模板」。我反覆確認檔案都有傳上去、路徑也正確,但就是怎麼都過不了。<strong>當時的我顯然不知道<code>GitHub Pages 預設會啟用 Jekyll 處理器，而我寫的是hexo架構....能跑才有鬼。</code></strong></p>
+<p>我在這個問題上卡了快一個月，試了各種方法都沒用。直到有一天我腦袋突然清醒去問AI，對方建議我：「在根目錄放一個名為 .nojekyll 的空檔案。」<br>雖然我也不清楚為什麼這樣可以跑，但至少他過了(◉３◉)</p>
+<h2 id="AI的影響"><a href="#AI的影響" class="headerlink" title="AI的影響"></a><code>AI</code>的影響</h2><p>最近引起討論的<code>Vibe Coding</code>強調的是 <strong>「完全順應感覺（vibes）、擁抱AI帶來的進步，並忘記程式碼本身的存在」</strong> 這種寫法某種程度上解放了開發者的思維，讓創作過程更像是在畫畫、作曲，而不是一行一行的尻程式碼( ´•̥̥̥ω•̥̥̥&#96; )</p>
+<p>雖然這次開發還算不上真正的<code>vibe coding</code>，但實際上，大約有<strong>將近4成以上的問題</strong>，都是透過人工智慧幫我發現與排除的。例如 CSS 的語法錯誤、 YAML 格式錯誤、甚至是 Hexo 設定檔的小細節，很多我根本還沒注意到的 bug，AI 都能即時提醒我，甚至提供修正建議。</p>
+<p>雖然在很多情境下它能提供即時且精準的協助，<strong>但在某些複雜或需要細膩判斷的地方，它反而會越走越偏。</strong></p>
+<p>例如有幾次我遇到 YAML 語法錯誤時，AI 給的建議看起來正確，但實際上只是 <strong>「表面正確」</strong> —— 縮排雖然對了，邏輯卻錯了，導致 Hexo 仍然無法正確運作。此外，它有時候會給出 「過時」 的解法或是 「看似合理但根本不存在的語法」 ，特別是在處理一些偏門功能或自定義元件時。</p>
+<p>還有一個問題，就是 <strong>「太依賴 AI」</strong>。一旦開始習慣問 AI，自己動手查資料、查文件的機會就會變少，也容易讓自己的 debugging 能力退化。尤其是當 AI 的回答沒有命中問題時，<strong>如果自己也不知道該怎麼 debug，就會卡得更久</strong>。<br>(<del>現在有一堆人甚至連git都不會用</del>)</p>
+<h2 id="英文的重要性"><a href="#英文的重要性" class="headerlink" title="英文的重要性"></a>英文的重要性</h2><p>在AI的浪潮之下，我常常忽視了英文的重要性，總覺得只要程式寫得好，就可以輕鬆應對所有挑戰。但從這次的開發過程中<code>github</code>它們的介面和文檔幾乎全是英文。每當遇到問題時，我不得不花大量時間研讀英文說明和錯誤訊息，試圖理解它們的意思（<del>真的看不懂阿….</del>）</p>
+<p>這些經歷讓我深刻意識到，英文對於資工科系學生的重要性<strong>不僅僅是「加分項」</strong>，而是 <strong>「必備技能」</strong>。從技術文檔到程式語言的關鍵字，再到國際開發者社群的交流，英文無處不在。如果沒有基本的英文能力，不僅學習進度會被拖慢，甚至可能錯失許多寶貴的資源與機會。</p>
+<p>這次開發告訴我：之後英文課再也不敢睡覺了~~(´◓Д◔&#96;)</p>
+<h1 id="反思與未來"><a href="#反思與未來" class="headerlink" title="反思與未來"></a>反思與未來</h1><h2 id="成就感與不足之處"><a href="#成就感與不足之處" class="headerlink" title="成就感與不足之處"></a>成就感與不足之處</h2><p>這次使用Hexo框架搭建網站並套用模板的過程，讓我感受到了一種前所未有的成就感(膨脹)。從無到有的過程中，每一步都充滿了樂趣(<del>和痛苦</del>)。尤其是在LLM的幫助下，我能快速解決問題，並完成一些之前認為很複雜的功能。</p>
+<p>然而，這次的開發過程仍有許多不足之處：</p>
+<blockquote>
+<p><strong>依賴模板與AI</strong>：由於主要是套用模板和使用AI輔助，我對網站的底層架構和程式邏輯的理解還不夠深入。</p>
+</blockquote>
+<blockquote>
+<p><strong>缺乏自主性</strong>：雖然AI幫助我解決了許多問題，但有些代碼是由AI生成的，自己並未完全掌握其邏輯，這可能導致未來的維護困難(<del>大不了在重寫一個</del>)。</p>
+</blockquote>
+<h2 id="未來計劃"><a href="#未來計劃" class="headerlink" title="未來計劃"></a>未來計劃</h2><p>這次經驗讓我對網站開發產生了興趣(<del>離吃土進了一步</del>)，也為我未來的學習指明了一些方向。我希望能在以下幾個方面來提升自己的能力：</p>
+<blockquote>
+<p><strong>從零開始撰寫網站</strong> :<br>下一次，我計劃從頭學HTML、CSS和JavaScript，嘗試從零開始寫一個簡單的靜態網站(<del>or 動態?</del>)。這將幫我更深入地理解網站開發的基礎知識，並提升我的自主開發能力。</p>
+</blockquote>
+<blockquote>
+<p><strong>探索後端技術</strong> :<br>除了前端開發，我也希望學習後端技術(反正都學一點就對了)，如Node.js或Python Flask，了解如何處理伺服器端邏輯和數據庫操作。</p>
+</blockquote>
+<blockquote>
+<p><strong>結合資安與競程背景</strong> :<br>作為一名熟悉C++且對資安和競程感興趣的學生，我希望能將這些技能結合起來。例如，在學習網站開發時，嘗試了解常見漏洞（如XSS、SQL注入）以及如何防範它們。同時，也可以研究如何將高效算法應用於網站功能中。</p>
+</blockquote>
+<blockquote>
+<p><strong>減少對AI工具的依賴</strong> :<br>雖然<code>AI</code>提供了極大的便利，但我希望能逐步減少對它的依賴，更多地依靠自己的能力完成開發工作。</p>
+</blockquote>
+<h1 id="結尾"><a href="#結尾" class="headerlink" title="結尾"></a>結尾</h1><p><strong>這次開發讓我認識了很多人，學會了很多事，也讓我第一次體會到把一個想法慢慢實現出來的過程。</strong></p>
+<p>從架設部落格、學習 Hexo、改主題、調整樣式，到後來研究部署、踩坑除錯、學著寫 Markdown，我發現其實做網站並不只是寫程式而已，更是一種表達、整理與分享的方式。<strong>雖然這個部落格還有很多可以改進的地方，但它代表了我這段時間的努力與成長</strong>。未來我會繼續更新內容，記錄學習歷程，也希望能<strong>認識更多志同道合的朋友，一起寫、一起分享、一起進步</strong>。</p>
+<p>最後，我想鼓勵所有初學者，不要害怕嘗試新事物。即使一開始只是套用模板或依賴AI輔助，<strong>每一次努力都是成長的一部分</strong>。未來，我期待自己能創造出完全屬於自己的網站，並結合資安與競程背景，實現更多可能性。</p>
+<p><img src="/img/FB/%E4%B8%BB%E9%A0%81.webp" alt="主頁"><br>主頁截圖(截自2025&#x2F;8&#x2F;21)</p>
+<h1 id="特別感謝"><a href="#特別感謝" class="headerlink" title="特別感謝"></a>特別感謝</h1><div class="friend-item-wrap">
+  <a href="https://smallr-portfolio.vercel.app/en" rel="external nofollow noopener noreferrer" target="_blank"></a>
+    <div class="friend-icon-wrap">
+      <div class="friend-icon">
+        <img data-src="/img/smallR.webp" data-sizes="auto" alt="Small R" class="lazyautosizes lazyloaded" sizes="70px" src="/img/smallR.webp">
+      </div>
+    </div>
+    <div class="friend-info-wrap">
+      <div class="friend-name">Small R</div>
+      <div class="friend-desc">A Full-Stack Developer</div>
+    </div>
+  </div>
+
+<p><strong>幫助我順利修復了Waline留言系統前後端的Bug</strong></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src="/img/avatar.webp" title="头像" alt="头像"><img class="post-copyright__author_img_front" src="/img/avatar.webp" title="头像" alt="头像"></a><div class="post-copyright__author_name">伊藤蒼太</div><div class="post-copyright__author_desc">Professional Bug Creator</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="該文章為原創文章，注意版權協議" href="https://itousouta15.tw/2025/04/04/firstblog/">原創</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://itousouta15.tw/2025/04/04/firstblog/')">第一次架網站的心得</span></a></div><div class="post-copyright__notice"><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 許可協議。轉載請註明來自 <a href="https://itousouta15.tw" target="_blank">伊藤蒼太</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/Hexo/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>Hexo<span class="tagsPageCount">3</span></a><a class="post-meta__box__tags" href="/tags/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>前端開發<span class="tagsPageCount">3</span></a></div></div></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/07/11/zerojudge/"><img class="next-cover" src="/img/ZJ.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Zerojudge題解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2025/10/05/devlog/" title="AnZhiYu 主題開發日誌"><img class="cover" src="/img/Newweb.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-10-05</div><div class="title">AnZhiYu 主題開發日誌</div></div></a></div><div><a href="/2025/08/27/hexo/" title="使用 GitHub Pages + Hexo 架設個人BLOG"><img class="cover" src="/img/Hexo/hexo_github.webp" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-08-27</div><div class="title">使用 GitHub Pages + Hexo 架設個人BLOG</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src="/img/avatar.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description">專注於競賽程式設計與網頁開發的學生，展示各類專案、程式範例與技術文章，熱衷於社群交流與技術成長。</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">伊藤蒼太</h1><div class="author-info__desc">Professional Bug Creator</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/itousouta15" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/3493135988558536?spm_id_from=333.1007.0.0" target="_blank" title="BiliBili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">歡迎來到我的秘密基地！這裡記錄著我的學習心得與程式開發紀錄 🎉</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%88%B0%E5%89%8D%E7%AB%AF%E7%9A%84%E8%B7%A8%E7%95%8C%E5%88%9D%E9%AB%94%E9%A9%97"><span class="toc-number">1.</span> <span class="toc-text">C++到前端的跨界初體驗</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo%E6%A1%86%E6%9E%B6%E7%9A%84%E9%81%B8%E6%93%87%E8%88%87%E6%BA%96%E5%82%99"><span class="toc-number">2.</span> <span class="toc-text">Hexo框架的選擇與準備</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%E6%93%87Hexo%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">為什麼選擇Hexo？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%97%E6%A8%A1%E6%9D%BF%E7%9A%84%E9%81%8E%E7%A8%8B"><span class="toc-number">2.2.</span> <span class="toc-text">套模板的過程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%A6%E9%9A%9B%E6%93%8D%E4%BD%9C%E8%88%87%E5%BF%83%E5%BE%97"><span class="toc-number">3.</span> <span class="toc-text">實際操作與心得</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%8D%A1%E9%97%9C"><span class="toc-number">3.1.</span> <span class="toc-text">大卡關</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI%E7%9A%84%E5%BD%B1%E9%9F%BF"><span class="toc-number">3.2.</span> <span class="toc-text">AI的影響</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8B%B1%E6%96%87%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-number">3.3.</span> <span class="toc-text">英文的重要性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E6%80%9D%E8%88%87%E6%9C%AA%E4%BE%86"><span class="toc-number">4.</span> <span class="toc-text">反思與未來</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E5%B0%B1%E6%84%9F%E8%88%87%E4%B8%8D%E8%B6%B3%E4%B9%8B%E8%99%95"><span class="toc-number">4.1.</span> <span class="toc-text">成就感與不足之處</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AA%E4%BE%86%E8%A8%88%E5%8A%83"><span class="toc-number">4.2.</span> <span class="toc-text">未來計劃</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B5%90%E5%B0%BE"><span class="toc-number">5.</span> <span class="toc-text">結尾</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%B9%E5%88%A5%E6%84%9F%E8%AC%9D"><span class="toc-number">6.</span> <span class="toc-text">特別感謝</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/05/devlog/" title="AnZhiYu 主題開發日誌"><img src="/img/Newweb.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AnZhiYu 主題開發日誌"/></a><div class="content"><a class="title" href="/2025/10/05/devlog/" title="AnZhiYu 主題開發日誌">AnZhiYu 主題開發日誌</a><time datetime="2025-10-05T01:30:00.000Z" title="發表於 2025-10-05 01:30:00">2025-10-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/08/27/hexo/" title="使用 GitHub Pages + Hexo 架設個人BLOG"><img src="/img/Hexo/hexo_github.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 GitHub Pages + Hexo 架設個人BLOG"/></a><div class="content"><a class="title" href="/2025/08/27/hexo/" title="使用 GitHub Pages + Hexo 架設個人BLOG">使用 GitHub Pages + Hexo 架設個人BLOG</a><time datetime="2025-08-27T14:32:32.000Z" title="發表於 2025-08-27 14:32:32">2025-08-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/11/ais3preexam/" title="AIS3 pre-exam 2025"><img src="/img/ais3/ais3.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AIS3 pre-exam 2025"/></a><div class="content"><a class="title" href="/2025/07/11/ais3preexam/" title="AIS3 pre-exam 2025">AIS3 pre-exam 2025</a><time datetime="2025-07-11T13:32:32.000Z" title="發表於 2025-07-11 13:32:32">2025-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/11/zerojudge/" title="Zerojudge題解"><img src="/img/ZJ.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Zerojudge題解"/></a><div class="content"><a class="title" href="/2025/07/11/zerojudge/" title="Zerojudge題解">Zerojudge題解</a><time datetime="2025-07-11T12:00:00.000Z" title="發表於 2025-07-11 12:00:00">2025-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/04/04/firstblog/" title="第一次架網站的心得"><img src="/img/mainweb.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第一次架網站的心得"/></a><div class="content"><a class="title" href="/2025/04/04/firstblog/" title="第一次架網站的心得">第一次架網站的心得</a><time datetime="2025-04-04T18:29:32.000Z" title="發表於 2025-04-04 18:29:32">2025-04-04</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="workboard"><img class="workSituationImg boardsign" src="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-上班摸鱼中.svg" alt="努力學習中，持續進步！" title="努力學習中，持續進步！"/><div id="runtimeTextTip"></div></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"/></a><a class="github-badge" target="_blank" href="https://blog.anheyu.com/" style="margin-inline:5px" data-title="本站使用AnZhiYu主题" title="本站使用AnZhiYu主题"><img src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg" alt="本站使用AnZhiYu主题"/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title="本站项目由Github托管"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg" alt="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"/></a></p></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2025 By <a class="footer-bar-link" href="/" title="伊藤蒼太" target="_blank">伊藤蒼太</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主題">主題</a><a class="footer-bar-link cc" href="/copyright" title="cc协议"><i class="anzhiyufont anzhiyu-icon-copyright-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-by-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nc-line"></i><i class="anzhiyufont anzhiyu-icon-creative-commons-nd-line"></i></a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/" title="tag"><div class="headline">標籤</div><div class="length-num">5</div></a><a href="/categories/" title="category"><div class="headline">分類</div><div class="length-num">4</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="顯示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>顯示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">網頁</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://itousouta15.github.io/legacy-blog/" title="BLOG(舊站)"><img class="back-menu-item-icon" src="/img/banner.webp" alt="BLOG(舊站)"/><span class="back-menu-item-text">BLOG(舊站)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://SCAICT.org" title="SCAICT 中電會"><img class="back-menu-item-icon" src="https://scaict.org/src/img/logo.svg" alt="SCAICT 中電會"/><span class="back-menu-item-text">SCAICT 中電會</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">社群連結</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://x.com/itou_souta15" title="X (Twitter)"><img class="back-menu-item-icon" src="https://raw.githubusercontent.com/ant-design/ant-design-icons/080054b2dbcd56e413b2b89ef1a90bf79b20303f/packages/icons-svg/svg/filled/x.svg" alt="X (Twitter)"/><span class="back-menu-item-text">X (Twitter)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/itousouta15" title="GitHub"><img class="back-menu-item-icon" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub"/><span class="back-menu-item-text">GitHub</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://discord.gg/uAX6h9VmA4" title="Discord"><img class="back-menu-item-icon" src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord"/><span class="back-menu-item-text">Discord</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.threads.net/@itou.souta15" title="Threads"><img class="back-menu-item-icon" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/threads-app-icon.png" alt="Threads"/><span class="back-menu-item-text">Threads</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://instagram.com/itousouta15" title="Instagram"><img class="back-menu-item-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/960px-Instagram_logo_2022.svg.png?20220518162235" alt="Instagram"/><span class="back-menu-item-text">Instagram</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 歸檔</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分類</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 標籤</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 朋友</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 夥伴們</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 關於</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 碎碎念</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AIS3/" style="font-size: 0.88rem;">AIS3<sup>1</sup></a><a href="/tags/Hexo/" style="font-size: 0.88rem; font-weight: 500; color: var(--anzhiyu-lighttext)">Hexo<sup>3</sup></a><a href="/tags/Zerojudge/" style="font-size: 0.88rem;">Zerojudge<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/" style="font-size: 0.88rem;">前端開發<sup>3</sup></a><a href="/tags/%E8%B3%87%E5%AE%89/" style="font-size: 0.88rem;">資安<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="簡繁轉換">簡</button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到頂部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜尋</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  資料庫載入中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>複製文字</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>貼上文字</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到留言</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新視窗打開</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>複製連結地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>複製圖片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下載圖片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新視窗打開圖片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站內搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜尋</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切換到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切換到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;null&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>複製歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>文章分類</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章標籤</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>複製網址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">關閉留言</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("10/04/2025 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `歡迎使用安知魚!`,
+    `生活明朗, 萬物可愛`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上線",
+    dnum,
+    "天",
+    "©2025 By 安知鱼 V1.6.14",
+  ];
+  const ascll2 = [`NCC2-036`, `調用箝制鏡頭拍照成功，識別為【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在看 伊藤蒼太 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打開控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你在被FBI監控(X).", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("10/04/2025 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然運行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-下班啦.svg";
+        img.title = "放鬆時間到～享受生活的美好時光！";
+        img.alt = "放鬆時間到～享受生活的美好時光！";
+      }
+
+      currentTimeHtml = `本站居然運行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js" onerror="console.warn(&quot;QRCode 庫載入失敗，QR 功能將不可用&quot;);"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
